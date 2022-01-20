@@ -62,6 +62,8 @@
             this.receveur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mess = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_envoyeur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_receveur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.action = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -390,6 +392,7 @@
             // 
             // tableauUtilisateurs
             // 
+            this.tableauUtilisateurs.AllowUserToAddRows = false;
             this.tableauUtilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableauUtilisateurs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numero,
@@ -397,6 +400,8 @@
             this.receveur,
             this.mess,
             this.heure,
+            this.id_envoyeur,
+            this.id_receveur,
             this.action});
             this.tableauUtilisateurs.EnableHeadersVisualStyles = false;
             this.tableauUtilisateurs.Location = new System.Drawing.Point(150, 211);
@@ -404,8 +409,10 @@
             this.tableauUtilisateurs.RowHeadersVisible = false;
             this.tableauUtilisateurs.RowHeadersWidth = 51;
             this.tableauUtilisateurs.RowTemplate.Height = 24;
+            this.tableauUtilisateurs.RowTemplate.ReadOnly = true;
             this.tableauUtilisateurs.Size = new System.Drawing.Size(1097, 288);
             this.tableauUtilisateurs.TabIndex = 2;
+            this.tableauUtilisateurs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableauUtilisateurs_CellContentClick);
             // 
             // numero
             // 
@@ -440,16 +447,33 @@
             this.heure.HeaderText = "Date / Heure";
             this.heure.MinimumWidth = 6;
             this.heure.Name = "heure";
-            this.heure.Width = 125;
+            this.heure.Visible = false;
+            this.heure.Width = 175;
+            // 
+            // id_envoyeur
+            // 
+            this.id_envoyeur.HeaderText = "idEnvoyeur";
+            this.id_envoyeur.MinimumWidth = 6;
+            this.id_envoyeur.Name = "id_envoyeur";
+            this.id_envoyeur.Visible = false;
+            this.id_envoyeur.Width = 125;
+            // 
+            // id_receveur
+            // 
+            this.id_receveur.HeaderText = "idReceveur";
+            this.id_receveur.MinimumWidth = 6;
+            this.id_receveur.Name = "id_receveur";
+            this.id_receveur.Visible = false;
+            this.id_receveur.Width = 125;
             // 
             // action
             // 
             this.action.HeaderText = "Action";
             this.action.MinimumWidth = 6;
             this.action.Name = "action";
-            this.action.Text = "Voir le message";
+            this.action.Text = "Voir la conversation";
             this.action.UseColumnTextForButtonValue = true;
-            this.action.Width = 125;
+            this.action.Width = 175;
             // 
             // menuMessagerie
             // 
@@ -519,6 +543,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn receveur;
         private System.Windows.Forms.DataGridViewTextBoxColumn mess;
         private System.Windows.Forms.DataGridViewTextBoxColumn heure;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_envoyeur;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_receveur;
         private System.Windows.Forms.DataGridViewButtonColumn action;
     }
 }

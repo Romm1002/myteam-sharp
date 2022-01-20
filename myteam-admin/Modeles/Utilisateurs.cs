@@ -14,7 +14,7 @@ namespace myteam_admin.Modeles
 
         private int idUtilisateur, idPoste;
         private string nom, prenom, email, poste;
-        private string photoProfil = "C:/xampp/htdocs/myteam";
+        private string photoProfil = "C:/wamp64/www/myteam";
         DateTime dateNaiss;
 
         public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, int idPoste, string photoProfil)

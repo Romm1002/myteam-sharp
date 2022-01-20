@@ -12,9 +12,38 @@ namespace myteam_admin.Modeles
     {
         private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
-        private int idMessage, idAuteur, idReceveur;
+        private int idMessage, idAuteur, idReceveur, id;
         private DateTime date;
         private string message, nomAuteur, prenomAuteur, nomReceveur, prenomReceveur;
+        private List<Utilisateurs> listUtilisateurs = new List<Utilisateurs>();
+        private List<Messages> messages = new List<Messages>();
+
+
+
+        public Messages(int id = -1)
+        {
+            if (id != -1)
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                command.Parameters.AddWithValue("@id", id);
+                command.CommandText = "SELECT m.idMessage, m.contenu, m.heure, u.nom, u.prenom, m.idEnvoyeur, u2.nom, u2.prenom, m.idReceveur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idEnvoyeur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur WHERE idMessage = @id";
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    this.idMessage = reader.GetInt32(0);
+                    this.message = reader.GetString(1);
+                    this.date = Convert.ToDateTime(reader.GetValue(2));
+                    this.nomAuteur = reader.GetString(3);
+                    this.prenomAuteur= reader.GetString(4);
+                    this.idAuteur = reader.GetInt32(5);
+                    this.nomReceveur = reader.GetString(6);
+                    this.prenomReceveur = reader.GetString(7);
+                    this.idReceveur = reader.GetInt32(8);
+                }
+                conn.Close();
+            }
+        }
 
         public void initialiser(int idMessage, string nomAuteur, string prenomAuteur, string message, DateTime date, string nomReceveur = null, string prenomReceveur = null, int idAuteur = -1, int idReceveur = -1)
         {
@@ -29,6 +58,23 @@ namespace myteam_admin.Modeles
             this.prenomReceveur = prenomReceveur;
         }
 
+        public void initialiserMessagesParConversations(int idMessage, string message, int idAuteur, int idReceveur)
+        {
+            this.idMessage = idMessage;
+            this.message = message;
+            this.idAuteur = idAuteur;
+            this.idReceveur = idReceveur;
+        }
+
+        public void supprimerMessage(int idMessage)
+        {
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@idMessage", idMessage);
+            command.CommandText = "DELETE FROM messagerie WHERE idMessage = @idMessage";
+            command.ExecuteNonQuery();
+        }
+
         public int getIdReceveur()
         {
             return idReceveur;
@@ -36,6 +82,10 @@ namespace myteam_admin.Modeles
         public string getNomReceveur()
         {
             return nomReceveur;
+        }
+        public int getIdAuteur()
+        {
+            return idAuteur;
         }
         public string getPrenomReceveur()
         {

@@ -77,6 +77,12 @@
     <Compile Include="Fenetres\Accueil.Designer.cs">
       <DependentUpon>Accueil.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fenetres\menuConversation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fenetres\menuConversation.Designer.cs">
+      <DependentUpon>menuConversation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fenetres\menuMessagerie.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuAjouterProjet.resx">
       <DependentUpon>menuAjouterProjet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\menuConversation.resx">
+      <DependentUpon>menuConversation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuMessagerie.resx">
       <DependentUpon>menuMessagerie.cs</DependentUpon>
