@@ -18,7 +18,7 @@ namespace myteam_admin.Modeles
         private string description;
         private DateTime debut;
         private DateTime fin;
-        private string image = "C:/xampp/htdocs/myteam";
+        private string image = "C:/wamp64/www/myteam";
         private int statut;
         private bool archive;
         private List<Utilisateurs> listUtilisateurs = new List<Utilisateurs>();

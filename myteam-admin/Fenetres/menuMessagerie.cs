@@ -22,6 +22,7 @@ namespace myteam_admin.Fenetres
         public menuMessagerie(Accueil accueil)
         {
             InitializeComponent();
+            this.accueil = accueil;
             // Remplissage des stats (cartes)
             List<int> nbrMessagesEchanges = message.nbrMessagesEchanges();
             statMessagerie1.Text = nbrMessagesEchanges[0].ToString();
@@ -35,7 +36,7 @@ namespace myteam_admin.Fenetres
             //Remplissage du dataGridView
             foreach (Messages message in app.getMessages())
             {
-                tableauUtilisateurs.Rows.Add(message.getId(), message.getNom() + " " + message.getPrenom(), message.getNomReceveur() + " " + message.getPrenomReceveur(), message.getMessage(), message.getDate());
+                tableauUtilisateurs.Rows.Add(message.getId(), message.getNom() + " " + message.getPrenom(), message.getNomReceveur() + " " + message.getPrenomReceveur(), message.getMessage(), message.getDate(), message.getIdAuteur(), message.getIdReceveur());
             }
 
             //    // Remplissage du dataGridView
@@ -92,6 +93,19 @@ namespace myteam_admin.Fenetres
             //        accueil.labelHeaderTitle.Text = "ACTIONS SUR UTILISATEUR";
             //    }
             //}
+        }
+
+        private void tableauUtilisateurs_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex > -1)
+            {
+                menuConversation panel = new menuConversation(Convert.ToInt32(tableauUtilisateurs.CurrentRow.Cells[0].Value.ToString()), accueil, Convert.ToInt32(tableauUtilisateurs.CurrentRow.Cells[5].Value.ToString()), Convert.ToInt32(tableauUtilisateurs.CurrentRow.Cells[6].Value.ToString()));
+                panel.AutoScroll = true;
+                accueil.panelContenu.Controls.Clear();
+                accueil.panelContenu.Controls.Add(panel);
+                panel.Show();
+                accueil.labelHeaderTitle.Text = "CONVERSATION DE - " + tableauUtilisateurs.CurrentRow.Cells[1].Value.ToString() + " ET " + tableauUtilisateurs.CurrentRow.Cells[2].Value.ToString();
+            }
         }
     }
 }
