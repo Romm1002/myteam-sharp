@@ -87,7 +87,7 @@ namespace myteam_admin.Fenetres
             this.labelError.AutoSize = true;
             this.labelError.Location = new System.Drawing.Point(313, 20);
             this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(0, 16);
+            this.labelError.Size = new System.Drawing.Size(0, 17);
             this.labelError.TabIndex = 14;
             // 
             // buttonValider

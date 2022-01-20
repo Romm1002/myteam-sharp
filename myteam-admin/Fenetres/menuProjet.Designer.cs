@@ -29,37 +29,85 @@ namespace myteam_admin.Fenetres
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menuProjet));
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.labelTachesTerminee = new System.Windows.Forms.Label();
+            this.labelCounterTachesTerminee = new System.Windows.Forms.Label();
+            this.progressBarProjet = new System.Windows.Forms.ProgressBar();
             this.buttonRetour = new System.Windows.Forms.Button();
             this.panelBody = new System.Windows.Forms.Panel();
+            this.buttonManageParticipants = new System.Windows.Forms.Button();
+            this.labelParticipants = new System.Windows.Forms.Label();
+            this.panelTextBoxNom = new System.Windows.Forms.Panel();
+            this.textBoxNom = new System.Windows.Forms.TextBox();
+            this.dataGridViewTaches = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.terminee = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewChat = new System.Windows.Forms.DataGridView();
             this.dataGridViewParticipants = new System.Windows.Forms.DataGridView();
             this.idParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pdp = new System.Windows.Forms.DataGridViewImageColumn();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poste = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxNom = new System.Windows.Forms.TextBox();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
-            this.dataGridViewChat = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelTextBoxDescription = new System.Windows.Forms.Panel();
+            this.idChat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.message = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelMessagerieProjet = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.panelBody.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticipants)).BeginInit();
+            this.panelTextBoxNom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTaches)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticipants)).BeginInit();
+            this.panelTextBoxDescription.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
+            this.panelHeader.Controls.Add(this.labelTachesTerminee);
+            this.panelHeader.Controls.Add(this.labelCounterTachesTerminee);
+            this.panelHeader.Controls.Add(this.progressBarProjet);
             this.panelHeader.Controls.Add(this.buttonRetour);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(150, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(1240, 205);
             this.panelHeader.TabIndex = 0;
+            // 
+            // labelTachesTerminee
+            // 
+            this.labelTachesTerminee.AutoSize = true;
+            this.labelTachesTerminee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTachesTerminee.Location = new System.Drawing.Point(180, 67);
+            this.labelTachesTerminee.Name = "labelTachesTerminee";
+            this.labelTachesTerminee.Size = new System.Drawing.Size(161, 24);
+            this.labelTachesTerminee.TabIndex = 3;
+            this.labelTachesTerminee.Text = "Taches terminées";
+            // 
+            // labelCounterTachesTerminee
+            // 
+            this.labelCounterTachesTerminee.AutoSize = true;
+            this.labelCounterTachesTerminee.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCounterTachesTerminee.Location = new System.Drawing.Point(9, 29);
+            this.labelCounterTachesTerminee.Name = "labelCounterTachesTerminee";
+            this.labelCounterTachesTerminee.Size = new System.Drawing.Size(113, 69);
+            this.labelCounterTachesTerminee.TabIndex = 2;
+            this.labelCounterTachesTerminee.Text = "0/0";
+            // 
+            // progressBarProjet
+            // 
+            this.progressBarProjet.Location = new System.Drawing.Point(21, 101);
+            this.progressBarProjet.Name = "progressBarProjet";
+            this.progressBarProjet.Size = new System.Drawing.Size(1195, 10);
+            this.progressBarProjet.Step = 1;
+            this.progressBarProjet.TabIndex = 1;
             // 
             // buttonRetour
             // 
@@ -77,15 +125,147 @@ namespace myteam_admin.Fenetres
             // 
             // panelBody
             // 
+            this.panelBody.Controls.Add(this.labelMessagerieProjet);
+            this.panelBody.Controls.Add(this.buttonManageParticipants);
+            this.panelBody.Controls.Add(this.labelParticipants);
+            this.panelBody.Controls.Add(this.panelTextBoxNom);
+            this.panelBody.Controls.Add(this.dataGridViewTaches);
             this.panelBody.Controls.Add(this.dataGridViewChat);
-            this.panelBody.Controls.Add(this.textBoxDescription);
-            this.panelBody.Controls.Add(this.textBoxNom);
             this.panelBody.Controls.Add(this.dataGridViewParticipants);
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBody.Location = new System.Drawing.Point(150, 205);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(1240, 341);
+            this.panelBody.Size = new System.Drawing.Size(1240, 1136);
             this.panelBody.TabIndex = 1;
+            // 
+            // buttonManageParticipants
+            // 
+            this.buttonManageParticipants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonManageParticipants.Location = new System.Drawing.Point(1043, 223);
+            this.buttonManageParticipants.Name = "buttonManageParticipants";
+            this.buttonManageParticipants.Size = new System.Drawing.Size(194, 32);
+            this.buttonManageParticipants.TabIndex = 9;
+            this.buttonManageParticipants.Text = "Gérer les participants";
+            this.buttonManageParticipants.UseVisualStyleBackColor = true;
+            // 
+            // labelParticipants
+            // 
+            this.labelParticipants.AutoSize = true;
+            this.labelParticipants.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelParticipants.Location = new System.Drawing.Point(706, 226);
+            this.labelParticipants.Name = "labelParticipants";
+            this.labelParticipants.Size = new System.Drawing.Size(172, 32);
+            this.labelParticipants.TabIndex = 8;
+            this.labelParticipants.Text = "Participants ";
+            // 
+            // panelTextBoxNom
+            // 
+            this.panelTextBoxNom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTextBoxNom.Controls.Add(this.textBoxNom);
+            this.panelTextBoxNom.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.panelTextBoxNom.Location = new System.Drawing.Point(0, 19);
+            this.panelTextBoxNom.Name = "panelTextBoxNom";
+            this.panelTextBoxNom.Padding = new System.Windows.Forms.Padding(15, 10, 10, 10);
+            this.panelTextBoxNom.Size = new System.Drawing.Size(651, 61);
+            this.panelTextBoxNom.TabIndex = 7;
+            this.panelTextBoxNom.Click += new System.EventHandler(this.panelTextBoxNom_Click);
+            // 
+            // textBoxNom
+            // 
+            this.textBoxNom.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxNom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNom.Location = new System.Drawing.Point(15, 10);
+            this.textBoxNom.Name = "textBoxNom";
+            this.textBoxNom.Size = new System.Drawing.Size(624, 31);
+            this.textBoxNom.TabIndex = 3;
+            // 
+            // dataGridViewTaches
+            // 
+            this.dataGridViewTaches.AllowUserToResizeColumns = false;
+            this.dataGridViewTaches.AllowUserToResizeRows = false;
+            this.dataGridViewTaches.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewTaches.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewTaches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTaches.ColumnHeadersVisible = false;
+            this.dataGridViewTaches.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.libelle,
+            this.terminee});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTaches.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTaches.Location = new System.Drawing.Point(16, 268);
+            this.dataGridViewTaches.Name = "dataGridViewTaches";
+            this.dataGridViewTaches.RowHeadersVisible = false;
+            this.dataGridViewTaches.RowHeadersWidth = 51;
+            this.dataGridViewTaches.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.dataGridViewTaches.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.dataGridViewTaches.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTaches.RowTemplate.DividerHeight = 1;
+            this.dataGridViewTaches.RowTemplate.Height = 75;
+            this.dataGridViewTaches.Size = new System.Drawing.Size(635, 228);
+            this.dataGridViewTaches.TabIndex = 6;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
+            // libelle
+            // 
+            this.libelle.HeaderText = "Libelle";
+            this.libelle.MinimumWidth = 6;
+            this.libelle.Name = "libelle";
+            this.libelle.Width = 475;
+            // 
+            // terminee
+            // 
+            this.terminee.HeaderText = "Terminee";
+            this.terminee.MinimumWidth = 6;
+            this.terminee.Name = "terminee";
+            this.terminee.Width = 125;
+            // 
+            // dataGridViewChat
+            // 
+            this.dataGridViewChat.AllowUserToAddRows = false;
+            this.dataGridViewChat.AllowUserToDeleteRows = false;
+            this.dataGridViewChat.AllowUserToResizeColumns = false;
+            this.dataGridViewChat.AllowUserToResizeRows = false;
+            this.dataGridViewChat.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewChat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewChat.ColumnHeadersVisible = false;
+            this.dataGridViewChat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idChat,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.message});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewChat.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewChat.Location = new System.Drawing.Point(16, 567);
+            this.dataGridViewChat.Name = "dataGridViewChat";
+            this.dataGridViewChat.ReadOnly = true;
+            this.dataGridViewChat.RowHeadersVisible = false;
+            this.dataGridViewChat.RowHeadersWidth = 51;
+            this.dataGridViewChat.RowTemplate.Height = 45;
+            this.dataGridViewChat.Size = new System.Drawing.Size(1221, 377);
+            this.dataGridViewChat.TabIndex = 5;
             // 
             // dataGridViewParticipants
             // 
@@ -93,20 +273,29 @@ namespace myteam_admin.Fenetres
             this.dataGridViewParticipants.AllowUserToDeleteRows = false;
             this.dataGridViewParticipants.AllowUserToResizeColumns = false;
             this.dataGridViewParticipants.AllowUserToResizeRows = false;
+            this.dataGridViewParticipants.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewParticipants.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewParticipants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewParticipants.ColumnHeadersVisible = false;
             this.dataGridViewParticipants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idParticipant,
             this.pdp,
             this.nom,
             this.prenom,
             this.poste});
-            this.dataGridViewParticipants.Location = new System.Drawing.Point(0, 86);
+            this.dataGridViewParticipants.Location = new System.Drawing.Point(712, 268);
+            this.dataGridViewParticipants.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.dataGridViewParticipants.Name = "dataGridViewParticipants";
             this.dataGridViewParticipants.ReadOnly = true;
             this.dataGridViewParticipants.RowHeadersVisible = false;
             this.dataGridViewParticipants.RowHeadersWidth = 51;
-            this.dataGridViewParticipants.RowTemplate.Height = 24;
-            this.dataGridViewParticipants.Size = new System.Drawing.Size(504, 192);
+            this.dataGridViewParticipants.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewParticipants.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.dataGridViewParticipants.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.dataGridViewParticipants.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewParticipants.RowTemplate.DividerHeight = 1;
+            this.dataGridViewParticipants.RowTemplate.Height = 75;
+            this.dataGridViewParticipants.Size = new System.Drawing.Size(525, 228);
             this.dataGridViewParticipants.TabIndex = 2;
             // 
             // idParticipant
@@ -152,49 +341,37 @@ namespace myteam_admin.Fenetres
             this.poste.ReadOnly = true;
             this.poste.Width = 125;
             // 
-            // textBoxNom
-            // 
-            this.textBoxNom.Location = new System.Drawing.Point(0, 0);
-            this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(253, 22);
-            this.textBoxNom.TabIndex = 3;
-            // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(0, 28);
+            this.textBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDescription.Location = new System.Drawing.Point(15, 10);
+            this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(253, 22);
+            this.textBoxDescription.Size = new System.Drawing.Size(782, 95);
             this.textBoxDescription.TabIndex = 4;
             // 
-            // dataGridViewChat
+            // panelTextBoxDescription
             // 
-            this.dataGridViewChat.AllowUserToAddRows = false;
-            this.dataGridViewChat.AllowUserToDeleteRows = false;
-            this.dataGridViewChat.AllowUserToResizeColumns = false;
-            this.dataGridViewChat.AllowUserToResizeRows = false;
-            this.dataGridViewChat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewChat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dataGridViewChat.Location = new System.Drawing.Point(598, 86);
-            this.dataGridViewChat.Name = "dataGridViewChat";
-            this.dataGridViewChat.ReadOnly = true;
-            this.dataGridViewChat.RowHeadersVisible = false;
-            this.dataGridViewChat.RowHeadersWidth = 51;
-            this.dataGridViewChat.RowTemplate.Height = 24;
-            this.dataGridViewChat.Size = new System.Drawing.Size(504, 192);
-            this.dataGridViewChat.TabIndex = 5;
+            this.panelTextBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTextBoxDescription.Controls.Add(this.textBoxDescription);
+            this.panelTextBoxDescription.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.panelTextBoxDescription.Location = new System.Drawing.Point(150, 291);
+            this.panelTextBoxDescription.Name = "panelTextBoxDescription";
+            this.panelTextBoxDescription.Padding = new System.Windows.Forms.Padding(15, 10, 10, 10);
+            this.panelTextBoxDescription.Size = new System.Drawing.Size(809, 117);
+            this.panelTextBoxDescription.TabIndex = 8;
+            this.panelTextBoxDescription.Click += new System.EventHandler(this.panelTextBoxDescription_Click);
             // 
-            // dataGridViewTextBoxColumn1
+            // idChat
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "idChat";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            this.dataGridViewTextBoxColumn1.Width = 125;
+            this.idChat.HeaderText = "idChat";
+            this.idChat.MinimumWidth = 6;
+            this.idChat.Name = "idChat";
+            this.idChat.ReadOnly = true;
+            this.idChat.Visible = false;
+            this.idChat.Width = 125;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -202,6 +379,7 @@ namespace myteam_admin.Fenetres
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn2.Width = 125;
             // 
             // dataGridViewTextBoxColumn3
@@ -210,31 +388,50 @@ namespace myteam_admin.Fenetres
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn3.Width = 125;
             // 
-            // dataGridViewTextBoxColumn4
+            // message
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Message";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 250;
+            this.message.HeaderText = "Message";
+            this.message.MinimumWidth = 6;
+            this.message.Name = "message";
+            this.message.ReadOnly = true;
+            this.message.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.message.Width = 900;
+            // 
+            // labelMessagerieProjet
+            // 
+            this.labelMessagerieProjet.AutoSize = true;
+            this.labelMessagerieProjet.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMessagerieProjet.Location = new System.Drawing.Point(15, 521);
+            this.labelMessagerieProjet.Name = "labelMessagerieProjet";
+            this.labelMessagerieProjet.Size = new System.Drawing.Size(241, 32);
+            this.labelMessagerieProjet.TabIndex = 10;
+            this.labelMessagerieProjet.Text = "Messagerie projet";
             // 
             // menuProjet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.panelTextBoxDescription);
             this.Controls.Add(this.panelBody);
             this.Controls.Add(this.panelHeader);
             this.Name = "menuProjet";
             this.Padding = new System.Windows.Forms.Padding(150, 0, 0, 0);
-            this.Size = new System.Drawing.Size(1390, 546);
+            this.Size = new System.Drawing.Size(1390, 1341);
             this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
             this.panelBody.ResumeLayout(false);
             this.panelBody.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticipants)).EndInit();
+            this.panelTextBoxNom.ResumeLayout(false);
+            this.panelTextBoxNom.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTaches)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticipants)).EndInit();
+            this.panelTextBoxDescription.ResumeLayout(false);
+            this.panelTextBoxDescription.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -253,9 +450,21 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.TextBox textBoxNom;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.DataGridView dataGridViewChat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridView dataGridViewTaches;
+        private System.Windows.Forms.ProgressBar progressBarProjet;
+        private System.Windows.Forms.Panel panelTextBoxNom;
+        private System.Windows.Forms.Label labelTachesTerminee;
+        private System.Windows.Forms.Label labelCounterTachesTerminee;
+        private System.Windows.Forms.Panel panelTextBoxDescription;
+        private System.Windows.Forms.Button buttonManageParticipants;
+        private System.Windows.Forms.Label labelParticipants;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn libelle;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn terminee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idChat;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn message;
+        private System.Windows.Forms.Label labelMessagerieProjet;
     }
 }

@@ -120,9 +120,11 @@
       <DependentUpon>menuAjouterProjet.cs</DependentUpon>
     </Compile>
     <Compile Include="Modeles\Application.cs" />
+    <Compile Include="Modeles\MessagesProjet.cs" />
     <Compile Include="Modeles\Messages.cs" />
     <Compile Include="Modeles\Affectation.cs" />
     <Compile Include="Modeles\Projets.cs" />
+    <Compile Include="Modeles\Taches.cs" />
     <Compile Include="Modeles\Utilisateurs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
