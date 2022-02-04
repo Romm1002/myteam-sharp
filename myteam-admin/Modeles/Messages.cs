@@ -27,7 +27,7 @@ namespace myteam_admin.Modeles
                 conn.Open();
                 MySqlCommand command = conn.CreateCommand();
                 command.Parameters.AddWithValue("@id", id);
-                command.CommandText = "SELECT m.idMessage, m.contenu, m.heure, u.nom, u.prenom, m.idEnvoyeur, u2.nom, u2.prenom, m.idReceveur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idEnvoyeur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur WHERE idMessage = @id";
+                command.CommandText = "SELECT m.idMessage, m.contenu, m.heure, u.nom, u.prenom, m.idUtilisateur, u2.nom, u2.prenom, m.idReceveur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur WHERE idMessage = @id";
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -133,7 +133,7 @@ namespace myteam_admin.Modeles
             List<string> dernierEnvoyeur = new List<string>();
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
-            command.CommandText = "SELECT prenom FROM utilisateurs INNER JOIN messagerie ON idUtilisateur = idEnvoyeur ORDER BY prenom DESC LIMIT 1";
+            command.CommandText = "SELECT prenom FROM utilisateurs INNER JOIN messagerie USING(idUtilisateur) ORDER BY prenom DESC LIMIT 1";
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -150,7 +150,7 @@ namespace myteam_admin.Modeles
             List<string> dernierReceveur = new List<string>();
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
-            command.CommandText = "SELECT prenom FROM utilisateurs INNER JOIN messagerie ON idUtilisateur = idReceveur ORDER BY nom DESC LIMIT 1";
+            command.CommandText = "SELECT prenom FROM utilisateurs INNER JOIN messagerie ON utilisateurs.idUtilisateur = idReceveur ORDER BY nom DESC LIMIT 1";
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -160,6 +160,23 @@ namespace myteam_admin.Modeles
             }
             conn.Close();
             return dernierReceveur;
+        }
+
+        public List<int> messagesEnvoyes24H()
+        {
+            List<int> messagesEnvoyes24H = new List<int>();
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT COUNT(idMessage) FROM messagerie WHERE messagerie.heure > DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                messagesEnvoyes24H.Add(reader.GetInt32(0));
+            }
+            conn.Close();
+            return messagesEnvoyes24H;
         }
     }
 }

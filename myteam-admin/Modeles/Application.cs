@@ -24,7 +24,7 @@ namespace myteam_admin.Modeles
             conn.Open();
 
             MySqlCommand command = conn.CreateCommand();
-            command.CommandText = "SELECT m.idMessage, u.nom, u.prenom, m.contenu, m.heure, u2.nom, u2.prenom, m.idEnvoyeur, m.idReceveur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idEnvoyeur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur ORDER BY idMessage ASC";
+            command.CommandText = "SELECT m.idMessage, u.nom, u.prenom, m.contenu, m.heure, u2.nom, u2.prenom, m.idUtilisateur, m.idReceveur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idUtilisateur ORDER BY idMessage ASC";
             MySqlDataReader reader = command.ExecuteReader();
 
             List<Messages> listeMessages = new List<Messages>();
@@ -46,7 +46,7 @@ namespace myteam_admin.Modeles
             MySqlCommand command = conn.CreateCommand();
             command.Parameters.AddWithValue("@u1", u1);
             command.Parameters.AddWithValue("@u2", u2);
-            command.CommandText = "SELECT m.idMessage, m.contenu, m.idEnvoyeur, m.idReceveur, u.idUtilisateur, u2.idUtilisateur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idEnvoyeur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur WHERE(idEnvoyeur = @u1 AND idReceveur = @u2) OR (idEnvoyeur = @u2 AND idReceveur = @u1)";
+            command.CommandText = "SELECT m.idMessage, m.contenu, m.idUtilisateur, m.idReceveur, u.idUtilisateur, u2.idUtilisateur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur WHERE(m.idUtilisateur = @u1 AND idReceveur = @u2) OR (m.idUtilisateur = @u2 AND idReceveur = @u1)";
             MySqlDataReader reader = command.ExecuteReader();
 
             List<Messages> listeMessages = new List<Messages>();

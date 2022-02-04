@@ -29,7 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.statMessagerie4 = new System.Windows.Forms.Label();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -66,6 +77,11 @@
             this.id_receveur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.action = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -86,14 +102,108 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.cardMessageEchanges);
-            this.panel1.Location = new System.Drawing.Point(150, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 15, 0, 50);
-            this.panel1.Size = new System.Drawing.Size(1390, 205);
+            this.panel1.Size = new System.Drawing.Size(1665, 205);
             this.panel1.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.statMessagerie4);
+            this.panel4.Controls.Add(this.pictureBox13);
+            this.panel4.Controls.Add(this.pictureBox14);
+            this.panel4.Controls.Add(this.pictureBox15);
+            this.panel4.Controls.Add(this.pictureBox16);
+            this.panel4.Location = new System.Drawing.Point(1265, 18);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(335, 168);
+            this.panel4.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(190, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Messages -24H";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(37, 134);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(92, 18);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Chiffre à jour";
+            // 
+            // statMessagerie4
+            // 
+            this.statMessagerie4.AutoSize = true;
+            this.statMessagerie4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statMessagerie4.Location = new System.Drawing.Point(220, 50);
+            this.statMessagerie4.Name = "statMessagerie4";
+            this.statMessagerie4.Size = new System.Drawing.Size(98, 69);
+            this.statMessagerie4.TabIndex = 2;
+            this.statMessagerie4.Text = "23";
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox13.Image = global::myteam_admin.Properties.Resources.check_mark;
+            this.pictureBox13.Location = new System.Drawing.Point(16, 134);
+            this.pictureBox13.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(15, 19);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox13.TabIndex = 5;
+            this.pictureBox13.TabStop = false;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pictureBox14.Location = new System.Drawing.Point(40, 53);
+            this.pictureBox14.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(53, 11);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox14.TabIndex = 2;
+            this.pictureBox14.TabStop = false;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pictureBox15.Location = new System.Drawing.Point(40, 0);
+            this.pictureBox15.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(53, 28);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox15.TabIndex = 1;
+            this.pictureBox15.TabStop = false;
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pictureBox16.Image = global::myteam_admin.Properties.Resources._24_hours;
+            this.pictureBox16.Location = new System.Drawing.Point(40, 27);
+            this.pictureBox16.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(53, 27);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox16.TabIndex = 0;
+            this.pictureBox16.TabStop = false;
             // 
             // panel3
             // 
@@ -107,7 +217,7 @@
             this.panel3.Controls.Add(this.pictureBox10);
             this.panel3.Controls.Add(this.pictureBox11);
             this.panel3.Controls.Add(this.pictureBox12);
-            this.panel3.Location = new System.Drawing.Point(762, 18);
+            this.panel3.Location = new System.Drawing.Point(863, 18);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(335, 168);
             this.panel3.TabIndex = 6;
@@ -136,7 +246,7 @@
             // 
             this.statMessagerie3.AutoSize = true;
             this.statMessagerie3.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statMessagerie3.Location = new System.Drawing.Point(166, 71);
+            this.statMessagerie3.Location = new System.Drawing.Point(129, 71);
             this.statMessagerie3.Name = "statMessagerie3";
             this.statMessagerie3.Size = new System.Drawing.Size(152, 42);
             this.statMessagerie3.TabIndex = 2;
@@ -200,7 +310,7 @@
             this.panel2.Controls.Add(this.pictureBox6);
             this.panel2.Controls.Add(this.pictureBox7);
             this.panel2.Controls.Add(this.pictureBox8);
-            this.panel2.Location = new System.Drawing.Point(379, 18);
+            this.panel2.Location = new System.Drawing.Point(463, 18);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(335, 168);
             this.panel2.TabIndex = 6;
@@ -229,7 +339,7 @@
             // 
             this.statMessagerie2.AutoSize = true;
             this.statMessagerie2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statMessagerie2.Location = new System.Drawing.Point(166, 71);
+            this.statMessagerie2.Location = new System.Drawing.Point(124, 71);
             this.statMessagerie2.Name = "statMessagerie2";
             this.statMessagerie2.Size = new System.Drawing.Size(152, 42);
             this.statMessagerie2.TabIndex = 2;
@@ -297,7 +407,7 @@
             this.cardMessageEchanges.Controls.Add(this.pictureBox3);
             this.cardMessageEchanges.Controls.Add(this.pictureBox2);
             this.cardMessageEchanges.Controls.Add(this.pictureBox1);
-            this.cardMessageEchanges.Location = new System.Drawing.Point(0, 18);
+            this.cardMessageEchanges.Location = new System.Drawing.Point(67, 18);
             this.cardMessageEchanges.Name = "cardMessageEchanges";
             this.cardMessageEchanges.Size = new System.Drawing.Size(335, 168);
             this.cardMessageEchanges.TabIndex = 1;
@@ -393,6 +503,23 @@
             // tableauUtilisateurs
             // 
             this.tableauUtilisateurs.AllowUserToAddRows = false;
+            this.tableauUtilisateurs.AllowUserToDeleteRows = false;
+            this.tableauUtilisateurs.AllowUserToResizeColumns = false;
+            this.tableauUtilisateurs.AllowUserToResizeRows = false;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableauUtilisateurs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.tableauUtilisateurs.BackgroundColor = System.Drawing.Color.White;
+            this.tableauUtilisateurs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableauUtilisateurs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableauUtilisateurs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.tableauUtilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableauUtilisateurs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numero,
@@ -403,14 +530,23 @@
             this.id_envoyeur,
             this.id_receveur,
             this.action});
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableauUtilisateurs.DefaultCellStyle = dataGridViewCellStyle12;
             this.tableauUtilisateurs.EnableHeadersVisualStyles = false;
-            this.tableauUtilisateurs.Location = new System.Drawing.Point(150, 211);
+            this.tableauUtilisateurs.Location = new System.Drawing.Point(67, 224);
+            this.tableauUtilisateurs.MultiSelect = false;
             this.tableauUtilisateurs.Name = "tableauUtilisateurs";
             this.tableauUtilisateurs.RowHeadersVisible = false;
             this.tableauUtilisateurs.RowHeadersWidth = 51;
             this.tableauUtilisateurs.RowTemplate.Height = 24;
             this.tableauUtilisateurs.RowTemplate.ReadOnly = true;
-            this.tableauUtilisateurs.Size = new System.Drawing.Size(1097, 288);
+            this.tableauUtilisateurs.Size = new System.Drawing.Size(1533, 669);
             this.tableauUtilisateurs.TabIndex = 2;
             this.tableauUtilisateurs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableauUtilisateurs_CellContentClick);
             // 
@@ -419,28 +555,28 @@
             this.numero.HeaderText = "N°";
             this.numero.MinimumWidth = 6;
             this.numero.Name = "numero";
-            this.numero.Width = 175;
+            this.numero.Width = 306;
             // 
             // envoyeur
             // 
             this.envoyeur.HeaderText = "Envoyeur";
             this.envoyeur.MinimumWidth = 6;
             this.envoyeur.Name = "envoyeur";
-            this.envoyeur.Width = 175;
+            this.envoyeur.Width = 306;
             // 
             // receveur
             // 
             this.receveur.HeaderText = "Receveur";
             this.receveur.MinimumWidth = 6;
             this.receveur.Name = "receveur";
-            this.receveur.Width = 175;
+            this.receveur.Width = 306;
             // 
             // mess
             // 
             this.mess.HeaderText = "Message";
             this.mess.MinimumWidth = 6;
             this.mess.Name = "mess";
-            this.mess.Width = 175;
+            this.mess.Width = 306;
             // 
             // heure
             // 
@@ -448,7 +584,7 @@
             this.heure.MinimumWidth = 6;
             this.heure.Name = "heure";
             this.heure.Visible = false;
-            this.heure.Width = 175;
+            this.heure.Width = 6;
             // 
             // id_envoyeur
             // 
@@ -456,7 +592,7 @@
             this.id_envoyeur.MinimumWidth = 6;
             this.id_envoyeur.Name = "id_envoyeur";
             this.id_envoyeur.Visible = false;
-            this.id_envoyeur.Width = 125;
+            this.id_envoyeur.Width = 6;
             // 
             // id_receveur
             // 
@@ -464,7 +600,7 @@
             this.id_receveur.MinimumWidth = 6;
             this.id_receveur.Name = "id_receveur";
             this.id_receveur.Visible = false;
-            this.id_receveur.Width = 125;
+            this.id_receveur.Width = 6;
             // 
             // action
             // 
@@ -473,7 +609,7 @@
             this.action.Name = "action";
             this.action.Text = "Voir la conversation";
             this.action.UseColumnTextForButtonValue = true;
-            this.action.Width = 175;
+            this.action.Width = 306;
             // 
             // menuMessagerie
             // 
@@ -483,8 +619,14 @@
             this.Controls.Add(this.tableauUtilisateurs);
             this.Controls.Add(this.panel1);
             this.Name = "menuMessagerie";
-            this.Size = new System.Drawing.Size(1540, 800);
+            this.Size = new System.Drawing.Size(1665, 919);
             this.panel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -538,6 +680,14 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.DataGridView tableauUtilisateurs;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label statMessagerie4;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.DataGridViewTextBoxColumn numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn envoyeur;
         private System.Windows.Forms.DataGridViewTextBoxColumn receveur;

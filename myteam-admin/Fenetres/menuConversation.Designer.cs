@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableauMessages = new System.Windows.Forms.DataGridView();
             this.id_message_envoyeur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.auteur = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,7 +43,23 @@
             // tableauMessages
             // 
             this.tableauMessages.AllowUserToAddRows = false;
+            this.tableauMessages.AllowUserToDeleteRows = false;
+            this.tableauMessages.AllowUserToResizeColumns = false;
+            this.tableauMessages.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableauMessages.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.tableauMessages.BackgroundColor = System.Drawing.Color.White;
+            this.tableauMessages.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableauMessages.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableauMessages.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tableauMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableauMessages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_message_envoyeur,
@@ -48,12 +67,20 @@
             this.id_message_receveur,
             this.receveur,
             this.supprimer});
-            this.tableauMessages.Location = new System.Drawing.Point(0, 0);
+            this.tableauMessages.Location = new System.Drawing.Point(22, 25);
             this.tableauMessages.Name = "tableauMessages";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableauMessages.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.tableauMessages.RowHeadersVisible = false;
             this.tableauMessages.RowHeadersWidth = 51;
             this.tableauMessages.RowTemplate.Height = 24;
-            this.tableauMessages.Size = new System.Drawing.Size(1540, 800);
+            this.tableauMessages.Size = new System.Drawing.Size(1614, 882);
             this.tableauMessages.TabIndex = 0;
             this.tableauMessages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableauMessages_CellContentClick);
             // 
@@ -70,7 +97,7 @@
             this.auteur.HeaderText = "Message de ";
             this.auteur.MinimumWidth = 6;
             this.auteur.Name = "auteur";
-            this.auteur.Width = 125;
+            this.auteur.Width = 555;
             // 
             // id_message_receveur
             // 
@@ -85,7 +112,7 @@
             this.receveur.HeaderText = "Message de";
             this.receveur.MinimumWidth = 6;
             this.receveur.Name = "receveur";
-            this.receveur.Width = 125;
+            this.receveur.Width = 555;
             // 
             // supprimer
             // 
@@ -96,7 +123,7 @@
             this.supprimer.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.supprimer.Text = "Supprimer";
             this.supprimer.UseColumnTextForButtonValue = true;
-            this.supprimer.Width = 125;
+            this.supprimer.Width = 555;
             // 
             // menuConversation
             // 
@@ -104,7 +131,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableauMessages);
             this.Name = "menuConversation";
-            this.Size = new System.Drawing.Size(1540, 800);
+            this.Size = new System.Drawing.Size(1665, 919);
             ((System.ComponentModel.ISupportInitialize)(this.tableauMessages)).EndInit();
             this.ResumeLayout(false);
 

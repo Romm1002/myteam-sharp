@@ -24,7 +24,7 @@ namespace myteam_admin.Fenetres
         //MENU STRIP 
         private void toolStripMenuItemUtilisateurs_Click(object sender, EventArgs e)
         {
-            menuUtilisateur panel = new menuUtilisateur();
+            menuUtilisateur panel = new menuUtilisateur(this);
             panel.AutoScroll = true;
             this.panelContenu.Controls.Clear();
             this.panelContenu.Controls.Add(panel);

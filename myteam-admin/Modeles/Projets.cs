@@ -96,7 +96,7 @@ namespace myteam_admin.Modeles
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
             command.Parameters.AddWithValue("@id", id);
-            command.CommandText = "SELECT idMessage, idAuteur, nom, prenom, message, dateMessage FROM chatprojet LEFT JOIN utilisateurs ON idAuteur = idUtilisateur WHERE idProjet = @id";
+            command.CommandText = "SELECT idMessage, idUtilisateur, nom, prenom, message, dateMessage FROM chatprojet LEFT JOIN utilisateurs USING(idUtilisateur) WHERE idProjet = @id";
             MySqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())

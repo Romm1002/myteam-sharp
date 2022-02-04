@@ -13,7 +13,7 @@ namespace myteam_admin.Modeles
         private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
         private int idUtilisateur, idPoste;
-        private string nom, prenom, email, poste;
+        private string nom, prenom, email, poste, mdp;
         private string photoProfil = "C:/wamp64/www/myteam";
         DateTime dateNaiss;
 
@@ -27,15 +27,14 @@ namespace myteam_admin.Modeles
             this.idPoste = idPoste;
             this.photoProfil += photoProfil;
         }
+
         //SETTERS
         public void setPoste(string poste)
         {
             this.poste = poste;
         }
 
-
         //GETTERS
-
         public int getId()
         {
             return idUtilisateur;
@@ -70,6 +69,32 @@ namespace myteam_admin.Modeles
             return photoProfil;
         }
 
+        // Méthode qui permet l'inscription par un admin
+        public void inscription(string nom, string prenom, DateTime dateNaiss, string email, string mdp, int idposte, string photoProfil)
+        {
+            this.nom = nom;
+            this.prenom = prenom;
+            this.dateNaiss = dateNaiss;
+            this.email = email;
+            this.mdp = mdp;
+            this.idPoste = idposte;
+            this.photoProfil = photoProfil;
+
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@nom", nom);
+            command.Parameters.AddWithValue("@prenom", prenom);
+            command.Parameters.AddWithValue("@dateNaiss", dateNaiss);
+            command.Parameters.AddWithValue("@email", email);
+            command.Parameters.AddWithValue("@mdp", mdp);
+            command.Parameters.AddWithValue("@idposte", idposte);
+            command.Parameters.AddWithValue("@photoProfil", photoProfil);
+
+            command.CommandText = "INSERT INTO utilisateurs(nom, prenom, dateNaiss, email, mdp, idposte, photoProfil) VALUES(@nom, @prenom, @dateNaiss, @email, @mdp, @idposte, @photoProfil)";
+            command.ExecuteNonQuery();
+            conn.Close();
+        }
+
         // Méthode qui permet la connexion
         public List<string> connexion(string result)
         {
@@ -87,6 +112,74 @@ namespace myteam_admin.Modeles
             }
             conn.Close();
             return connexion;
+        }
+
+        // Méthode pour remplir les stats
+        public List<int> nbrEmployes()
+        {
+            List<int> nbrEmployes = new List<int>();
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT COUNT(idUtilisateur) FROM utilisateurs";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                nbrEmployes.Add(reader.GetInt32(0));
+            }
+            conn.Close();
+            return nbrEmployes;
+        }
+
+        public List<int> nbrAdministrateurs(int idPoste)
+        {
+            List<int> nbrAdministrateurs = new List<int>();
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@idPoste", idPoste);
+            command.CommandText = "SELECT COUNT(idUtilisateur) FROM utilisateurs WHERE idposte = @idPoste";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                nbrAdministrateurs.Add(reader.GetInt32(0));
+            }
+            conn.Close();
+            return nbrAdministrateurs;
+        }
+
+        public List<int> nesAujourdhui()
+        {
+            List<int> nesAujourdhui = new List<int>();
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@idPoste", idPoste);
+            command.CommandText = "SELECT COUNT(idUtilisateur) FROM utilisateurs WHERE MONTH(dateNaiss) = MONTH(DATE_ADD(NOW(), INTERVAL 0 MONTH))";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                nesAujourdhui.Add(reader.GetInt32(0));
+            }
+            conn.Close();
+            return nesAujourdhui;
+        }
+
+        public List<string> derniereRecrue()
+        {
+            List<string> derniereRecrue = new List<string>();
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@idPoste", idPoste);
+            command.CommandText = "SELECT prenom FROM utilisateurs ORDER BY idUtilisateur DESC LIMIT 1";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                derniereRecrue.Add(reader.GetString(0));
+            }
+            conn.Close();
+            return derniereRecrue;
         }
     }
 }

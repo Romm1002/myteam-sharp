@@ -77,6 +77,12 @@
     <Compile Include="Fenetres\Accueil.Designer.cs">
       <DependentUpon>Accueil.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fenetres\menuAjoutUtilisateur.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fenetres\menuAjoutUtilisateur.Designer.cs">
+      <DependentUpon>menuAjoutUtilisateur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fenetres\menuConversation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuAjouterProjet.resx">
       <DependentUpon>menuAjouterProjet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\menuAjoutUtilisateur.resx">
+      <DependentUpon>menuAjoutUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuConversation.resx">
       <DependentUpon>menuConversation.cs</DependentUpon>
@@ -238,6 +247,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\recevoir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24-hours.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,6 +33,9 @@ namespace myteam_admin.Fenetres
             List<string> dernierReceveur = message.dernierReceveur();
             statMessagerie3.Text = dernierReceveur[0];
 
+            List<int> messagesEnvoyes24H = message.messagesEnvoyes24H();
+            statMessagerie4.Text = messagesEnvoyes24H[0].ToString();
+
             //Remplissage du dataGridView
             foreach (Messages message in app.getMessages())
             {
