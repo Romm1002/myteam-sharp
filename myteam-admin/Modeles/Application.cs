@@ -36,7 +36,26 @@ namespace myteam_admin.Modeles
             }
             conn.Close();
             return listeMessages;
+        }
 
+        public List<Messages> getMessagesSignales(int traite)
+        {
+            conn.Open();
+
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@traite", traite);
+            command.CommandText = "SELECT ms.idMessage, ms.message, u.prenom, u.nom FROM messages_signales AS ms LEFT JOIN utilisateurs AS u USING(idUtilisateur) WHERE traite = @traite";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            List<Messages> listeMessagesSignales = new List<Messages>();
+            while (reader.Read())
+            {
+                Messages message = new Messages();
+                message.initialiserMessagesSignales(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
+                listeMessagesSignales.Add(message);
+            }
+            conn.Close();
+            return listeMessagesSignales;
         }
 
         public List<Messages> getMessagesParConversation(int u1, int u2)

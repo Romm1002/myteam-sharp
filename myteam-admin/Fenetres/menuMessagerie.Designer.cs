@@ -76,6 +76,7 @@
             this.id_envoyeur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_receveur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.action = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.messages_signales = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
@@ -546,7 +547,7 @@
             this.tableauUtilisateurs.RowHeadersWidth = 51;
             this.tableauUtilisateurs.RowTemplate.Height = 24;
             this.tableauUtilisateurs.RowTemplate.ReadOnly = true;
-            this.tableauUtilisateurs.Size = new System.Drawing.Size(1533, 669);
+            this.tableauUtilisateurs.Size = new System.Drawing.Size(1533, 559);
             this.tableauUtilisateurs.TabIndex = 2;
             this.tableauUtilisateurs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableauUtilisateurs_CellContentClick);
             // 
@@ -611,11 +612,27 @@
             this.action.UseColumnTextForButtonValue = true;
             this.action.Width = 306;
             // 
+            // messages_signales
+            // 
+            this.messages_signales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(100)))), ((int)(((byte)(169)))));
+            this.messages_signales.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.messages_signales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.messages_signales.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messages_signales.ForeColor = System.Drawing.Color.White;
+            this.messages_signales.Location = new System.Drawing.Point(67, 814);
+            this.messages_signales.Name = "messages_signales";
+            this.messages_signales.Size = new System.Drawing.Size(290, 73);
+            this.messages_signales.TabIndex = 3;
+            this.messages_signales.Text = "MESSAGES SIGNALÉS";
+            this.messages_signales.UseVisualStyleBackColor = false;
+            this.messages_signales.Click += new System.EventHandler(this.messages_signales_Click);
+            // 
             // menuMessagerie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.messages_signales);
             this.Controls.Add(this.tableauUtilisateurs);
             this.Controls.Add(this.panel1);
             this.Name = "menuMessagerie";
@@ -696,5 +713,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id_envoyeur;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_receveur;
         private System.Windows.Forms.DataGridViewButtonColumn action;
+        private System.Windows.Forms.Button messages_signales;
     }
 }

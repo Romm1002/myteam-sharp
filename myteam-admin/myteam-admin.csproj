@@ -95,6 +95,12 @@
     <Compile Include="Fenetres\menuMessagerie.Designer.cs">
       <DependentUpon>menuMessagerie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fenetres\menuMessagesSignales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fenetres\menuMessagesSignales.Designer.cs">
+      <DependentUpon>menuMessagesSignales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fenetres\menuModifierUtilisateur.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuMessagerie.resx">
       <DependentUpon>menuMessagerie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\menuMessagesSignales.resx">
+      <DependentUpon>menuMessagesSignales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuModifierUtilisateur.resx">
       <DependentUpon>menuModifierUtilisateur.cs</DependentUpon>

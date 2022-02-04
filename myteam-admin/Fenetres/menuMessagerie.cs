@@ -41,61 +41,6 @@ namespace myteam_admin.Fenetres
             {
                 tableauUtilisateurs.Rows.Add(message.getId(), message.getNom() + " " + message.getPrenom(), message.getNomReceveur() + " " + message.getPrenomReceveur(), message.getMessage(), message.getDate(), message.getIdAuteur(), message.getIdReceveur());
             }
-
-            //    // Remplissage du dataGridView
-            //    foreach (Utilisateurs utilisateurs in app.getUtilisateurs())
-            //    {
-            //        // Conversion de la date de naissance en string pour pouvoir supprimer l'heure
-            //        string dateNaissance = utilisateurs.getDateNaiss().ToString().Substring(0, 10);
-
-            //        // Switch qui permet d'attribuer des string identifiables à la place d'un simple chiffre
-            //        string poste;
-            //        switch (utilisateurs.getIdPoste())
-            //        {
-            //            case 1:
-            //                poste = "Membre";
-            //                break;
-
-            //            case 2:
-            //                poste = "Administrateur";
-            //                break;
-
-            //            default:
-            //                poste = "Membre";
-            //                break;
-            //        }
-
-            //        // Création de lignes pour chaque utilisateur
-            //        tableauUtilisateurs.Rows.Add(utilisateurs.getId(), utilisateurs.getNom(), utilisateurs.getPrenom(), dateNaissance, utilisateurs.getEmail(), poste);
-
-            //        // Création d'une colonne avec des boutons
-            //        DataGridViewButtonColumn actions = new DataGridViewButtonColumn();
-            //        actions.Name = "Actions";
-            //        actions.Text = "Modifier";
-            //        actions.UseColumnTextForButtonValue = true;
-            //        int columnIndex = 6;
-            //        if (tableauUtilisateurs.Columns["actions"] == null)
-            //        {
-            //            tableauUtilisateurs.Columns.Insert(columnIndex, actions);
-            //        }
-            //        tableauUtilisateurs.CellClick += TableauUtilisateurs_CellClick;
-            //    }
-
-            //    this.accueil = accueil;
-            //}
-
-            //private void TableauUtilisateurs_CellClick(object sender, DataGridViewCellEventArgs e)
-            //{
-            //    if(e.ColumnIndex == tableauUtilisateurs.Columns["actions"].Index)
-            //    {
-            //        menuModifierUtilisateur panel = new menuModifierUtilisateur(accueil);
-            //        panel.AutoScroll = true;
-            //        accueil.panelContenu.Controls.Clear();
-            //        accueil.panelContenu.Controls.Add(panel);
-            //        panel.Show();
-            //        accueil.labelHeaderTitle.Text = "ACTIONS SUR UTILISATEUR";
-            //    }
-            //}
         }
 
         private void tableauUtilisateurs_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -109,6 +54,16 @@ namespace myteam_admin.Fenetres
                 panel.Show();
                 accueil.labelHeaderTitle.Text = "CONVERSATION DE - " + tableauUtilisateurs.CurrentRow.Cells[1].Value.ToString() + " ET " + tableauUtilisateurs.CurrentRow.Cells[2].Value.ToString();
             }
+        }
+
+        private void messages_signales_Click(object sender, EventArgs e)
+        {
+            menuMessagesSignales panel = new menuMessagesSignales();
+            panel.AutoScroll = true;
+            accueil.panelContenu.Controls.Clear();
+            accueil.panelContenu.Controls.Add(panel);
+            panel.Show();
+            accueil.labelHeaderTitle.Text = "MESSAGES SIGNALES";
         }
     }
 }
