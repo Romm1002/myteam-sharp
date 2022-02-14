@@ -8,13 +8,13 @@ using MySql.Data.MySqlClient;
 namespace myteam_admin.Modeles
 {
 
-    class Utilisateurs
+    public class Utilisateurs
     {
         private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
         private int idUtilisateur, idPoste;
         private string nom, prenom, email, poste;
-        private string photoProfil = "C:/wamp64/www/myteam";
+        private string photoProfil = "C:/xampp/htdocs/myteam";
         DateTime dateNaiss;
 
         public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, int idPoste, string photoProfil)
