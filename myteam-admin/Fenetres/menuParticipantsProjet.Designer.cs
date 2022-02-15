@@ -270,7 +270,7 @@ namespace myteam_admin.Fenetres
             this.labelUtilisateurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUtilisateurs.Location = new System.Drawing.Point(0, 0);
             this.labelUtilisateurs.Name = "labelUtilisateurs";
-            this.labelUtilisateurs.Size = new System.Drawing.Size(157, 32);
+            this.labelUtilisateurs.Size = new System.Drawing.Size(156, 32);
             this.labelUtilisateurs.TabIndex = 6;
             this.labelUtilisateurs.Text = "Utilisateurs";
             // 
@@ -281,7 +281,7 @@ namespace myteam_admin.Fenetres
             this.labelParticipants.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelParticipants.Location = new System.Drawing.Point(0, 0);
             this.labelParticipants.Name = "labelParticipants";
-            this.labelParticipants.Size = new System.Drawing.Size(165, 32);
+            this.labelParticipants.Size = new System.Drawing.Size(164, 32);
             this.labelParticipants.TabIndex = 8;
             this.labelParticipants.Text = "Participants";
             // 

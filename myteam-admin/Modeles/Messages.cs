@@ -12,7 +12,7 @@ namespace myteam_admin.Modeles
     {
         private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
-        private int idMessage, idAuteur, idReceveur, id;
+        private int idMessage, idAuteur, idReceveur;
         private DateTime date;
         private string message, nomAuteur, prenomAuteur, nomReceveur, prenomReceveur;
         private List<Utilisateurs> listUtilisateurs = new List<Utilisateurs>();

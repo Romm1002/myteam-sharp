@@ -158,7 +158,7 @@ namespace myteam_admin.Fenetres
             this.labelMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMessage.Location = new System.Drawing.Point(377, 17);
             this.labelMessage.Name = "labelMessage";
-            this.labelMessage.Size = new System.Drawing.Size(0, 24);
+            this.labelMessage.Size = new System.Drawing.Size(0, 22);
             this.labelMessage.TabIndex = 5;
             // 
             // buttonEnregistrer
@@ -230,7 +230,7 @@ namespace myteam_admin.Fenetres
             this.labelTaches.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTaches.Location = new System.Drawing.Point(10, 313);
             this.labelTaches.Name = "labelTaches";
-            this.labelTaches.Size = new System.Drawing.Size(108, 32);
+            this.labelTaches.Size = new System.Drawing.Size(107, 32);
             this.labelTaches.TabIndex = 11;
             this.labelTaches.Text = "Tâches";
             // 
@@ -240,7 +240,7 @@ namespace myteam_admin.Fenetres
             this.labelMessagerieProjet.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMessagerieProjet.Location = new System.Drawing.Point(18, 651);
             this.labelMessagerieProjet.Name = "labelMessagerieProjet";
-            this.labelMessagerieProjet.Size = new System.Drawing.Size(241, 32);
+            this.labelMessagerieProjet.Size = new System.Drawing.Size(240, 32);
             this.labelMessagerieProjet.TabIndex = 10;
             this.labelMessagerieProjet.Text = "Messagerie projet";
             // 
@@ -261,7 +261,7 @@ namespace myteam_admin.Fenetres
             this.labelParticipants.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelParticipants.Location = new System.Drawing.Point(706, 313);
             this.labelParticipants.Name = "labelParticipants";
-            this.labelParticipants.Size = new System.Drawing.Size(172, 32);
+            this.labelParticipants.Size = new System.Drawing.Size(171, 32);
             this.labelParticipants.TabIndex = 8;
             this.labelParticipants.Text = "Participants ";
             // 

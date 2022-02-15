@@ -27,9 +27,6 @@ namespace myteam_admin.Fenetres
             List<int> nbrEmployes = utilisateur.nbrEmployes();
             statUtilisateur1.Text = nbrEmployes[0].ToString();
 
-            //List<int> nbrAdministrateurs = utilisateur.nbrAdministrateurs(idPoste);
-            //statUtilisateur2.Text = nbrAdministrateurs[0].ToString();
-
             List<int> nesAujourdui = utilisateur.nesAujourdhui();
             statUtilisateur3.Text = nesAujourdui[0].ToString();
 
@@ -39,6 +36,14 @@ namespace myteam_admin.Fenetres
             foreach(Utilisateurs utilisateurs in app.getUtilisateurs())
             {
                 tableauUtilisateurs.Rows.Add(utilisateurs.getId(), utilisateurs.getNom(), utilisateurs.getPrenom(), utilisateurs.getDateNaiss().ToString("dd-MM-yyyy"), utilisateurs.getEmail(), utilisateurs.getPoste());
+            }
+
+            foreach(DataGridViewRow row in tableauUtilisateurs.Rows)
+            {
+                if(row.Cells[5].Value.ToString() == "Visiteur")
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
             }
         }
 
@@ -62,14 +67,11 @@ namespace myteam_admin.Fenetres
         // Affichage fiche utilisateur
         private void tableauUtilisateurs_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex > -1)
+            modifierUtilisateur fenetre = new modifierUtilisateur(this, Convert.ToInt32(tableauUtilisateurs.CurrentRow.Cells[0].Value.ToString()));
+
+            if (fenetre.ShowDialog() == DialogResult.OK)
             {
-                menuModifierUtilisateur panel = new menuModifierUtilisateur(Convert.ToInt32(tableauUtilisateurs.CurrentRow.Cells[0].Value.ToString()), accueil);
-                panel.AutoScroll = true;
-                accueil.panelContenu.Controls.Clear();
-                accueil.panelContenu.Controls.Add(panel);
-                panel.Show();
-                accueil.labelHeaderTitle.Text = "Fiche de " + tableauUtilisateurs.CurrentRow.Cells[2].Value.ToString() + " " + tableauUtilisateurs.CurrentRow.Cells[1].Value.ToString();
+                
             }
         }
 
