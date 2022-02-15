@@ -46,6 +46,11 @@ namespace myteam_admin.Fenetres
                     break;
             }
             select_poste.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            button_ban.Text = "BANNIR " + utilisateurs.getPrenom() + " " + utilisateurs.getNom();
+            button_avert.Text = "AVERTIR " + utilisateurs.getPrenom() + " " + utilisateurs.getNom();
+            label_avert.Text = "*Lorsque " + utilisateurs.getPrenom() + " " + utilisateurs.getNom() + " aura 3 avertissements, il sera automatiquement banni.";
+            label_nb_avert.Text = utilisateurs.getAvertissements() + " avertissements";
         }
 
         private void annuler_Click(object sender, EventArgs e)
@@ -73,6 +78,28 @@ namespace myteam_admin.Fenetres
             utilisateurs.modifications_informations(textBox_nom.Text, textBox_prenom.Text, textBox_email.Text, dateTimePicker_date_naissance.Value, utilisateurs.getIdPoste(), Convert.ToInt32(textBox1.Text));
 
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void button_reset_pdp_Click(object sender, EventArgs e)
+        {
+            Utilisateurs utilisateurs = new Utilisateurs(idUtilisateur);
+            utilisateurs.reset_pdp("../pages/images/avatar/photoProfil.jpg", Convert.ToInt32(textBox1.Text));
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void button_ban_Click(object sender, EventArgs e)
+        {
+            Utilisateurs utilisateurs = new Utilisateurs(idUtilisateur);
+            utilisateurs.ban(Convert.ToInt32(textBox1.Text));
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void button_avert_Click(object sender, EventArgs e)
+        {
+            Utilisateurs utilisateurs = new Utilisateurs(idUtilisateur);
+            //utilisateurs.avertir(Convert.ToInt32(textBox1.Text));
+
+            MessageBox.Show(utilisateurs.avertir(Convert.ToInt32(textBox1.Text)).ToString());
         }
     }
 }

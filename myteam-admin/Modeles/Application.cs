@@ -141,7 +141,7 @@ namespace myteam_admin.Modeles
         {
             MySqlCommand command = conn.CreateCommand();
             conn.Open();
-            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, idPoste, photoProfil, poste FROM utilisateurs LEFT JOIN postes USING(idposte) ORDER BY idposte;";
+            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, idPoste, photoProfil, poste, avertissements FROM utilisateurs LEFT JOIN postes USING(idposte) ORDER BY idposte;";
             MySqlDataReader reader = command.ExecuteReader();
 
             List<Utilisateurs> listeUtilisateurs = new List<Utilisateurs>();
@@ -149,7 +149,7 @@ namespace myteam_admin.Modeles
             while (reader.Read())
             {
                 Utilisateurs utilisateur = new Utilisateurs();
-                utilisateur.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2));
+                utilisateur.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetInt32(8));
                 utilisateur.setPoste(reader.GetString(7));
                 listeUtilisateurs.Add(utilisateur);
             }

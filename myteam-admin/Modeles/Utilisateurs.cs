@@ -13,7 +13,7 @@ namespace myteam_admin.Modeles
     {
         private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
-        private int idUtilisateur, idPoste;
+        private int idUtilisateur, idPoste, avertissements;
 
         private string nom, prenom, email, poste, mdp;
         private string photoProfil = "C:/wamp64/www/myteam";
@@ -27,7 +27,7 @@ namespace myteam_admin.Modeles
                 conn.Open();
                 MySqlCommand command = conn.CreateCommand();
                 command.Parameters.AddWithValue("@id", id);
-                command.CommandText = "SELECT u.idUtilisateur, u.nom, u.prenom, u.dateNaiss, u.email, p.poste FROM utilisateurs AS u LEFT JOIN postes AS p USING(idposte) WHERE idUtilisateur = @id";
+                command.CommandText = "SELECT u.idUtilisateur, u.nom, u.prenom, u.dateNaiss, u.email, u.avertissements, p.poste FROM utilisateurs AS u LEFT JOIN postes AS p USING(idposte) WHERE idUtilisateur = @id";
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -36,13 +36,14 @@ namespace myteam_admin.Modeles
                     this.prenom = reader.GetString(2);
                     this.dateNaiss = Convert.ToDateTime(reader.GetValue(3));
                     this.email = reader.GetString(4);
-                    this.poste = reader.GetString(5);
+                    this.avertissements = reader.GetInt32(5);
+                    this.poste = reader.GetString(6);
                 }
                 conn.Close();
             }
         }
 
-        public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, int idPoste, string photoProfil)
+        public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, int idPoste, string photoProfil, int avertissements)
         {
             this.idUtilisateur = idUtilisateur;
             this.nom = nom;
@@ -51,6 +52,7 @@ namespace myteam_admin.Modeles
             this.email = email;
             this.idPoste = idPoste;
             this.photoProfil += photoProfil;
+            this.avertissements = avertissements;
         }
 
         //SETTERS
@@ -64,6 +66,10 @@ namespace myteam_admin.Modeles
         }
 
         //GETTERS
+        public int getAvertissements()
+        {
+            return avertissements;
+        }
         public int getId()
         {
             return idUtilisateur;
@@ -158,6 +164,50 @@ namespace myteam_admin.Modeles
             command.CommandText = "UPDATE utilisateurs SET nom = @nom, prenom = @prenom, email = @email, dateNaiss = @dateNaissance, idposte = @idPoste WHERE idUtilisateur = @id";
 
             command.ExecuteNonQuery();
+        }
+
+        // Reset de la photo de profil
+        public void reset_pdp(string pdp, int id)
+        {
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+
+            command.Parameters.AddWithValue("@pdp", pdp);
+            command.Parameters.AddWithValue("@id", id);
+            command.CommandText = "UPDATE utilisateurs SET photoProfil = @pdp WHERE idUtilisateur = @id";
+
+            command.ExecuteNonQuery();
+        }
+
+        // Bannir un utilisateur
+        public void ban(int id)
+        {
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+
+            command.Parameters.AddWithValue("@id", id);
+            command.CommandText = "CALL bannir_utilisateur(@id)";
+
+            command.ExecuteNonQuery();
+        }
+
+        // Avertir un utilisateur
+        public Object avertir(int id)
+        {
+            int avertissements = 0;
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+
+            command.Parameters.AddWithValue("@id", id);
+            command.CommandText = "SELECT avertissements FROM utilisateurs WHERE idUtilisateur = @id";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                avertissements = reader.GetInt32(0);
+            }
+            
+            return avertissements;
         }
 
         // Méthode pour remplir les stats
