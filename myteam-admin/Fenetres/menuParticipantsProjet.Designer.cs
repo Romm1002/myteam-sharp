@@ -35,31 +35,31 @@ namespace myteam_admin.Fenetres
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewParticipants = new System.Windows.Forms.DataGridView();
-            this.posteParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prenomParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pdpParticipant = new System.Windows.Forms.DataGridViewImageColumn();
             this.idParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pdpParticipant = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nomParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prenomParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posteParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewUtilisateurs = new System.Windows.Forms.DataGridView();
-            this.posteUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prenomUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pdpUtilisateur = new System.Windows.Forms.DataGridViewImageColumn();
             this.idUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pdpUtilisateur = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nomUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prenomUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posteUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonValider = new System.Windows.Forms.Button();
             this.labelUtilisateurs = new System.Windows.Forms.Label();
             this.labelParticipants = new System.Windows.Forms.Label();
             this.buttonAnnuler = new System.Windows.Forms.Button();
             this.panelBody = new System.Windows.Forms.Panel();
-            this.panelFooter = new System.Windows.Forms.Panel();
-            this.panelParticipants = new System.Windows.Forms.Panel();
             this.panelUtilisateurs = new System.Windows.Forms.Panel();
+            this.panelParticipants = new System.Windows.Forms.Panel();
+            this.panelFooter = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticipants)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtilisateurs)).BeginInit();
             this.panelBody.SuspendLayout();
-            this.panelFooter.SuspendLayout();
-            this.panelParticipants.SuspendLayout();
             this.panelUtilisateurs.SuspendLayout();
+            this.panelParticipants.SuspendLayout();
+            this.panelFooter.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewImageColumn1
@@ -121,29 +121,14 @@ namespace myteam_admin.Fenetres
             this.dataGridViewParticipants.TabIndex = 3;
             this.dataGridViewParticipants.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewParticipants_CellMouseDoubleClick);
             // 
-            // posteParticipant
+            // idParticipant
             // 
-            this.posteParticipant.HeaderText = "Poste";
-            this.posteParticipant.MinimumWidth = 6;
-            this.posteParticipant.Name = "posteParticipant";
-            this.posteParticipant.ReadOnly = true;
-            this.posteParticipant.Width = 125;
-            // 
-            // prenomParticipant
-            // 
-            this.prenomParticipant.HeaderText = "Prénom";
-            this.prenomParticipant.MinimumWidth = 6;
-            this.prenomParticipant.Name = "prenomParticipant";
-            this.prenomParticipant.ReadOnly = true;
-            this.prenomParticipant.Width = 125;
-            // 
-            // nomParticipant
-            // 
-            this.nomParticipant.HeaderText = "Nom";
-            this.nomParticipant.MinimumWidth = 6;
-            this.nomParticipant.Name = "nomParticipant";
-            this.nomParticipant.ReadOnly = true;
-            this.nomParticipant.Width = 125;
+            this.idParticipant.HeaderText = "idParticipant";
+            this.idParticipant.MinimumWidth = 6;
+            this.idParticipant.Name = "idParticipant";
+            this.idParticipant.ReadOnly = true;
+            this.idParticipant.Visible = false;
+            this.idParticipant.Width = 125;
             // 
             // pdpParticipant
             // 
@@ -155,14 +140,29 @@ namespace myteam_admin.Fenetres
             this.pdpParticipant.ReadOnly = true;
             this.pdpParticipant.Width = 125;
             // 
-            // idParticipant
+            // nomParticipant
             // 
-            this.idParticipant.HeaderText = "idParticipant";
-            this.idParticipant.MinimumWidth = 6;
-            this.idParticipant.Name = "idParticipant";
-            this.idParticipant.ReadOnly = true;
-            this.idParticipant.Visible = false;
-            this.idParticipant.Width = 125;
+            this.nomParticipant.HeaderText = "Nom";
+            this.nomParticipant.MinimumWidth = 6;
+            this.nomParticipant.Name = "nomParticipant";
+            this.nomParticipant.ReadOnly = true;
+            this.nomParticipant.Width = 125;
+            // 
+            // prenomParticipant
+            // 
+            this.prenomParticipant.HeaderText = "Prénom";
+            this.prenomParticipant.MinimumWidth = 6;
+            this.prenomParticipant.Name = "prenomParticipant";
+            this.prenomParticipant.ReadOnly = true;
+            this.prenomParticipant.Width = 125;
+            // 
+            // posteParticipant
+            // 
+            this.posteParticipant.HeaderText = "Poste";
+            this.posteParticipant.MinimumWidth = 6;
+            this.posteParticipant.Name = "posteParticipant";
+            this.posteParticipant.ReadOnly = true;
+            this.posteParticipant.Width = 125;
             // 
             // dataGridViewUtilisateurs
             // 
@@ -205,29 +205,14 @@ namespace myteam_admin.Fenetres
             this.dataGridViewUtilisateurs.TabIndex = 4;
             this.dataGridViewUtilisateurs.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewUtilisateur_CellMouseDoubleClick);
             // 
-            // posteUtilisateur
+            // idUtilisateur
             // 
-            this.posteUtilisateur.HeaderText = "Poste";
-            this.posteUtilisateur.MinimumWidth = 6;
-            this.posteUtilisateur.Name = "posteUtilisateur";
-            this.posteUtilisateur.ReadOnly = true;
-            this.posteUtilisateur.Width = 125;
-            // 
-            // prenomUtilisateur
-            // 
-            this.prenomUtilisateur.HeaderText = "Prénom";
-            this.prenomUtilisateur.MinimumWidth = 6;
-            this.prenomUtilisateur.Name = "prenomUtilisateur";
-            this.prenomUtilisateur.ReadOnly = true;
-            this.prenomUtilisateur.Width = 125;
-            // 
-            // nomUtilisateur
-            // 
-            this.nomUtilisateur.HeaderText = "Nom";
-            this.nomUtilisateur.MinimumWidth = 6;
-            this.nomUtilisateur.Name = "nomUtilisateur";
-            this.nomUtilisateur.ReadOnly = true;
-            this.nomUtilisateur.Width = 125;
+            this.idUtilisateur.HeaderText = "idUtilisateur";
+            this.idUtilisateur.MinimumWidth = 6;
+            this.idUtilisateur.Name = "idUtilisateur";
+            this.idUtilisateur.ReadOnly = true;
+            this.idUtilisateur.Visible = false;
+            this.idUtilisateur.Width = 125;
             // 
             // pdpUtilisateur
             // 
@@ -239,14 +224,29 @@ namespace myteam_admin.Fenetres
             this.pdpUtilisateur.ReadOnly = true;
             this.pdpUtilisateur.Width = 125;
             // 
-            // idUtilisateur
+            // nomUtilisateur
             // 
-            this.idUtilisateur.HeaderText = "idUtilisateur";
-            this.idUtilisateur.MinimumWidth = 6;
-            this.idUtilisateur.Name = "idUtilisateur";
-            this.idUtilisateur.ReadOnly = true;
-            this.idUtilisateur.Visible = false;
-            this.idUtilisateur.Width = 125;
+            this.nomUtilisateur.HeaderText = "Nom";
+            this.nomUtilisateur.MinimumWidth = 6;
+            this.nomUtilisateur.Name = "nomUtilisateur";
+            this.nomUtilisateur.ReadOnly = true;
+            this.nomUtilisateur.Width = 125;
+            // 
+            // prenomUtilisateur
+            // 
+            this.prenomUtilisateur.HeaderText = "Prénom";
+            this.prenomUtilisateur.MinimumWidth = 6;
+            this.prenomUtilisateur.Name = "prenomUtilisateur";
+            this.prenomUtilisateur.ReadOnly = true;
+            this.prenomUtilisateur.Width = 125;
+            // 
+            // posteUtilisateur
+            // 
+            this.posteUtilisateur.HeaderText = "Poste";
+            this.posteUtilisateur.MinimumWidth = 6;
+            this.posteUtilisateur.Name = "posteUtilisateur";
+            this.posteUtilisateur.ReadOnly = true;
+            this.posteUtilisateur.Width = 125;
             // 
             // buttonValider
             // 
@@ -308,15 +308,15 @@ namespace myteam_admin.Fenetres
             this.panelBody.Size = new System.Drawing.Size(1073, 528);
             this.panelBody.TabIndex = 6;
             // 
-            // panelFooter
+            // panelUtilisateurs
             // 
-            this.panelFooter.Controls.Add(this.buttonValider);
-            this.panelFooter.Controls.Add(this.buttonAnnuler);
-            this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFooter.Location = new System.Drawing.Point(0, 459);
-            this.panelFooter.Name = "panelFooter";
-            this.panelFooter.Size = new System.Drawing.Size(1073, 69);
-            this.panelFooter.TabIndex = 11;
+            this.panelUtilisateurs.Controls.Add(this.dataGridViewUtilisateurs);
+            this.panelUtilisateurs.Controls.Add(this.labelUtilisateurs);
+            this.panelUtilisateurs.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelUtilisateurs.Location = new System.Drawing.Point(0, 0);
+            this.panelUtilisateurs.Name = "panelUtilisateurs";
+            this.panelUtilisateurs.Size = new System.Drawing.Size(525, 459);
+            this.panelUtilisateurs.TabIndex = 13;
             // 
             // panelParticipants
             // 
@@ -328,15 +328,15 @@ namespace myteam_admin.Fenetres
             this.panelParticipants.Size = new System.Drawing.Size(526, 459);
             this.panelParticipants.TabIndex = 12;
             // 
-            // panelUtilisateurs
+            // panelFooter
             // 
-            this.panelUtilisateurs.Controls.Add(this.dataGridViewUtilisateurs);
-            this.panelUtilisateurs.Controls.Add(this.labelUtilisateurs);
-            this.panelUtilisateurs.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelUtilisateurs.Location = new System.Drawing.Point(0, 0);
-            this.panelUtilisateurs.Name = "panelUtilisateurs";
-            this.panelUtilisateurs.Size = new System.Drawing.Size(525, 459);
-            this.panelUtilisateurs.TabIndex = 13;
+            this.panelFooter.Controls.Add(this.buttonValider);
+            this.panelFooter.Controls.Add(this.buttonAnnuler);
+            this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelFooter.Location = new System.Drawing.Point(0, 459);
+            this.panelFooter.Name = "panelFooter";
+            this.panelFooter.Size = new System.Drawing.Size(1073, 69);
+            this.panelFooter.TabIndex = 11;
             // 
             // menuParticipantsProjet
             // 
@@ -351,11 +351,11 @@ namespace myteam_admin.Fenetres
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticipants)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtilisateurs)).EndInit();
             this.panelBody.ResumeLayout(false);
-            this.panelFooter.ResumeLayout(false);
-            this.panelParticipants.ResumeLayout(false);
-            this.panelParticipants.PerformLayout();
             this.panelUtilisateurs.ResumeLayout(false);
             this.panelUtilisateurs.PerformLayout();
+            this.panelParticipants.ResumeLayout(false);
+            this.panelParticipants.PerformLayout();
+            this.panelFooter.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
