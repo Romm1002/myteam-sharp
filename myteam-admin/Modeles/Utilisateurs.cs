@@ -31,7 +31,7 @@ namespace myteam_admin.Modeles
                     this.idUtilisateur = reader.GetInt32(0);
                     this.nom = reader.GetString(1);
                     this.prenom = reader.GetString(2);
-                    this.dateNaiss = Convert.ToDateTime(reader.GetValue(2));
+                    this.dateNaiss = Convert.ToDateTime(reader.GetValue(3));
                     this.email = reader.GetString(4);
                     this.idPoste = reader.GetInt32(5);
                 }

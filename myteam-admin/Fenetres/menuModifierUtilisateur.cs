@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using myteam_admin.Modeles;
 
 namespace myteam_admin.Fenetres
 {
@@ -16,9 +17,15 @@ namespace myteam_admin.Fenetres
         private int idUtilisateur;
         public menuModifierUtilisateur(int idUtilisateur, Accueil accueil)
         {
-            InitializeComponent();
             this.accueil = accueil;
             this.idUtilisateur = idUtilisateur;
+            Utilisateurs utilisateurs = new Utilisateurs(idUtilisateur);
+            Modeles.Application app = new Modeles.Application();
+
+            InitializeComponent();
+
+            nom.Text = utilisateurs.getNom();
+
         }
     }
 }

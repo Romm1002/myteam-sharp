@@ -28,18 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.nom = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
+            // 
+            // nom
+            // 
+            this.nom.Location = new System.Drawing.Point(214, 149);
+            this.nom.Name = "nom";
+            this.nom.Size = new System.Drawing.Size(100, 22);
+            this.nom.TabIndex = 0;
             // 
             // menuModifierUtilisateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.nom);
             this.Name = "menuModifierUtilisateur";
             this.Size = new System.Drawing.Size(1015, 540);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox nom;
     }
 }
