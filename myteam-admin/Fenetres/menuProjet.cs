@@ -54,6 +54,8 @@ namespace myteam_admin.Fenetres
             dateTimePickerDebut.Value = projet.getDebut();
             dateTimePickerFin.Value = projet.getFin();
 
+            //initialiser checkbox archive
+            checkBoxArchive.Checked = projet.getArchive();
 
             // Initialiser les progress bar
             progressBars();
@@ -266,6 +268,21 @@ namespace myteam_admin.Fenetres
                     dataGridViewParticipants.Rows.Add(participant.getId(), pdp, participant.getNom(), participant.getPrenom(), participant.getPoste());
                 }
                 projet.setListParticipant(fenetre.participants);
+            }
+        }
+
+        private void checkBoxArchive_CheckedChanged(object sender, EventArgs e)
+        {
+            projet.setArchive(checkBoxArchive.Checked);
+        }
+
+        private void buttonSupprimer_Click(object sender, EventArgs e)
+        {
+            dialogSupprimer fenetre = new dialogSupprimer(projet.getNom());
+
+            if (fenetre.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("test");
             }
         }
     }

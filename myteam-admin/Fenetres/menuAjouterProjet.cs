@@ -115,7 +115,6 @@ namespace myteam_admin.Fenetres
                 accueil.panelContenu.Controls.Add(panel);
                 panel.Show();
                 accueil.labelHeaderTitle.Text = "PROJET - " + projet.getNom();
-                //test
             }
         }
 

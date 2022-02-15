@@ -129,38 +129,6 @@ namespace myteam_admin.Modeles
             conn.Close();
         }
 
-        public void ajouterProjet(string nomProjet, string descriptionProjet, DateTime dateDebut, DateTime dateFin, List<int> participants)
-        {
-            this.nom = nomProjet;
-            this.description = descriptionProjet;
-            this.debut = dateDebut;
-            this.fin = dateFin;
-            Random rnd = new Random();
-            this.image = "../pages/images/projets/projet" + rnd.Next(1, 8) + ".jpg";
-
-            conn.Open();
-            MySqlCommand command = conn.CreateCommand();
-            command.Parameters.AddWithValue("@nom", nom);
-            command.Parameters.AddWithValue("@description", description);
-            command.Parameters.AddWithValue("@debut", debut.ToString("yyyy-MM-dd"));
-            command.Parameters.AddWithValue("@fin", fin.ToString("yyyy-MM-dd"));
-            command.Parameters.AddWithValue("@image", image);
-            command.CommandText = "INSERT INTO projets (nomProjet, descriptionProjet, dateDebut ,dateFin, image) VALUES (@nom, @description, @debut, @fin, @image);";
-            command.ExecuteNonQuery();
-            conn.Close();
-
-            conn.Open();
-            command.CommandText = "SELECT idProjet FROM `projets` ORDER BY idProjet DESC LIMIT 1;";
-            MySqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                this.id = reader.GetInt32(0);
-            }
-            conn.Close();
-
-        }
-
-
         public int getId()
         {
             return id;
@@ -231,6 +199,10 @@ namespace myteam_admin.Modeles
         {
             this.listUtilisateurs = new List<Utilisateurs>(participants);
         }
+        public void setArchive(bool archive)
+        {
+            this.archive = archive;
+        }
         public void ajouterTache(string libelle, bool terminee)
         {
             Taches tache = new Taches();
@@ -250,6 +222,48 @@ namespace myteam_admin.Modeles
             listUtilisateurs.Remove(utilisateur);
         }
 
+
+        public void ajouterProjet(string nomProjet, string descriptionProjet, DateTime dateDebut, DateTime dateFin, List<int> participants)
+        {
+            this.nom = nomProjet;
+            this.description = descriptionProjet;
+            this.debut = dateDebut;
+            this.fin = dateFin;
+            Random rnd = new Random();
+            this.image = "../pages/images/projets/projet" + rnd.Next(1, 8) + ".jpg";
+
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@nom", nom);
+            command.Parameters.AddWithValue("@description", description);
+            command.Parameters.AddWithValue("@debut", debut.ToString("yyyy-MM-dd"));
+            command.Parameters.AddWithValue("@fin", fin.ToString("yyyy-MM-dd"));
+            command.Parameters.AddWithValue("@image", image);
+            command.CommandText = "INSERT INTO projets (nomProjet, descriptionProjet, dateDebut ,dateFin, image) VALUES (@nom, @description, @debut, @fin, @image);";
+            command.ExecuteNonQuery();
+            conn.Close();
+
+            conn.Open();
+            command.CommandText = "SELECT idProjet FROM `projets` ORDER BY idProjet DESC LIMIT 1;";
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                id = reader.GetInt32(0);
+            }
+            conn.Close();
+            command.Parameters.AddWithValue("@idProjet", id);
+            command.Parameters.Add("@idParticipant", MySqlDbType.Int32);
+
+            foreach (int idParticipant in participants)
+            {
+                conn.Open();
+                command.Parameters["@idParticipant"].Value = idParticipant;
+                command.CommandText = "INSERT INTO participationprojet(idProjet, idUtilisateur) VALUES(@idProjet, @idParticipant);";
+                command.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
+
         public bool updateProjet()
         {
             // Update projet
@@ -260,7 +274,8 @@ namespace myteam_admin.Modeles
             command.Parameters.AddWithValue("@description", description);
             command.Parameters.AddWithValue("@debut", debut);
             command.Parameters.AddWithValue("@fin", fin);
-            command.CommandText = "UPDATE projets SET nomProjet = @nom, descriptionProjet = @description, dateDebut = @debut, dateFin = @fin WHERE idProjet = @idProjet;";
+            command.Parameters.AddWithValue("@archive", archive);
+            command.CommandText = "UPDATE projets SET nomProjet = @nom, descriptionProjet = @description, dateDebut = @debut, dateFin = @fin, archive = @archive WHERE idProjet = @idProjet;";
             if (!(command.ExecuteNonQuery() > 0))
             {
                 conn.Close();

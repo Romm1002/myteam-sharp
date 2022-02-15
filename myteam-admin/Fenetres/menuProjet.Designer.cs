@@ -44,6 +44,10 @@ namespace myteam_admin.Fenetres
             this.buttonEnregistrer = new System.Windows.Forms.Button();
             this.buttonRetour = new System.Windows.Forms.Button();
             this.panelBody = new System.Windows.Forms.Panel();
+            this.buttonSupprimer = new System.Windows.Forms.Button();
+            this.panelArchive = new System.Windows.Forms.Panel();
+            this.checkBoxArchive = new System.Windows.Forms.CheckBox();
+            this.labelArchive = new System.Windows.Forms.Label();
             this.checkBoxCacherTerminee = new System.Windows.Forms.CheckBox();
             this.labelTaches = new System.Windows.Forms.Label();
             this.labelMessagerieProjet = new System.Windows.Forms.Label();
@@ -70,6 +74,7 @@ namespace myteam_admin.Fenetres
             this.panelTextBoxDescription = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
             this.panelBody.SuspendLayout();
+            this.panelArchive.SuspendLayout();
             this.panelTextBoxNom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTaches)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChat)).BeginInit();
@@ -192,6 +197,8 @@ namespace myteam_admin.Fenetres
             // 
             // panelBody
             // 
+            this.panelBody.Controls.Add(this.buttonSupprimer);
+            this.panelBody.Controls.Add(this.panelArchive);
             this.panelBody.Controls.Add(this.checkBoxCacherTerminee);
             this.panelBody.Controls.Add(this.labelTaches);
             this.panelBody.Controls.Add(this.labelMessage);
@@ -207,15 +214,64 @@ namespace myteam_admin.Fenetres
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBody.Location = new System.Drawing.Point(150, 205);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(1240, 1136);
+            this.panelBody.Size = new System.Drawing.Size(1240, 1178);
             this.panelBody.TabIndex = 1;
+            // 
+            // buttonSupprimer
+            // 
+            this.buttonSupprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.buttonSupprimer.FlatAppearance.BorderSize = 0;
+            this.buttonSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.buttonSupprimer.ForeColor = System.Drawing.Color.White;
+            this.buttonSupprimer.Location = new System.Drawing.Point(1085, 10);
+            this.buttonSupprimer.Name = "buttonSupprimer";
+            this.buttonSupprimer.Size = new System.Drawing.Size(155, 38);
+            this.buttonSupprimer.TabIndex = 17;
+            this.buttonSupprimer.Text = "Supprimer";
+            this.buttonSupprimer.UseVisualStyleBackColor = false;
+            this.buttonSupprimer.Click += new System.EventHandler(this.buttonSupprimer_Click);
+            // 
+            // panelArchive
+            // 
+            this.panelArchive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelArchive.Controls.Add(this.checkBoxArchive);
+            this.panelArchive.Controls.Add(this.labelArchive);
+            this.panelArchive.Location = new System.Drawing.Point(848, 85);
+            this.panelArchive.Name = "panelArchive";
+            this.panelArchive.Size = new System.Drawing.Size(392, 202);
+            this.panelArchive.TabIndex = 16;
+            // 
+            // checkBoxArchive
+            // 
+            this.checkBoxArchive.AutoSize = true;
+            this.checkBoxArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxArchive.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxArchive.Location = new System.Drawing.Point(19, 10);
+            this.checkBoxArchive.Name = "checkBoxArchive";
+            this.checkBoxArchive.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBoxArchive.Size = new System.Drawing.Size(246, 36);
+            this.checkBoxArchive.TabIndex = 14;
+            this.checkBoxArchive.Text = "Archiver le projet";
+            this.checkBoxArchive.UseVisualStyleBackColor = true;
+            this.checkBoxArchive.CheckedChanged += new System.EventHandler(this.checkBoxArchive_CheckedChanged);
+            // 
+            // labelArchive
+            // 
+            this.labelArchive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelArchive.Location = new System.Drawing.Point(15, 84);
+            this.labelArchive.Name = "labelArchive";
+            this.labelArchive.Size = new System.Drawing.Size(347, 97);
+            this.labelArchive.TabIndex = 15;
+            this.labelArchive.Text = "Un projet archivé ne sera plus visible par les utilisateurs via l\'application web" +
+    ".";
             // 
             // checkBoxCacherTerminee
             // 
             this.checkBoxCacherTerminee.AutoSize = true;
             this.checkBoxCacherTerminee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBoxCacherTerminee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxCacherTerminee.Location = new System.Drawing.Point(491, 318);
+            this.checkBoxCacherTerminee.Location = new System.Drawing.Point(491, 377);
             this.checkBoxCacherTerminee.Name = "checkBoxCacherTerminee";
             this.checkBoxCacherTerminee.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBoxCacherTerminee.Size = new System.Drawing.Size(160, 24);
@@ -228,7 +284,7 @@ namespace myteam_admin.Fenetres
             // 
             this.labelTaches.AutoSize = true;
             this.labelTaches.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTaches.Location = new System.Drawing.Point(10, 313);
+            this.labelTaches.Location = new System.Drawing.Point(10, 372);
             this.labelTaches.Name = "labelTaches";
             this.labelTaches.Size = new System.Drawing.Size(108, 32);
             this.labelTaches.TabIndex = 11;
@@ -238,7 +294,7 @@ namespace myteam_admin.Fenetres
             // 
             this.labelMessagerieProjet.AutoSize = true;
             this.labelMessagerieProjet.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMessagerieProjet.Location = new System.Drawing.Point(18, 651);
+            this.labelMessagerieProjet.Location = new System.Drawing.Point(18, 710);
             this.labelMessagerieProjet.Name = "labelMessagerieProjet";
             this.labelMessagerieProjet.Size = new System.Drawing.Size(241, 32);
             this.labelMessagerieProjet.TabIndex = 10;
@@ -247,7 +303,7 @@ namespace myteam_admin.Fenetres
             // buttonManageParticipants
             // 
             this.buttonManageParticipants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonManageParticipants.Location = new System.Drawing.Point(1046, 310);
+            this.buttonManageParticipants.Location = new System.Drawing.Point(1046, 369);
             this.buttonManageParticipants.Name = "buttonManageParticipants";
             this.buttonManageParticipants.Size = new System.Drawing.Size(194, 32);
             this.buttonManageParticipants.TabIndex = 9;
@@ -259,7 +315,7 @@ namespace myteam_admin.Fenetres
             // 
             this.labelParticipants.AutoSize = true;
             this.labelParticipants.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelParticipants.Location = new System.Drawing.Point(706, 313);
+            this.labelParticipants.Location = new System.Drawing.Point(706, 372);
             this.labelParticipants.Name = "labelParticipants";
             this.labelParticipants.Size = new System.Drawing.Size(172, 32);
             this.labelParticipants.TabIndex = 8;
@@ -310,7 +366,7 @@ namespace myteam_admin.Fenetres
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTaches.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTaches.Location = new System.Drawing.Point(16, 355);
+            this.dataGridViewTaches.Location = new System.Drawing.Point(16, 414);
             this.dataGridViewTaches.Name = "dataGridViewTaches";
             this.dataGridViewTaches.RowHeadersVisible = false;
             this.dataGridViewTaches.RowHeadersWidth = 51;
@@ -370,7 +426,7 @@ namespace myteam_admin.Fenetres
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewChat.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewChat.Location = new System.Drawing.Point(19, 697);
+            this.dataGridViewChat.Location = new System.Drawing.Point(19, 756);
             this.dataGridViewChat.Name = "dataGridViewChat";
             this.dataGridViewChat.ReadOnly = true;
             this.dataGridViewChat.RowHeadersVisible = false;
@@ -440,7 +496,7 @@ namespace myteam_admin.Fenetres
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewParticipants.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewParticipants.Location = new System.Drawing.Point(712, 355);
+            this.dataGridViewParticipants.Location = new System.Drawing.Point(712, 414);
             this.dataGridViewParticipants.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.dataGridViewParticipants.Name = "dataGridViewParticipants";
             this.dataGridViewParticipants.ReadOnly = true;
@@ -532,11 +588,13 @@ namespace myteam_admin.Fenetres
             this.Controls.Add(this.panelHeader);
             this.Name = "menuProjet";
             this.Padding = new System.Windows.Forms.Padding(150, 0, 0, 0);
-            this.Size = new System.Drawing.Size(1390, 1341);
+            this.Size = new System.Drawing.Size(1390, 1383);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panelBody.ResumeLayout(false);
             this.panelBody.PerformLayout();
+            this.panelArchive.ResumeLayout(false);
+            this.panelArchive.PerformLayout();
             this.panelTextBoxNom.ResumeLayout(false);
             this.panelTextBoxNom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTaches)).EndInit();
@@ -585,5 +643,9 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.DateTimePicker dateTimePickerDebut;
         private System.Windows.Forms.CheckBox checkBoxCacherTerminee;
         private System.Windows.Forms.Label labelTaches;
+        private System.Windows.Forms.Label labelArchive;
+        private System.Windows.Forms.CheckBox checkBoxArchive;
+        private System.Windows.Forms.Panel panelArchive;
+        private System.Windows.Forms.Button buttonSupprimer;
     }
 }
