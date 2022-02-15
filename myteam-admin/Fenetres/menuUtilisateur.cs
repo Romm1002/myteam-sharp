@@ -42,6 +42,37 @@ namespace myteam_admin.Fenetres
             }
         }
 
+        // Style du DGV
+        private void tableauUtilisateurs_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in tableauUtilisateurs.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    cell.Style.BackColor = Color.White;
+                }
+            }
+            foreach (DataGridViewCell cell in tableauUtilisateurs.CurrentRow.Cells)
+            {
+                cell.Style.BackColor = SystemColors.Control;
+
+            }
+        }
+
+        // Affichage fiche utilisateur
+        private void tableauUtilisateurs_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                menuModifierUtilisateur panel = new menuModifierUtilisateur(Convert.ToInt32(tableauUtilisateurs.CurrentRow.Cells[0].Value.ToString()), accueil);
+                panel.AutoScroll = true;
+                accueil.panelContenu.Controls.Clear();
+                accueil.panelContenu.Controls.Add(panel);
+                panel.Show();
+                accueil.labelHeaderTitle.Text = "Fiche de " + tableauUtilisateurs.CurrentRow.Cells[2].Value.ToString() + " " + tableauUtilisateurs.CurrentRow.Cells[1].Value.ToString();
+            }
+        }
+
         // Style du bouton "Inscrire un salarié"
         private void button_ajout_salarie_DragOver(object sender, DragEventArgs e)
         {

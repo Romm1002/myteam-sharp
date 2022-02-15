@@ -29,26 +29,43 @@ namespace myteam_admin.Fenetres
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.statUtilisateur4 = new System.Windows.Forms.Label();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.statUtilisateur3 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.statUtilisateur2 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.cardMessageEchanges = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.statUtilisateur1 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button_ajout_salarie = new System.Windows.Forms.Button();
             this.tableauUtilisateurs = new System.Windows.Forms.DataGridView();
@@ -58,46 +75,29 @@ namespace myteam_admin.Fenetres
             this.date_naissance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poste_occupe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.action = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.cardMessageEchanges.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableauUtilisateurs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.cardMessageEchanges.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableauUtilisateurs)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -158,6 +158,52 @@ namespace myteam_admin.Fenetres
             this.statUtilisateur4.TabIndex = 2;
             this.statUtilisateur4.Text = "Romain";
             // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox13.Image = global::myteam_admin.Properties.Resources.check_mark;
+            this.pictureBox13.Location = new System.Drawing.Point(16, 134);
+            this.pictureBox13.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(15, 19);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox13.TabIndex = 5;
+            this.pictureBox13.TabStop = false;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackColor = System.Drawing.Color.Orange;
+            this.pictureBox14.Location = new System.Drawing.Point(40, 53);
+            this.pictureBox14.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(53, 11);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox14.TabIndex = 2;
+            this.pictureBox14.TabStop = false;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.BackColor = System.Drawing.Color.Orange;
+            this.pictureBox15.Location = new System.Drawing.Point(40, 0);
+            this.pictureBox15.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(53, 28);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox15.TabIndex = 1;
+            this.pictureBox15.TabStop = false;
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.BackColor = System.Drawing.Color.Orange;
+            this.pictureBox16.Image = global::myteam_admin.Properties.Resources.send;
+            this.pictureBox16.Location = new System.Drawing.Point(40, 27);
+            this.pictureBox16.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(53, 27);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox16.TabIndex = 0;
+            this.pictureBox16.TabStop = false;
+            // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -204,6 +250,52 @@ namespace myteam_admin.Fenetres
             this.statUtilisateur3.Size = new System.Drawing.Size(98, 69);
             this.statUtilisateur3.TabIndex = 2;
             this.statUtilisateur3.Text = "23";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox9.Image = global::myteam_admin.Properties.Resources.check_mark;
+            this.pictureBox9.Location = new System.Drawing.Point(16, 134);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(15, 19);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 5;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.pictureBox10.Location = new System.Drawing.Point(40, 53);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(53, 11);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 2;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.pictureBox11.Location = new System.Drawing.Point(40, 0);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(53, 28);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox11.TabIndex = 1;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.pictureBox12.Image = global::myteam_admin.Properties.Resources.send;
+            this.pictureBox12.Location = new System.Drawing.Point(40, 27);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(53, 27);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 0;
+            this.pictureBox12.TabStop = false;
             // 
             // panel2
             // 
@@ -252,6 +344,52 @@ namespace myteam_admin.Fenetres
             this.statUtilisateur2.TabIndex = 2;
             this.statUtilisateur2.Text = "23";
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Image = global::myteam_admin.Properties.Resources.check_mark;
+            this.pictureBox5.Location = new System.Drawing.Point(16, 134);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(15, 19);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 5;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Gold;
+            this.pictureBox6.Location = new System.Drawing.Point(40, 53);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(53, 11);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 2;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Gold;
+            this.pictureBox7.Location = new System.Drawing.Point(40, 0);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(53, 28);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 1;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Gold;
+            this.pictureBox8.Image = global::myteam_admin.Properties.Resources.send;
+            this.pictureBox8.Location = new System.Drawing.Point(40, 27);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(53, 27);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 0;
+            this.pictureBox8.TabStop = false;
+            // 
             // cardMessageEchanges
             // 
             this.cardMessageEchanges.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -299,278 +437,6 @@ namespace myteam_admin.Fenetres
             this.statUtilisateur1.TabIndex = 2;
             this.statUtilisateur1.Text = "23";
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.button_ajout_salarie);
-            this.panel5.Controls.Add(this.tableauUtilisateurs);
-            this.panel5.Location = new System.Drawing.Point(3, 209);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1659, 707);
-            this.panel5.TabIndex = 1;
-            // 
-            // button_ajout_salarie
-            // 
-            this.button_ajout_salarie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(100)))), ((int)(((byte)(169)))));
-            this.button_ajout_salarie.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_ajout_salarie.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(100)))), ((int)(((byte)(169)))));
-            this.button_ajout_salarie.FlatAppearance.BorderSize = 4;
-            this.button_ajout_salarie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button_ajout_salarie.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button_ajout_salarie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_ajout_salarie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_ajout_salarie.ForeColor = System.Drawing.Color.White;
-            this.button_ajout_salarie.Location = new System.Drawing.Point(59, 622);
-            this.button_ajout_salarie.Name = "button_ajout_salarie";
-            this.button_ajout_salarie.Size = new System.Drawing.Size(277, 64);
-            this.button_ajout_salarie.TabIndex = 1;
-            this.button_ajout_salarie.Text = "Inscrire un salarié";
-            this.button_ajout_salarie.UseVisualStyleBackColor = false;
-            this.button_ajout_salarie.Click += new System.EventHandler(this.button_ajout_salarie_Click);
-            this.button_ajout_salarie.DragOver += new System.Windows.Forms.DragEventHandler(this.button_ajout_salarie_DragOver);
-            this.button_ajout_salarie.MouseEnter += new System.EventHandler(this.button_ajout_salarie_MouseEnter);
-            this.button_ajout_salarie.MouseLeave += new System.EventHandler(this.button_ajout_salarie_MouseLeave);
-            // 
-            // tableauUtilisateurs
-            // 
-            this.tableauUtilisateurs.AllowUserToAddRows = false;
-            this.tableauUtilisateurs.AllowUserToDeleteRows = false;
-            this.tableauUtilisateurs.AllowUserToResizeColumns = false;
-            this.tableauUtilisateurs.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tableauUtilisateurs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.tableauUtilisateurs.BackgroundColor = System.Drawing.Color.White;
-            this.tableauUtilisateurs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableauUtilisateurs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableauUtilisateurs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.tableauUtilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableauUtilisateurs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.identifiant,
-            this.nom,
-            this.prenom,
-            this.date_naissance,
-            this.email,
-            this.poste_occupe,
-            this.action});
-            this.tableauUtilisateurs.Location = new System.Drawing.Point(59, 3);
-            this.tableauUtilisateurs.Name = "tableauUtilisateurs";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableauUtilisateurs.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.tableauUtilisateurs.RowHeadersVisible = false;
-            this.tableauUtilisateurs.RowHeadersWidth = 51;
-            this.tableauUtilisateurs.RowTemplate.Height = 24;
-            this.tableauUtilisateurs.Size = new System.Drawing.Size(1540, 598);
-            this.tableauUtilisateurs.TabIndex = 0;
-            // 
-            // identifiant
-            // 
-            this.identifiant.HeaderText = "N°";
-            this.identifiant.MinimumWidth = 6;
-            this.identifiant.Name = "identifiant";
-            this.identifiant.ReadOnly = true;
-            this.identifiant.Width = 220;
-            // 
-            // nom
-            // 
-            this.nom.HeaderText = "Nom";
-            this.nom.MinimumWidth = 6;
-            this.nom.Name = "nom";
-            this.nom.ReadOnly = true;
-            this.nom.Width = 220;
-            // 
-            // prenom
-            // 
-            this.prenom.HeaderText = "Prénom";
-            this.prenom.MinimumWidth = 6;
-            this.prenom.Name = "prenom";
-            this.prenom.ReadOnly = true;
-            this.prenom.Width = 220;
-            // 
-            // date_naissance
-            // 
-            this.date_naissance.HeaderText = "Date de naissance";
-            this.date_naissance.MinimumWidth = 6;
-            this.date_naissance.Name = "date_naissance";
-            this.date_naissance.ReadOnly = true;
-            this.date_naissance.Width = 220;
-            // 
-            // email
-            // 
-            this.email.HeaderText = "Email";
-            this.email.MinimumWidth = 6;
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            this.email.Width = 220;
-            // 
-            // poste_occupe
-            // 
-            this.poste_occupe.HeaderText = "Poste occupé";
-            this.poste_occupe.MinimumWidth = 6;
-            this.poste_occupe.Name = "poste_occupe";
-            this.poste_occupe.ReadOnly = true;
-            this.poste_occupe.Width = 220;
-            // 
-            // action
-            // 
-            this.action.HeaderText = "Action";
-            this.action.MinimumWidth = 6;
-            this.action.Name = "action";
-            this.action.ReadOnly = true;
-            this.action.Text = "Modifier";
-            this.action.UseColumnTextForButtonValue = true;
-            this.action.Width = 220;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox13.Image = global::myteam_admin.Properties.Resources.check_mark;
-            this.pictureBox13.Location = new System.Drawing.Point(16, 134);
-            this.pictureBox13.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(15, 19);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox13.TabIndex = 5;
-            this.pictureBox13.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.BackColor = System.Drawing.Color.Orange;
-            this.pictureBox14.Location = new System.Drawing.Point(40, 53);
-            this.pictureBox14.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(53, 11);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox14.TabIndex = 2;
-            this.pictureBox14.TabStop = false;
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.BackColor = System.Drawing.Color.Orange;
-            this.pictureBox15.Location = new System.Drawing.Point(40, 0);
-            this.pictureBox15.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(53, 28);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox15.TabIndex = 1;
-            this.pictureBox15.TabStop = false;
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.BackColor = System.Drawing.Color.Orange;
-            this.pictureBox16.Image = global::myteam_admin.Properties.Resources.send;
-            this.pictureBox16.Location = new System.Drawing.Point(40, 27);
-            this.pictureBox16.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(53, 27);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox16.TabIndex = 0;
-            this.pictureBox16.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox9.Image = global::myteam_admin.Properties.Resources.check_mark;
-            this.pictureBox9.Location = new System.Drawing.Point(16, 134);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(15, 19);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 5;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.pictureBox10.Location = new System.Drawing.Point(40, 53);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(53, 11);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 2;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.pictureBox11.Location = new System.Drawing.Point(40, 0);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(53, 28);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox11.TabIndex = 1;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.pictureBox12.Image = global::myteam_admin.Properties.Resources.send;
-            this.pictureBox12.Location = new System.Drawing.Point(40, 27);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(53, 27);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 0;
-            this.pictureBox12.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Image = global::myteam_admin.Properties.Resources.check_mark;
-            this.pictureBox5.Location = new System.Drawing.Point(16, 134);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(15, 19);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 5;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Gold;
-            this.pictureBox6.Location = new System.Drawing.Point(40, 53);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(53, 11);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 2;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Gold;
-            this.pictureBox7.Location = new System.Drawing.Point(40, 0);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(53, 28);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 1;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Gold;
-            this.pictureBox8.Image = global::myteam_admin.Properties.Resources.send;
-            this.pictureBox8.Location = new System.Drawing.Point(40, 27);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(53, 27);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 0;
-            this.pictureBox8.TabStop = false;
-            // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
@@ -617,6 +483,139 @@ namespace myteam_admin.Fenetres
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.button_ajout_salarie);
+            this.panel5.Controls.Add(this.tableauUtilisateurs);
+            this.panel5.Location = new System.Drawing.Point(3, 209);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1659, 707);
+            this.panel5.TabIndex = 1;
+            // 
+            // button_ajout_salarie
+            // 
+            this.button_ajout_salarie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(100)))), ((int)(((byte)(169)))));
+            this.button_ajout_salarie.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_ajout_salarie.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(100)))), ((int)(((byte)(169)))));
+            this.button_ajout_salarie.FlatAppearance.BorderSize = 4;
+            this.button_ajout_salarie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button_ajout_salarie.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button_ajout_salarie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_ajout_salarie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_ajout_salarie.ForeColor = System.Drawing.Color.White;
+            this.button_ajout_salarie.Location = new System.Drawing.Point(59, 622);
+            this.button_ajout_salarie.Name = "button_ajout_salarie";
+            this.button_ajout_salarie.Size = new System.Drawing.Size(277, 64);
+            this.button_ajout_salarie.TabIndex = 1;
+            this.button_ajout_salarie.Text = "Inscrire un salarié";
+            this.button_ajout_salarie.UseVisualStyleBackColor = false;
+            this.button_ajout_salarie.Click += new System.EventHandler(this.button_ajout_salarie_Click);
+            this.button_ajout_salarie.DragOver += new System.Windows.Forms.DragEventHandler(this.button_ajout_salarie_DragOver);
+            this.button_ajout_salarie.MouseEnter += new System.EventHandler(this.button_ajout_salarie_MouseEnter);
+            this.button_ajout_salarie.MouseLeave += new System.EventHandler(this.button_ajout_salarie_MouseLeave);
+            // 
+            // tableauUtilisateurs
+            // 
+            this.tableauUtilisateurs.AllowUserToAddRows = false;
+            this.tableauUtilisateurs.AllowUserToDeleteRows = false;
+            this.tableauUtilisateurs.AllowUserToResizeColumns = false;
+            this.tableauUtilisateurs.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableauUtilisateurs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.tableauUtilisateurs.BackgroundColor = System.Drawing.Color.White;
+            this.tableauUtilisateurs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableauUtilisateurs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableauUtilisateurs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.tableauUtilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableauUtilisateurs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.identifiant,
+            this.nom,
+            this.prenom,
+            this.date_naissance,
+            this.email,
+            this.poste_occupe});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableauUtilisateurs.DefaultCellStyle = dataGridViewCellStyle3;
+            this.tableauUtilisateurs.Location = new System.Drawing.Point(59, 3);
+            this.tableauUtilisateurs.Name = "tableauUtilisateurs";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableauUtilisateurs.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.tableauUtilisateurs.RowHeadersVisible = false;
+            this.tableauUtilisateurs.RowHeadersWidth = 51;
+            this.tableauUtilisateurs.RowTemplate.Height = 24;
+            this.tableauUtilisateurs.Size = new System.Drawing.Size(1540, 598);
+            this.tableauUtilisateurs.TabIndex = 0;
+            this.tableauUtilisateurs.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableauUtilisateurs_CellEnter);
+            this.tableauUtilisateurs.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tableauUtilisateurs_CellMouseDoubleClick);
+            // 
+            // identifiant
+            // 
+            this.identifiant.HeaderText = "N°";
+            this.identifiant.MinimumWidth = 6;
+            this.identifiant.Name = "identifiant";
+            this.identifiant.ReadOnly = true;
+            this.identifiant.Width = 256;
+            // 
+            // nom
+            // 
+            this.nom.HeaderText = "Nom";
+            this.nom.MinimumWidth = 6;
+            this.nom.Name = "nom";
+            this.nom.ReadOnly = true;
+            this.nom.Width = 256;
+            // 
+            // prenom
+            // 
+            this.prenom.HeaderText = "Prénom";
+            this.prenom.MinimumWidth = 6;
+            this.prenom.Name = "prenom";
+            this.prenom.ReadOnly = true;
+            this.prenom.Width = 256;
+            // 
+            // date_naissance
+            // 
+            this.date_naissance.HeaderText = "Date de naissance";
+            this.date_naissance.MinimumWidth = 6;
+            this.date_naissance.Name = "date_naissance";
+            this.date_naissance.ReadOnly = true;
+            this.date_naissance.Width = 256;
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.MinimumWidth = 6;
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.Width = 256;
+            // 
+            // poste_occupe
+            // 
+            this.poste_occupe.HeaderText = "Poste occupé";
+            this.poste_occupe.MinimumWidth = 6;
+            this.poste_occupe.Name = "poste_occupe";
+            this.poste_occupe.ReadOnly = true;
+            this.poste_occupe.Width = 256;
+            // 
             // menuUtilisateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -629,30 +628,30 @@ namespace myteam_admin.Fenetres
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.cardMessageEchanges.ResumeLayout(false);
-            this.cardMessageEchanges.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tableauUtilisateurs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.cardMessageEchanges.ResumeLayout(false);
+            this.cardMessageEchanges.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tableauUtilisateurs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -701,6 +700,5 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.DataGridViewTextBoxColumn date_naissance;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn poste_occupe;
-        private System.Windows.Forms.DataGridViewButtonColumn action;
     }
 }

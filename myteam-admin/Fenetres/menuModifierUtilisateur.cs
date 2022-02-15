@@ -13,11 +13,12 @@ namespace myteam_admin.Fenetres
     public partial class menuModifierUtilisateur : UserControl
     {
         private Accueil accueil;
-        public menuModifierUtilisateur(Accueil accueil)
+        private int idUtilisateur;
+        public menuModifierUtilisateur(int idUtilisateur, Accueil accueil)
         {
             InitializeComponent();
             this.accueil = accueil;
-
+            this.idUtilisateur = idUtilisateur;
         }
     }
 }
