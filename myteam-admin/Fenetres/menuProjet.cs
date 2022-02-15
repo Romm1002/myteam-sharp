@@ -252,21 +252,21 @@ namespace myteam_admin.Fenetres
             dataGridViewTaches.Rows.RemoveAt(index);
             projet.supprimerTache(index);
         }
-        private void buttonManageParticipants_Click(object sender, EventArgs e)
-        {
-            menuParticipantsProjet fenetre = new menuParticipantsProjet(this, projet);
+        //private void buttonManageParticipants_Click(object sender, EventArgs e)
+        //{
+        //    menuParticipantsProjet fenetre = new menuParticipantsProjet(this, projet);
 
-            if (fenetre.ShowDialog() == DialogResult.OK)
-            {
-                dataGridViewParticipants.Rows.Clear();
-                dataGridViewParticipants.Refresh();
-                foreach (Utilisateurs participant in fenetre.participants)
-                {
-                    Bitmap pdp = new Bitmap(participant.getPhoto());
-                    dataGridViewParticipants.Rows.Add(participant.getId(), pdp, participant.getNom(), participant.getPrenom(), participant.getPoste());
-                }
-                projet.setListParticipant(fenetre.participants);
-            }
-        }
+        //    if (fenetre.ShowDialog() == DialogResult.OK)
+        //    {
+        //        dataGridViewParticipants.Rows.Clear();
+        //        dataGridViewParticipants.Refresh();
+        //        foreach (Utilisateurs participant in fenetre.participants)
+        //        {
+        //            Bitmap pdp = new Bitmap(participant.getPhoto());
+        //            dataGridViewParticipants.Rows.Add(participant.getId(), pdp, participant.getNom(), participant.getPrenom(), participant.getPoste());
+        //        }
+        //        projet.setListParticipant(fenetre.participants);
+        //    }
+        //}
     }
 }

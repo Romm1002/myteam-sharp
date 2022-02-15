@@ -13,13 +13,8 @@ namespace myteam_admin.Modeles
         private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
         private int idUtilisateur, idPoste;
-<<<<<<< HEAD
         private string nom, prenom, email, poste, mdp;
         private string photoProfil = "C:/wamp64/www/myteam";
-=======
-        private string nom, prenom, email, poste;
-        private string photoProfil = "C:/xampp/htdocs/myteam";
->>>>>>> 8f8b6760debc3f59e8903951e942bfe85865ed1c
         DateTime dateNaiss;
 
         public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, int idPoste, string photoProfil)
