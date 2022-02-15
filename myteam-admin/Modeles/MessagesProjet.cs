@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace myteam_admin.Modeles
 {
-    class MessagesProjet
+    public class MessagesProjet
     {
         private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
