@@ -10,12 +10,13 @@ using System.Windows.Forms;
 
 namespace myteam_admin.Fenetres
 {
-    public partial class dialogSupprimer : Form
+    public partial class dialogAlert : Form
     {
-        public dialogSupprimer(string text)
+        public dialogAlert(string text)
         {
-            labelTitre.Text += text + "?";
             InitializeComponent();
+
+            labelTitre.Text = text;
         }
 
         private void buttonAnnuler_Click(object sender, EventArgs e)

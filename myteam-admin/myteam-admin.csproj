@@ -77,11 +77,11 @@
     <Compile Include="Fenetres\Accueil.Designer.cs">
       <DependentUpon>Accueil.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\dialogSupprimer.cs">
+    <Compile Include="Fenetres\dialogAlert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fenetres\dialogSupprimer.Designer.cs">
-      <DependentUpon>dialogSupprimer.cs</DependentUpon>
+    <Compile Include="Fenetres\dialogAlert.Designer.cs">
+      <DependentUpon>dialogAlert.cs</DependentUpon>
     </Compile>
     <Compile Include="Fenetres\menuAjoutUtilisateur.cs">
       <SubType>UserControl</SubType>
@@ -164,8 +164,8 @@
     <EmbeddedResource Include="Fenetres\Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\dialogSupprimer.resx">
-      <DependentUpon>dialogSupprimer.cs</DependentUpon>
+    <EmbeddedResource Include="Fenetres\dialogAlert.resx">
+      <DependentUpon>dialogAlert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuAjouterProjet.resx">
       <DependentUpon>menuAjouterProjet.cs</DependentUpon>

@@ -51,8 +51,6 @@ namespace myteam_admin.Fenetres
             this.etat = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelBody = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelRecherche = new System.Windows.Forms.Label();
-            this.textBoxRecherche = new System.Windows.Forms.TextBox();
             this.buttonAjouterProjet = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelHeader.SuspendLayout();
@@ -313,8 +311,6 @@ namespace myteam_admin.Fenetres
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.labelRecherche);
-            this.panel1.Controls.Add(this.textBoxRecherche);
             this.panel1.Controls.Add(this.buttonAjouterProjet);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -322,22 +318,6 @@ namespace myteam_admin.Fenetres
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 50);
             this.panel1.Size = new System.Drawing.Size(1390, 123);
             this.panel1.TabIndex = 2;
-            // 
-            // labelRecherche
-            // 
-            this.labelRecherche.AutoSize = true;
-            this.labelRecherche.Location = new System.Drawing.Point(415, 0);
-            this.labelRecherche.Name = "labelRecherche";
-            this.labelRecherche.Size = new System.Drawing.Size(82, 17);
-            this.labelRecherche.TabIndex = 3;
-            this.labelRecherche.Text = "Rechercher";
-            // 
-            // textBoxRecherche
-            // 
-            this.textBoxRecherche.Location = new System.Drawing.Point(415, 28);
-            this.textBoxRecherche.Name = "textBoxRecherche";
-            this.textBoxRecherche.Size = new System.Drawing.Size(413, 22);
-            this.textBoxRecherche.TabIndex = 2;
             // 
             // buttonAjouterProjet
             // 
@@ -393,7 +373,6 @@ namespace myteam_admin.Fenetres
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProjets)).EndInit();
             this.panelBody.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -409,8 +388,6 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.Button buttonAjouterProjet;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBoxRecherche;
-        private System.Windows.Forms.Label labelRecherche;
         private System.Windows.Forms.Panel panelProjetsAVenir;
         private System.Windows.Forms.Label labelNbrProjAVenir;
         private System.Windows.Forms.Label labelProjAVenir;

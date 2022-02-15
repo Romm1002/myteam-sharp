@@ -380,5 +380,23 @@ namespace myteam_admin.Modeles
             }
             return true;
         }
+
+        public bool supprimerProjet()
+        {
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@idProjet", id);
+            command.CommandText = "DELETE FROM projets WHERE idProjet = @idProjet;";
+            if (!(command.ExecuteNonQuery() > 0))
+            {
+                conn.Close();
+                return false;
+            }
+            conn.Close();
+            return true;
+
+
+
+        }
     }
 }

@@ -278,11 +278,25 @@ namespace myteam_admin.Fenetres
 
         private void buttonSupprimer_Click(object sender, EventArgs e)
         {
-            dialogSupprimer fenetre = new dialogSupprimer(projet.getNom());
+            dialogAlert fenetre = new dialogAlert("Êtes-vous sûr de vouloir supprimer\r\n" + projet.getNom() + " ?");
 
             if (fenetre.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("test");
+                if (projet.supprimerProjet())
+                {
+                    menuProjets panel = new menuProjets(accueil);
+
+                    panel.AutoScroll = true;
+                    accueil.panelContenu.Controls.Clear();
+                    accueil.panelContenu.Controls.Add(panel);
+                    panel.Show();
+
+                    accueil.labelHeaderTitle.Text = "PROJETS";
+                }
+                else
+                {
+                    MessageBox.Show("Echec lors de la suppression, contactez Damien pour un dépannage");
+                }
             }
         }
     }

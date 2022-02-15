@@ -29,9 +29,9 @@ namespace myteam_admin.Fenetres
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menuProjet));
             this.panelHeader = new System.Windows.Forms.Panel();
             this.dateTimePickerDebut = new System.Windows.Forms.DateTimePicker();
@@ -122,7 +122,7 @@ namespace myteam_admin.Fenetres
             // 
             this.progressBarTemps.Location = new System.Drawing.Point(16, 175);
             this.progressBarTemps.Name = "progressBarTemps";
-            this.progressBarTemps.Size = new System.Drawing.Size(1195, 10);
+            this.progressBarTemps.Size = new System.Drawing.Size(1223, 10);
             this.progressBarTemps.Step = 1;
             this.progressBarTemps.TabIndex = 4;
             // 
@@ -153,7 +153,7 @@ namespace myteam_admin.Fenetres
             // 
             this.progressBarProjet.Location = new System.Drawing.Point(16, 159);
             this.progressBarProjet.Name = "progressBarProjet";
-            this.progressBarProjet.Size = new System.Drawing.Size(1195, 10);
+            this.progressBarProjet.Size = new System.Drawing.Size(1223, 10);
             this.progressBarProjet.Step = 1;
             this.progressBarProjet.TabIndex = 1;
             // 
@@ -163,7 +163,7 @@ namespace myteam_admin.Fenetres
             this.labelMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMessage.Location = new System.Drawing.Point(377, 17);
             this.labelMessage.Name = "labelMessage";
-            this.labelMessage.Size = new System.Drawing.Size(0, 22);
+            this.labelMessage.Size = new System.Drawing.Size(0, 24);
             this.labelMessage.TabIndex = 5;
             // 
             // buttonEnregistrer
@@ -286,7 +286,7 @@ namespace myteam_admin.Fenetres
             this.labelTaches.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTaches.Location = new System.Drawing.Point(10, 372);
             this.labelTaches.Name = "labelTaches";
-            this.labelTaches.Size = new System.Drawing.Size(107, 32);
+            this.labelTaches.Size = new System.Drawing.Size(108, 32);
             this.labelTaches.TabIndex = 11;
             this.labelTaches.Text = "Tâches";
             // 
@@ -296,7 +296,7 @@ namespace myteam_admin.Fenetres
             this.labelMessagerieProjet.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMessagerieProjet.Location = new System.Drawing.Point(18, 710);
             this.labelMessagerieProjet.Name = "labelMessagerieProjet";
-            this.labelMessagerieProjet.Size = new System.Drawing.Size(240, 32);
+            this.labelMessagerieProjet.Size = new System.Drawing.Size(241, 32);
             this.labelMessagerieProjet.TabIndex = 10;
             this.labelMessagerieProjet.Text = "Messagerie projet";
             // 
@@ -317,7 +317,7 @@ namespace myteam_admin.Fenetres
             this.labelParticipants.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelParticipants.Location = new System.Drawing.Point(706, 372);
             this.labelParticipants.Name = "labelParticipants";
-            this.labelParticipants.Size = new System.Drawing.Size(171, 32);
+            this.labelParticipants.Size = new System.Drawing.Size(172, 32);
             this.labelParticipants.TabIndex = 8;
             this.labelParticipants.Text = "Participants ";
             // 
@@ -357,15 +357,15 @@ namespace myteam_admin.Fenetres
             this.id,
             this.libelle,
             this.terminee});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTaches.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTaches.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTaches.Location = new System.Drawing.Point(16, 414);
             this.dataGridViewTaches.Name = "dataGridViewTaches";
             this.dataGridViewTaches.RowHeadersVisible = false;
@@ -417,15 +417,15 @@ namespace myteam_admin.Fenetres
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.message});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewChat.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewChat.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewChat.Location = new System.Drawing.Point(19, 756);
             this.dataGridViewChat.Name = "dataGridViewChat";
             this.dataGridViewChat.ReadOnly = true;
@@ -488,14 +488,14 @@ namespace myteam_admin.Fenetres
             this.nom,
             this.prenom,
             this.poste});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewParticipants.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewParticipants.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewParticipants.Location = new System.Drawing.Point(712, 414);
             this.dataGridViewParticipants.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.dataGridViewParticipants.Name = "dataGridViewParticipants";
