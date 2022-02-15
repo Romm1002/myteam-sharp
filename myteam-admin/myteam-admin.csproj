@@ -107,6 +107,10 @@
     <Compile Include="Fenetres\menuModifierUtilisateur.Designer.cs">
       <DependentUpon>menuModifierUtilisateur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fenetres\menuParticipantsProjet.cs" />
+    <Compile Include="Fenetres\menuParticipantsProjet.Designer.cs">
+      <DependentUpon>menuParticipantsProjet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fenetres\menuPlannification.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -169,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuModifierUtilisateur.resx">
       <DependentUpon>menuModifierUtilisateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\menuParticipantsProjet.resx">
+      <DependentUpon>menuParticipantsProjet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuPlannification.resx">
       <DependentUpon>menuPlannification.cs</DependentUpon>

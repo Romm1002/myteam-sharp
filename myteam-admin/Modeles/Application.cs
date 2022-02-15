@@ -25,11 +25,8 @@ namespace myteam_admin.Modeles
             conn.Open();
 
             MySqlCommand command = conn.CreateCommand();
-<<<<<<< HEAD
             command.CommandText = "SELECT m.idMessage, u.nom, u.prenom, m.contenu, m.heure, u2.nom, u2.prenom, m.idUtilisateur, m.idReceveur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idUtilisateur ORDER BY idMessage ASC";
-=======
-            command.CommandText = "SELECT m.idMessage, u.nom, u.prenom, m.contenu, m.heure, u2.nom, u2.prenom, m.idUtilisateur, m.idReceveur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur ORDER BY idMessage ASC";
->>>>>>> 8f8b6760debc3f59e8903951e942bfe85865ed1c
+
             MySqlDataReader reader = command.ExecuteReader();
 
             List<Messages> listeMessages = new List<Messages>();
