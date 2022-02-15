@@ -27,9 +27,6 @@ namespace myteam_admin.Fenetres
             List<int> nbrEmployes = utilisateur.nbrEmployes();
             statUtilisateur1.Text = nbrEmployes[0].ToString();
 
-            //List<int> nbrAdministrateurs = utilisateur.nbrAdministrateurs(idPoste);
-            //statUtilisateur2.Text = nbrAdministrateurs[0].ToString();
-
             List<int> nesAujourdui = utilisateur.nesAujourdhui();
             statUtilisateur3.Text = nesAujourdui[0].ToString();
 
@@ -39,6 +36,42 @@ namespace myteam_admin.Fenetres
             foreach(Utilisateurs utilisateurs in app.getUtilisateurs())
             {
                 tableauUtilisateurs.Rows.Add(utilisateurs.getId(), utilisateurs.getNom(), utilisateurs.getPrenom(), utilisateurs.getDateNaiss().ToString("dd-MM-yyyy"), utilisateurs.getEmail(), utilisateurs.getPoste());
+            }
+
+            foreach(DataGridViewRow row in tableauUtilisateurs.Rows)
+            {
+                if(row.Cells[5].Value.ToString() == "Visiteur")
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+        }
+
+        // Style du DGV
+        private void tableauUtilisateurs_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in tableauUtilisateurs.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    cell.Style.BackColor = Color.White;
+                }
+            }
+            foreach (DataGridViewCell cell in tableauUtilisateurs.CurrentRow.Cells)
+            {
+                cell.Style.BackColor = SystemColors.Control;
+
+            }
+        }
+
+        // Affichage fiche utilisateur
+        private void tableauUtilisateurs_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            modifierUtilisateur fenetre = new modifierUtilisateur(this, Convert.ToInt32(tableauUtilisateurs.CurrentRow.Cells[0].Value.ToString()));
+
+            if (fenetre.ShowDialog() == DialogResult.OK)
+            {
+                
             }
         }
 

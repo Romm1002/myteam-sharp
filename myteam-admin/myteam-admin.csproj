@@ -107,12 +107,6 @@
     <Compile Include="Fenetres\menuMessagesSignales.Designer.cs">
       <DependentUpon>menuMessagesSignales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuModifierUtilisateur.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Fenetres\menuModifierUtilisateur.Designer.cs">
-      <DependentUpon>menuModifierUtilisateur.cs</DependentUpon>
-    </Compile>
     <Compile Include="Fenetres\menuParticipantsProjet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +143,12 @@
     <Compile Include="Fenetres\menuAjouterProjet.Designer.cs">
       <DependentUpon>menuAjouterProjet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fenetres\modifierUtilisateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fenetres\modifierUtilisateur.Designer.cs">
+      <DependentUpon>modifierUtilisateur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modeles\Application.cs" />
     <Compile Include="Modeles\MessagesProjet.cs" />
     <Compile Include="Modeles\Messages.cs" />
@@ -182,9 +182,6 @@
     <EmbeddedResource Include="Fenetres\menuMessagesSignales.resx">
       <DependentUpon>menuMessagesSignales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuModifierUtilisateur.resx">
-      <DependentUpon>menuModifierUtilisateur.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuParticipantsProjet.resx">
       <DependentUpon>menuParticipantsProjet.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +196,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuUtilisateur.resx">
       <DependentUpon>menuUtilisateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\modifierUtilisateur.fr.resx">
+      <DependentUpon>modifierUtilisateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\modifierUtilisateur.resx">
+      <DependentUpon>modifierUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace myteam_admin.Modeles
@@ -15,9 +16,31 @@ namespace myteam_admin.Modeles
         private int idUtilisateur, idPoste;
 
         private string nom, prenom, email, poste, mdp;
-        private string photoProfil = "C:/xampp/htdocs/myteam";
+        private string photoProfil = "C:/wamp64/www/myteam";
 
         DateTime dateNaiss;
+
+        public Utilisateurs(int id = -1)
+        {
+            if (id != -1)
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                command.Parameters.AddWithValue("@id", id);
+                command.CommandText = "SELECT u.idUtilisateur, u.nom, u.prenom, u.dateNaiss, u.email, p.poste FROM utilisateurs AS u LEFT JOIN postes AS p USING(idposte) WHERE idUtilisateur = @id";
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    this.idUtilisateur = reader.GetInt32(0);
+                    this.nom = reader.GetString(1);
+                    this.prenom = reader.GetString(2);
+                    this.dateNaiss = Convert.ToDateTime(reader.GetValue(3));
+                    this.email = reader.GetString(4);
+                    this.poste = reader.GetString(5);
+                }
+                conn.Close();
+            }
+        }
 
         public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, int idPoste, string photoProfil)
         {
@@ -34,6 +57,10 @@ namespace myteam_admin.Modeles
         public void setPoste(string poste)
         {
             this.poste = poste;
+        }
+        public void setIdPoste(int idPoste)
+        {
+            this.idPoste = idPoste;
         }
 
         //GETTERS
@@ -114,6 +141,23 @@ namespace myteam_admin.Modeles
             }
             conn.Close();
             return connexion;
+        }
+
+        // Modification des informations d'un utilisateur
+        public void modifications_informations(string nom, string prenom, string email, DateTime dateNaissance, int idPoste, int id)
+        {
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+
+            command.Parameters.AddWithValue("@nom", nom);
+            command.Parameters.AddWithValue("@prenom", prenom);
+            command.Parameters.AddWithValue("@email", email);
+            command.Parameters.AddWithValue("@dateNaissance", dateNaissance);
+            command.Parameters.AddWithValue("@idPoste", idPoste);
+            command.Parameters.AddWithValue("@id", id);
+            command.CommandText = "UPDATE utilisateurs SET nom = @nom, prenom = @prenom, email = @email, dateNaiss = @dateNaissance, idposte = @idPoste WHERE idUtilisateur = @id";
+
+            command.ExecuteNonQuery();
         }
 
         // Méthode pour remplir les stats
