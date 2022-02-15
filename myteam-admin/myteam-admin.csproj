@@ -107,7 +107,9 @@
     <Compile Include="Fenetres\menuModifierUtilisateur.Designer.cs">
       <DependentUpon>menuModifierUtilisateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuParticipantsProjet.cs" />
+    <Compile Include="Fenetres\menuParticipantsProjet.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Fenetres\menuParticipantsProjet.Designer.cs">
       <DependentUpon>menuParticipantsProjet.cs</DependentUpon>
     </Compile>
