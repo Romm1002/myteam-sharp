@@ -19,12 +19,14 @@ namespace myteam_admin.Modeles
         private int nbrProjetsFini = 0;
         private string nomProjet;
 
+
         public List<Messages> getMessages()
         {
             conn.Open();
 
             MySqlCommand command = conn.CreateCommand();
             command.CommandText = "SELECT m.idMessage, u.nom, u.prenom, m.contenu, m.heure, u2.nom, u2.prenom, m.idUtilisateur, m.idReceveur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idUtilisateur ORDER BY idMessage ASC";
+
             MySqlDataReader reader = command.ExecuteReader();
 
             List<Messages> listeMessages = new List<Messages>();
@@ -147,7 +149,7 @@ namespace myteam_admin.Modeles
             while (reader.Read())
             {
                 Utilisateurs utilisateur = new Utilisateurs();
-                utilisateur.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6));
+                utilisateur.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2));
                 utilisateur.setPoste(reader.GetString(7));
                 listeUtilisateurs.Add(utilisateur);
             }

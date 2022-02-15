@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace myteam_admin.Modeles
 {
-    class Projets
+    public class Projets
     {
         private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
@@ -22,6 +22,7 @@ namespace myteam_admin.Modeles
         private int statut;
         private bool archive;
         private List<Utilisateurs> listUtilisateurs = new List<Utilisateurs>();
+        public List<Utilisateurs> listUtilisateursBackup = new List<Utilisateurs>();
         private List<MessagesProjet> chat = new List<MessagesProjet>();
         private List<Taches> taches = new List<Taches>();
         
@@ -49,6 +50,7 @@ namespace myteam_admin.Modeles
             initialiserUtilisateurs();
             initialiserChat();
             initialiserTaches();
+
         }
 
         public void initialiser(int idProjet, string nomProjet, string descriptionProjet, DateTime dateDebut, DateTime dateFin, string pathImage, bool archive)
@@ -90,6 +92,9 @@ namespace myteam_admin.Modeles
                 listUtilisateurs.Add(utilisateurs);
             }
             conn.Close();
+
+            listUtilisateursBackup = new List<Utilisateurs>(listUtilisateurs);
+
         }
         private void initialiserChat()
         {
@@ -207,6 +212,158 @@ namespace myteam_admin.Modeles
         public void setDescription(string description)
         {
             this.description = description;
+        }
+        public void setDebut(DateTime debut)
+        {
+            this.debut = debut;
+        }
+        public void setFin(DateTime fin)
+        {
+            this.fin = fin;
+        }
+        public void setTaches(int index, string libelle, bool terminee)
+        {
+            this.taches[index].setLibelle(libelle);
+            this.taches[index].setTerminee(terminee);
+            this.taches[index].setModifie(true);
+        }
+        public void setListParticipant(List<Utilisateurs> participants)
+        {
+            this.listUtilisateurs = new List<Utilisateurs>(participants);
+        }
+        public void ajouterTache(string libelle, bool terminee)
+        {
+            Taches tache = new Taches();
+            tache.nouvelleTache(libelle, terminee);
+            taches.Add(tache);
+        }
+        public void ajouterParticipants(Utilisateurs utilisateur)
+        {
+            listUtilisateurs.Add(utilisateur);
+        }
+        public void supprimerTache(int index)
+        {
+            taches[index].setSupprime(true);
+        }
+        public void supprimerParticipant(Utilisateurs utilisateur)
+        {
+            listUtilisateurs.Remove(utilisateur);
+        }
+
+        public bool updateProjet()
+        {
+            // Update projet
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@idProjet", id);
+            command.Parameters.AddWithValue("@nom", nom);
+            command.Parameters.AddWithValue("@description", description);
+            command.Parameters.AddWithValue("@debut", debut);
+            command.Parameters.AddWithValue("@fin", fin);
+            command.CommandText = "UPDATE projets SET nomProjet = @nom, descriptionProjet = @description, dateDebut = @debut, dateFin = @fin WHERE idProjet = @idProjet;";
+            if (!(command.ExecuteNonQuery() > 0))
+            {
+                conn.Close();
+                return false;
+            }
+            conn.Close();
+
+            // Update taches
+            command.Parameters.Add("@idTache", MySqlDbType.Int32);
+            command.Parameters.Add("@libelle", MySqlDbType.String);
+            command.Parameters.Add("@terminee", MySqlDbType.String);
+            foreach (Taches tache in getTaches())
+            {
+                if (tache.getModifie())
+                {
+                    if(tache.getId() == 0)
+                    {
+                        conn.Open();
+                        command.Parameters["@libelle"].Value = tache.getLibelle();
+                        command.Parameters["@terminee"].Value = Convert.ToInt32(tache.getTerminee());
+                        command.CommandText = "INSERT INTO tachesprojet(libelle, terminee, idProjet) VALUES(@libelle, @terminee, @idProjet);";
+                        if (!(command.ExecuteNonQuery() > 0))
+                        {
+                            conn.Close();
+                            return false;
+                        }
+                        conn.Close();
+                    }
+                    else
+                    {
+                        conn.Open();
+                        command.Parameters["@idTache"].Value = tache.getId();
+                        command.Parameters["@libelle"].Value = tache.getLibelle();
+                        command.Parameters["@terminee"].Value = Convert.ToInt32(tache.getTerminee());
+                        command.CommandText = "UPDATE tachesprojet SET libelle = @libelle, terminee = @terminee WHERE idTache = @idTache;";
+                        if (!(command.ExecuteNonQuery() > 0))
+                        {
+                            conn.Close();
+                            return false;
+                        }
+                        conn.Close();
+                    }
+                    tache.setModifie(false);
+                }else if (tache.getSupprime())
+                {
+                    conn.Open();
+                    command.Parameters["@idTache"].Value = tache.getId();
+                    command.CommandText = "DELETE FROM tachesprojet WHERE idTache = @idTache;";
+                    if (!(command.ExecuteNonQuery() > 0))
+                    {
+                        conn.Close();
+                        return false;
+                    }
+                    conn.Close();
+                }
+            }
+
+            // Update participants
+            command.Parameters.Add("@idUtilisateur", MySqlDbType.Int32);
+
+            foreach (Utilisateurs participant in listUtilisateurs)
+            {
+                if (!listUtilisateursBackup.Contains(participant))
+                {
+                    conn.Open();
+                    command.Parameters["@idUtilisateur"].Value = participant.getId();
+                    command.CommandText = "INSERT INTO participationprojet(idProjet, idUtilisateur) VALUES(@idProjet, @idUtilisateur);";
+                    if (!(command.ExecuteNonQuery() > 0))
+                    {
+                        conn.Close();
+                        return false;
+                    }
+                    conn.Close();
+                }
+                else
+                {
+                    listUtilisateursBackup.Remove(participant);
+                }
+            }
+
+            foreach (Utilisateurs utilisateur in listUtilisateursBackup)
+            {
+                conn.Open();
+                command.Parameters["@idUtilisateur"].Value = utilisateur.getId();
+                command.CommandText = "DELETE FROM participationprojet WHERE idProjet = @idProjet AND idUtilisateur = @idUtilisateur;";
+                if (!(command.ExecuteNonQuery() > 0))
+                {
+                    conn.Close();
+                    return false;
+                }
+                conn.Close();
+            }
+            listUtilisateursBackup = new List<Utilisateurs>(listUtilisateurs);
+
+            // On uttilise un FOR pour itérer car si on supprime dans un FOREACH => crash
+            for (int i = 0; i < taches.Count; i++)
+            {
+                if (taches[i].getSupprime())
+                {
+                    taches.RemoveAt(i);
+                }
+            }
+            return true;
         }
     }
 }

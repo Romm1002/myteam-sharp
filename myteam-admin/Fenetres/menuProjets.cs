@@ -104,6 +104,5 @@ namespace myteam_admin.Fenetres
                 accueil.labelHeaderTitle.Text = "PROJET - " + dataGridViewProjets.CurrentRow.Cells[1].Value.ToString();
             }
         }
-        
     }
 }

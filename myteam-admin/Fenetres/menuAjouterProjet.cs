@@ -65,7 +65,6 @@ namespace myteam_admin.Fenetres
             }
         }
         // PARTICIPANTS VERS UTILISATEURS
-
         private void dataGridViewParticipants_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex > -1)

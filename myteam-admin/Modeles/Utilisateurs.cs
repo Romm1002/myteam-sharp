@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 namespace myteam_admin.Modeles
 {
 
-    class Utilisateurs
+    public class Utilisateurs
     {
         private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
