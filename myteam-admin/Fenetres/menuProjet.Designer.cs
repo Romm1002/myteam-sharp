@@ -246,16 +246,6 @@ namespace myteam_admin.Fenetres
             // 
             // buttonManageParticipants
             // 
-<<<<<<< HEAD
-            //this.buttonManageParticipants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            //this.buttonManageParticipants.Location = new System.Drawing.Point(1043, 310);
-            //this.buttonManageParticipants.Name = "buttonManageParticipants";
-            //this.buttonManageParticipants.Size = new System.Drawing.Size(194, 32);
-            //this.buttonManageParticipants.TabIndex = 9;
-            //this.buttonManageParticipants.Text = "Gérer les participants";
-            //this.buttonManageParticipants.UseVisualStyleBackColor = true;
-            //this.buttonManageParticipants.Click += new System.EventHandler(this.buttonManageParticipants_Click);
-=======
             this.buttonManageParticipants.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonManageParticipants.Location = new System.Drawing.Point(1046, 310);
             this.buttonManageParticipants.Name = "buttonManageParticipants";
@@ -264,7 +254,6 @@ namespace myteam_admin.Fenetres
             this.buttonManageParticipants.Text = "Gérer les participants";
             this.buttonManageParticipants.UseVisualStyleBackColor = true;
             this.buttonManageParticipants.Click += new System.EventHandler(this.buttonManageParticipants_Click);
->>>>>>> damien
             // 
             // labelParticipants
             // 
