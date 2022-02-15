@@ -7,16 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using myteam_admin.Modeles;
 
 namespace myteam_admin.Fenetres
 {
     public partial class menuModifierUtilisateur : UserControl
     {
         private Accueil accueil;
-        public menuModifierUtilisateur(Accueil accueil)
+        private int idUtilisateur;
+        public menuModifierUtilisateur(int idUtilisateur, Accueil accueil)
         {
-            InitializeComponent();
             this.accueil = accueil;
+            this.idUtilisateur = idUtilisateur;
+            Utilisateurs utilisateurs = new Utilisateurs(idUtilisateur);
+            Modeles.Application app = new Modeles.Application();
+
+            InitializeComponent();
+
+            nom.Text = utilisateurs.getNom();
 
         }
     }

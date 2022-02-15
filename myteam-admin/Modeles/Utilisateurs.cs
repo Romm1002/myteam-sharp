@@ -19,6 +19,28 @@ namespace myteam_admin.Modeles
 
         DateTime dateNaiss;
 
+        public Utilisateurs(int id = -1)
+        {
+            if (id != -1)
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                command.Parameters.AddWithValue("@id", id);
+                command.CommandText = "SELECT u.idUtilisateur, u.nom, u.prenom, u.dateNaiss, u.email, u.idposte FROM utilisateurs AS u WHERE idUtilisateur = @id";
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    this.idUtilisateur = reader.GetInt32(0);
+                    this.nom = reader.GetString(1);
+                    this.prenom = reader.GetString(2);
+                    this.dateNaiss = Convert.ToDateTime(reader.GetValue(3));
+                    this.email = reader.GetString(4);
+                    this.idPoste = reader.GetInt32(5);
+                }
+                conn.Close();
+            }
+        }
+
         public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, int idPoste, string photoProfil)
         {
             this.idUtilisateur = idUtilisateur;
