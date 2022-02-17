@@ -58,12 +58,12 @@ namespace myteam_admin.Fenetres
 
         private void messages_signales_Click(object sender, EventArgs e)
         {
-            menuMessagesSignales panel = new menuMessagesSignales();
-            panel.AutoScroll = true;
-            accueil.panelContenu.Controls.Clear();
-            accueil.panelContenu.Controls.Add(panel);
-            panel.Show();
-            accueil.labelHeaderTitle.Text = "MESSAGES SIGNALES";
+            fenetreMessagesSignales fenetre = new fenetreMessagesSignales(this);
+
+            if (fenetre.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
     }
 }

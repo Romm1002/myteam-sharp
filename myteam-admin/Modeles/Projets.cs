@@ -87,7 +87,7 @@ namespace myteam_admin.Modeles
             while (reader.Read())
             {
                 Utilisateurs utilisateurs = new Utilisateurs();
-                utilisateurs.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2));
+                utilisateurs.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetInt32(7));
                 utilisateurs.setPoste(reader.GetString(7));
                 listUtilisateurs.Add(utilisateurs);
             }

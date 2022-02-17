@@ -34,7 +34,6 @@ namespace myteam_admin.Fenetres
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemUtilisateurs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemProjets = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemPlannification = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemMessagerie = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPlanning = new System.Windows.Forms.ToolStripMenuItem();
             this.panelLogo = new System.Windows.Forms.Panel();
@@ -75,7 +74,6 @@ namespace myteam_admin.Fenetres
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemUtilisateurs,
             this.toolStripMenuItemProjets,
-            this.toolStripMenuItemPlannification,
             this.toolStripMenuItemMessagerie,
             this.toolStripMenuItemPlanning});
             this.menuStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
@@ -105,16 +103,6 @@ namespace myteam_admin.Fenetres
             this.toolStripMenuItemProjets.Size = new System.Drawing.Size(254, 84);
             this.toolStripMenuItemProjets.Text = "PROJETS";
             this.toolStripMenuItemProjets.Click += new System.EventHandler(this.toolStripMenuItemProjets_Click);
-            // 
-            // toolStripMenuItemPlannification
-            // 
-            this.toolStripMenuItemPlannification.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripMenuItemPlannification.ForeColor = System.Drawing.Color.White;
-            this.toolStripMenuItemPlannification.Name = "toolStripMenuItemPlannification";
-            this.toolStripMenuItemPlannification.Padding = new System.Windows.Forms.Padding(15, 30, 15, 30);
-            this.toolStripMenuItemPlannification.Size = new System.Drawing.Size(254, 84);
-            this.toolStripMenuItemPlannification.Text = "PLANNIFICATION";
-            this.toolStripMenuItemPlannification.Click += new System.EventHandler(this.toolStripMenuItemPlannification_Click);
             // 
             // toolStripMenuItemMessagerie
             // 
@@ -302,7 +290,6 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemUtilisateurs;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProjets;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPlannification;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMessagerie;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPlanning;
         private System.Windows.Forms.Panel panelLogo;

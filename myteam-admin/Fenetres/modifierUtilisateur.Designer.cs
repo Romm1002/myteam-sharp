@@ -30,6 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(modifierUtilisateur));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_nb_avert = new System.Windows.Forms.Label();
+            this.label_avert = new System.Windows.Forms.Label();
+            this.button_ban = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button_avert = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.annuler = new System.Windows.Forms.Button();
             this.valider = new System.Windows.Forms.Button();
             this.button_reset_pdp = new System.Windows.Forms.Button();
@@ -45,12 +52,17 @@
             this.textBox_nom = new System.Windows.Forms.TextBox();
             this.label_nom = new System.Windows.Forms.Label();
             this.label_fiche_de = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label_nb_avert);
+            this.panel1.Controls.Add(this.label_avert);
+            this.panel1.Controls.Add(this.button_ban);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.button_avert);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.annuler);
             this.panel1.Controls.Add(this.valider);
@@ -69,6 +81,49 @@
             this.panel1.Controls.Add(this.label_fiche_de);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            // 
+            // label_nb_avert
+            // 
+            resources.ApplyResources(this.label_nb_avert, "label_nb_avert");
+            this.label_nb_avert.Name = "label_nb_avert";
+            // 
+            // label_avert
+            // 
+            resources.ApplyResources(this.label_avert, "label_avert");
+            this.label_avert.Name = "label_avert";
+            // 
+            // button_ban
+            // 
+            this.button_ban.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.button_ban, "button_ban");
+            this.button_ban.ForeColor = System.Drawing.Color.Transparent;
+            this.button_ban.Name = "button_ban";
+            this.button_ban.UseVisualStyleBackColor = false;
+            this.button_ban.Click += new System.EventHandler(this.button_ban_Click);
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // button_avert
+            // 
+            this.button_avert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(132)))), ((int)(((byte)(0)))));
+            resources.ApplyResources(this.button_avert, "button_avert");
+            this.button_avert.ForeColor = System.Drawing.Color.Transparent;
+            this.button_avert.Name = "button_avert";
+            this.button_avert.UseVisualStyleBackColor = false;
+            this.button_avert.Click += new System.EventHandler(this.button_avert_Click);
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // textBox1
+            // 
+            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.Name = "textBox1";
             // 
             // annuler
             // 
@@ -93,6 +148,7 @@
             resources.ApplyResources(this.button_reset_pdp, "button_reset_pdp");
             this.button_reset_pdp.Name = "button_reset_pdp";
             this.button_reset_pdp.UseVisualStyleBackColor = true;
+            this.button_reset_pdp.Click += new System.EventHandler(this.button_reset_pdp_Click);
             // 
             // label_photo_profil
             // 
@@ -162,11 +218,6 @@
             resources.ApplyResources(this.label_fiche_de, "label_fiche_de");
             this.label_fiche_de.Name = "label_fiche_de";
             // 
-            // textBox1
-            // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
-            // 
             // modifierUtilisateur
             // 
             resources.ApplyResources(this, "$this");
@@ -199,5 +250,11 @@
         private System.Windows.Forms.Button annuler;
         private System.Windows.Forms.Button valider;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button_avert;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button_ban;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_avert;
+        private System.Windows.Forms.Label label_nb_avert;
     }
 }

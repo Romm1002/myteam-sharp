@@ -33,17 +33,12 @@ namespace myteam_admin.Fenetres
             List<string> derniereRecrue = utilisateur.derniereRecrue();
             statUtilisateur4.Text = derniereRecrue[0];
 
+
+
+
             foreach(Utilisateurs utilisateurs in app.getUtilisateurs())
             {
                 tableauUtilisateurs.Rows.Add(utilisateurs.getId(), utilisateurs.getNom(), utilisateurs.getPrenom(), utilisateurs.getDateNaiss().ToString("dd-MM-yyyy"), utilisateurs.getEmail(), utilisateurs.getPoste());
-            }
-
-            foreach(DataGridViewRow row in tableauUtilisateurs.Rows)
-            {
-                if(row.Cells[5].Value.ToString() == "Visiteur")
-                {
-                    row.DefaultCellStyle.BackColor = Color.Red;
-                }
             }
         }
 
@@ -71,7 +66,11 @@ namespace myteam_admin.Fenetres
 
             if (fenetre.ShowDialog() == DialogResult.OK)
             {
-                
+                menuUtilisateur panel = new menuUtilisateur(accueil);
+                panel.AutoScroll = true;
+                accueil.panelContenu.Controls.Clear();
+                accueil.panelContenu.Controls.Add(panel);
+                panel.Show();
             }
         }
 

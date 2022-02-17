@@ -46,18 +46,6 @@ namespace myteam_admin.Fenetres
             labelHeaderTitle.Text = "PROJETS";
         }
 
-        private void toolStripMenuItemPlannification_Click(object sender, EventArgs e)
-        {
-            menuPlannification panel = new menuPlannification();
-
-            panel.AutoScroll = true;
-            this.panelContenu.Controls.Clear();
-            this.panelContenu.Controls.Add(panel);
-
-            selectButton(toolStripMenuItemPlannification);
-            labelHeaderTitle.Text = "PLANNIFICATION";
-        }
-
         private void toolStripMenuItemMessagerie_Click(object sender, EventArgs e)
         {
             menuMessagerie panel = new menuMessagerie(this);
