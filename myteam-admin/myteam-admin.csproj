@@ -77,19 +77,17 @@
     <Compile Include="Fenetres\Accueil.Designer.cs">
       <DependentUpon>Accueil.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Fenetres\dialogAlert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fenetres\dialogAlert.Designer.cs">
-      <DependentUpon>dialogAlert.cs</DependentUpon>
-=======
+	<Compile Include="Fenetres\dialogAlert.Designer.cs">
+		<DependentUpon>dialogAlert.cs</DependentUpon>
+	</Compile>
     <Compile Include="Fenetres\fenetreMessagesSignales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Fenetres\fenetreMessagesSignales.Designer.cs">
       <DependentUpon>fenetreMessagesSignales.cs</DependentUpon>
->>>>>>> romain
     </Compile>
     <Compile Include="Fenetres\menuAjoutUtilisateur.cs">
       <SubType>UserControl</SubType>
@@ -172,13 +170,11 @@
     <EmbeddedResource Include="Fenetres\Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="Fenetres\dialogAlert.resx">
-      <DependentUpon>dialogAlert.cs</DependentUpon>
-=======
+	    <DependentUpon>dialogAlert.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\fenetreMessagesSignales.resx">
       <DependentUpon>fenetreMessagesSignales.cs</DependentUpon>
->>>>>>> romain
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuAjouterProjet.resx">
       <DependentUpon>menuAjouterProjet.cs</DependentUpon>
