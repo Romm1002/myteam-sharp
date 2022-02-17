@@ -18,7 +18,6 @@ namespace myteam_admin.Fenetres
         {
             this.idUtilisateur = idUtilisateur;
             Utilisateurs utilisateurs = new Utilisateurs(idUtilisateur);
-            Modeles.Application app = new Modeles.Application();
 
             InitializeComponent();
 
@@ -97,9 +96,10 @@ namespace myteam_admin.Fenetres
         private void button_avert_Click(object sender, EventArgs e)
         {
             Utilisateurs utilisateurs = new Utilisateurs(idUtilisateur);
-            //utilisateurs.avertir(Convert.ToInt32(textBox1.Text));
 
-            MessageBox.Show(utilisateurs.avertir(Convert.ToInt32(textBox1.Text)).ToString());
+            MessageBox.Show(utilisateurs.avertir(Convert.ToInt32(textBox1.Text), utilisateurs.getAvertissements()).ToString());
+
+            //utilisateurs.avertir(Convert.ToInt32(textBox1.Text));
         }
     }
 }

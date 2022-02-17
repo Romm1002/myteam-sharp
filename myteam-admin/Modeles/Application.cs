@@ -25,7 +25,7 @@ namespace myteam_admin.Modeles
             conn.Open();
 
             MySqlCommand command = conn.CreateCommand();
-            command.CommandText = "SELECT m.idMessage, u.nom, u.prenom, m.contenu, m.heure, u2.nom, u2.prenom, m.idUtilisateur, m.idReceveur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idUtilisateur ORDER BY idMessage ASC";
+            command.CommandText = "SELECT m.idMessage, u.nom, u.prenom, m.contenu, m.heure, u2.nom, u2.prenom, m.idUtilisateur, m.idReceveur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur ORDER BY idMessage ASC";
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -46,14 +46,14 @@ namespace myteam_admin.Modeles
 
             MySqlCommand command = conn.CreateCommand();
             command.Parameters.AddWithValue("@traite", traite);
-            command.CommandText = "SELECT ms.idMessage, ms.message, u.prenom, u.nom FROM messages_signales AS ms LEFT JOIN utilisateurs AS u USING(idUtilisateur) WHERE traite = @traite";
+            command.CommandText = "SELECT ms.idMessage, ms.message, u.prenom, u.nom, u2.prenom, u2.nom, u2.idUtilisateur FROM messages_signales AS ms LEFT JOIN utilisateurs AS u USING(idUtilisateur) LEFT JOIN utilisateurs AS u2 ON ms.idSignale = u2.idUtilisateur WHERE traite = @traite";
             MySqlDataReader reader = command.ExecuteReader();
 
             List<Messages> listeMessagesSignales = new List<Messages>();
             while (reader.Read())
             {
                 Messages message = new Messages();
-                message.initialiserMessagesSignales(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
+                message.initialiserMessagesSignales(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetInt32(6));
                 listeMessagesSignales.Add(message);
             }
             conn.Close();

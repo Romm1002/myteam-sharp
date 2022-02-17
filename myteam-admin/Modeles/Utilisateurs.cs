@@ -13,7 +13,7 @@ namespace myteam_admin.Modeles
     {
         private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
-        private int idUtilisateur, idPoste, avertissements;
+        private int idUtilisateur, idPoste, avertissements, avertissements_plus;
 
         private string nom, prenom, email, poste, mdp;
         private string photoProfil = "C:/wamp64/www/myteam";
@@ -192,9 +192,8 @@ namespace myteam_admin.Modeles
         }
 
         // Avertir un utilisateur
-        public Object avertir(int id)
+        public int avertir(int id, int avertissement)
         {
-            int avertissements = 0;
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
 
@@ -206,7 +205,7 @@ namespace myteam_admin.Modeles
             {
                 avertissements = reader.GetInt32(0);
             }
-            
+
             return avertissements;
         }
 

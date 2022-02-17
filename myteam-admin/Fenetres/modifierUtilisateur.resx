@@ -147,13 +147,16 @@
     <value>0</value>
   </data>
   <data name="label_avert.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 688</value>
+    <value>19, 749</value>
   </data>
   <data name="label_avert.Size" type="System.Drawing.Size, System.Drawing">
-    <value>390, 43</value>
+    <value>393, 53</value>
   </data>
   <data name="label_avert.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
+  </data>
+  <data name="label_avert.Text" xml:space="preserve">
+    <value>*Lorsque Romain Chaaumont aura 3 avertissements, il sera automatiquement banni.</value>
   </data>
   <data name="&gt;&gt;label_avert.Name" xml:space="preserve">
     <value>label_avert</value>
@@ -322,7 +325,7 @@
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="annuler.Location" type="System.Drawing.Point, System.Drawing">
-    <value>153, 734</value>
+    <value>152, 692</value>
   </data>
   <data name="annuler.Size" type="System.Drawing.Size, System.Drawing">
     <value>127, 43</value>
@@ -352,7 +355,7 @@
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="valider.Location" type="System.Drawing.Point, System.Drawing">
-    <value>286, 734</value>
+    <value>285, 692</value>
   </data>
   <data name="valider.Size" type="System.Drawing.Size, System.Drawing">
     <value>127, 43</value>
@@ -660,6 +663,9 @@
   <data name="&gt;&gt;label_prenom.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
+  <data name="textBox_nom.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
   <data name="textBox_nom.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 103</value>
   </data>
@@ -748,7 +754,7 @@
     <value>13, 13</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>434, 792</value>
+    <value>434, 813</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -772,7 +778,7 @@
     <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>461, 813</value>
+    <value>461, 837</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

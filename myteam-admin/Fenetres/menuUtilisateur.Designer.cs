@@ -550,7 +550,7 @@ namespace myteam_admin.Fenetres
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.tableauUtilisateurs.DefaultCellStyle = dataGridViewCellStyle3;
-            this.tableauUtilisateurs.Location = new System.Drawing.Point(59, 3);
+            this.tableauUtilisateurs.Location = new System.Drawing.Point(59, 18);
             this.tableauUtilisateurs.Name = "tableauUtilisateurs";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -692,8 +692,8 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridView tableauUtilisateurs;
         private System.Windows.Forms.Button button_ajout_salarie;
+        private System.Windows.Forms.DataGridView tableauUtilisateurs;
         private System.Windows.Forms.DataGridViewTextBoxColumn identifiant;
         private System.Windows.Forms.DataGridViewTextBoxColumn nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn prenom;

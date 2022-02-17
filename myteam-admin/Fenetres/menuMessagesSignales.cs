@@ -21,10 +21,7 @@ namespace myteam_admin.Fenetres
         {
             InitializeComponent();
 
-            foreach(Messages messages in app.getMessagesSignales(0))
-            {
-                tableau_messagesSignales.Rows.Add(messages.getId(), messages.getMessage(), messages.getPrenom() + " " + messages.getNom());
-            }
+            
         }
     }
 }

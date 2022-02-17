@@ -68,12 +68,15 @@ namespace myteam_admin.Modeles
             this.idReceveur = idReceveur;
         }
 
-        public void initialiserMessagesSignales(int idMessage, string message, string prenomAuteur, string nomAuteur)
+        public void initialiserMessagesSignales(int idMessage, string message, string prenomAuteur, string nomAuteur, string nomSignale, string prenomSignale, int idReceveur)
         {
             this.idMessage = idMessage;
             this.message = message;
             this.prenomAuteur = prenomAuteur;
             this.nomAuteur = nomAuteur;
+            this.prenomReceveur = prenomSignale;
+            this.nomReceveur = nomSignale;
+            this.idReceveur = idReceveur;
         }
 
         public void supprimerMessage(int idMessage)
@@ -82,6 +85,15 @@ namespace myteam_admin.Modeles
             MySqlCommand command = conn.CreateCommand();
             command.Parameters.AddWithValue("@idMessage", idMessage);
             command.CommandText = "DELETE FROM messagerie WHERE idMessage = @idMessage";
+            command.ExecuteNonQuery();
+        }
+
+        public void traiterMessage(int idMessage)
+        {
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@idMessage", idMessage);
+            command.CommandText = "UPDATE messages_signales SET traite = 1 WHERE idMessage = @idMessage";
             command.ExecuteNonQuery();
         }
 
