@@ -80,14 +80,20 @@
     <Compile Include="Fenetres\dialogAlert.cs">
       <SubType>Form</SubType>
     </Compile>
-	<Compile Include="Fenetres\dialogAlert.Designer.cs">
-		<DependentUpon>dialogAlert.cs</DependentUpon>
-	</Compile>
+    <Compile Include="Fenetres\dialogAlert.Designer.cs">
+      <DependentUpon>dialogAlert.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fenetres\fenetreMessagesSignales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Fenetres\fenetreMessagesSignales.Designer.cs">
       <DependentUpon>fenetreMessagesSignales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fenetres\fenetreEditEvenement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fenetres\fenetreEditEvenement.Designer.cs">
+      <DependentUpon>fenetreEditEvenement.cs</DependentUpon>
     </Compile>
     <Compile Include="Fenetres\menuAjoutUtilisateur.cs">
       <SubType>UserControl</SubType>
@@ -100,6 +106,12 @@
     </Compile>
     <Compile Include="Fenetres\menuConversation.Designer.cs">
       <DependentUpon>menuConversation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fenetres\menuEvenement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fenetres\menuEvenement.Designer.cs">
+      <DependentUpon>menuEvenement.cs</DependentUpon>
     </Compile>
     <Compile Include="Fenetres\menuMessagerie.cs">
       <SubType>UserControl</SubType>
@@ -156,6 +168,7 @@
       <DependentUpon>modifierUtilisateur.cs</DependentUpon>
     </Compile>
     <Compile Include="Modeles\Application.cs" />
+    <Compile Include="Modeles\Evenements.cs" />
     <Compile Include="Modeles\MessagesProjet.cs" />
     <Compile Include="Modeles\Messages.cs" />
     <Compile Include="Modeles\Affectation.cs" />
@@ -171,10 +184,13 @@
       <DependentUpon>Connexion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\dialogAlert.resx">
-	    <DependentUpon>dialogAlert.cs</DependentUpon>
+      <DependentUpon>dialogAlert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\fenetreMessagesSignales.resx">
       <DependentUpon>fenetreMessagesSignales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\fenetreEditEvenement.resx">
+      <DependentUpon>fenetreEditEvenement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuAjouterProjet.resx">
       <DependentUpon>menuAjouterProjet.cs</DependentUpon>
@@ -184,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuConversation.resx">
       <DependentUpon>menuConversation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\menuEvenement.resx">
+      <DependentUpon>menuEvenement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuMessagerie.resx">
       <DependentUpon>menuMessagerie.cs</DependentUpon>
@@ -289,6 +308,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\24-hours.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photoProfil.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

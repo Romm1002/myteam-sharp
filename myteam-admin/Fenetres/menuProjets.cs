@@ -77,11 +77,24 @@ namespace myteam_admin.Fenetres
         //STYLE ROW DGV
         private void dataGridViewProjets_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
+            bool i = true;
             foreach (DataGridViewRow row in dataGridViewProjets.Rows)
             {
-                foreach (DataGridViewCell cell in row.Cells)
+                if (i)
                 {
-                    cell.Style.BackColor = Color.White;
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        cell.Style.BackColor = Color.White;
+                    }
+                    i = false;
+                }
+                else
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        cell.Style.BackColor = SystemColors.ControlLight;
+                    }
+                    i = true;
                 }
             }
             foreach (DataGridViewCell cell in dataGridViewProjets.CurrentRow.Cells)

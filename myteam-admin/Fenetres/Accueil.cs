@@ -57,7 +57,18 @@ namespace myteam_admin.Fenetres
             selectButton(toolStripMenuItemMessagerie);
             labelHeaderTitle.Text = "MESSAGERIE";
         }
+        private void toolStripMenuItemEvenement_Click(object sender, EventArgs e)
+        {
+            menuEvenement panel = new menuEvenement(this);
 
+            panel.AutoScroll = true;
+            this.panelContenu.Controls.Clear();
+            this.panelContenu.Controls.Add(panel);
+
+            selectButton(toolStripMenuItemEvenement);
+            labelHeaderTitle.Text = "EVENEMENTS";
+        }
+        
         //MENU STRIP STYLE
         private void selectButton(ToolStripMenuItem btn)
         {
@@ -99,5 +110,7 @@ namespace myteam_admin.Fenetres
                 maximized = true;
             }
         }
+
+        
     }
 }

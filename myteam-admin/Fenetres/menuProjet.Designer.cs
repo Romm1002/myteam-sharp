@@ -234,6 +234,7 @@ namespace myteam_admin.Fenetres
             // 
             // panelArchive
             // 
+            this.panelArchive.BackColor = System.Drawing.Color.White;
             this.panelArchive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelArchive.Controls.Add(this.checkBoxArchive);
             this.panelArchive.Controls.Add(this.labelArchive);
@@ -241,6 +242,8 @@ namespace myteam_admin.Fenetres
             this.panelArchive.Name = "panelArchive";
             this.panelArchive.Size = new System.Drawing.Size(392, 202);
             this.panelArchive.TabIndex = 16;
+            this.panelArchive.Click += new System.EventHandler(this.panelArchive_Click);
+            this.panelArchive.DoubleClick += new System.EventHandler(this.panelArchive_Click);
             // 
             // checkBoxArchive
             // 
@@ -265,6 +268,8 @@ namespace myteam_admin.Fenetres
             this.labelArchive.TabIndex = 15;
             this.labelArchive.Text = "Un projet archivé ne sera plus visible par les utilisateurs via l\'application web" +
     ".";
+            this.labelArchive.Click += new System.EventHandler(this.panelArchive_Click);
+            this.labelArchive.DoubleClick += new System.EventHandler(this.panelArchive_Click);
             // 
             // checkBoxCacherTerminee
             // 
@@ -409,6 +414,7 @@ namespace myteam_admin.Fenetres
             this.dataGridViewChat.AllowUserToDeleteRows = false;
             this.dataGridViewChat.AllowUserToResizeColumns = false;
             this.dataGridViewChat.AllowUserToResizeRows = false;
+            this.dataGridViewChat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewChat.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewChat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewChat.ColumnHeadersVisible = false;
@@ -442,7 +448,6 @@ namespace myteam_admin.Fenetres
             this.idChat.Name = "idChat";
             this.idChat.ReadOnly = true;
             this.idChat.Visible = false;
-            this.idChat.Width = 125;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -451,7 +456,6 @@ namespace myteam_admin.Fenetres
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn2.Width = 125;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -460,7 +464,6 @@ namespace myteam_admin.Fenetres
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
             // message
             // 
@@ -469,7 +472,6 @@ namespace myteam_admin.Fenetres
             this.message.Name = "message";
             this.message.ReadOnly = true;
             this.message.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.message.Width = 900;
             // 
             // dataGridViewParticipants
             // 

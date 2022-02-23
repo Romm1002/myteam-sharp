@@ -43,7 +43,7 @@ namespace myteam_admin.Modeles
             }
         }
 
-        public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, int idPoste, string photoProfil, int avertissements)
+        public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, int idPoste, string photoProfil, string poste, int avertissements)
         {
             this.idUtilisateur = idUtilisateur;
             this.nom = nom;
@@ -52,6 +52,7 @@ namespace myteam_admin.Modeles
             this.email = email;
             this.idPoste = idPoste;
             this.photoProfil += photoProfil;
+            this.poste = poste;
             this.avertissements = avertissements;
         }
 
@@ -275,6 +276,19 @@ namespace myteam_admin.Modeles
             }
             conn.Close();
             return derniereRecrue;
+        }
+        public int getIndex(List<Utilisateurs> listUilisateurs)
+        {
+            int i = 0;
+            foreach (Utilisateurs utilisateur in listUilisateurs)
+            {
+                if (utilisateur.getId() == this.idUtilisateur)
+                {
+                    return i;
+                }
+                i++;
+            }
+            return -1;
         }
     }
 }

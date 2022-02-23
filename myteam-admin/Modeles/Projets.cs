@@ -81,13 +81,13 @@ namespace myteam_admin.Modeles
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
             command.Parameters.AddWithValue("@id", id);
-            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, idposte, photoProfil, poste FROM participationprojet LEFT JOIN utilisateurs USING(idUtilisateur) RIGHT JOIN postes USING(idPoste) WHERE idProjet = @id";
+            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, idposte, photoProfil, poste, avertissements FROM participationprojet LEFT JOIN utilisateurs USING(idUtilisateur) RIGHT JOIN postes USING(idPoste) WHERE idProjet = @id";
             MySqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
             {
                 Utilisateurs utilisateurs = new Utilisateurs();
-                utilisateurs.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetInt32(7));
+                utilisateurs.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetString(7), reader.GetInt32(8));
                 utilisateurs.setPoste(reader.GetString(7));
                 listUtilisateurs.Add(utilisateurs);
             }

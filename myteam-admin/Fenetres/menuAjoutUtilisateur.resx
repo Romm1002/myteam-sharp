@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="information.Text" xml:space="preserve">
-    <value>Afin d'inscrire un nouvel employé, il vous faut remplir tous les champs ci-dessous. Aucun mot de passe n'est demandé pour des raisons de sécurité. Celui ci sera communiqué par e-mail à la personne concerné.</value>
+    <value>Afin d'inscrire un nouvel employé, il vous faut remplir tous les champs ci-dessous. Aucun mot de passe n'est demandé pour des raisons de sécurité. Celui ci devra être communiqué par e-mail à la personne concerné.</value>
   </data>
 </root>

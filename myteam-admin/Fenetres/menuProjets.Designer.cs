@@ -192,6 +192,7 @@ namespace myteam_admin.Fenetres
             this.dataGridViewProjets.AllowUserToDeleteRows = false;
             this.dataGridViewProjets.AllowUserToResizeColumns = false;
             this.dataGridViewProjets.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle1.NullValue = null;
             this.dataGridViewProjets.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewProjets.BackgroundColor = System.Drawing.Color.White;

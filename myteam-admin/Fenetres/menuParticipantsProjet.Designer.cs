@@ -86,6 +86,7 @@ namespace myteam_admin.Fenetres
             this.dataGridViewParticipants.AllowUserToDeleteRows = false;
             this.dataGridViewParticipants.AllowUserToResizeColumns = false;
             this.dataGridViewParticipants.AllowUserToResizeRows = false;
+            this.dataGridViewParticipants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewParticipants.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewParticipants.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewParticipants.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -128,7 +129,6 @@ namespace myteam_admin.Fenetres
             this.idParticipant.Name = "idParticipant";
             this.idParticipant.ReadOnly = true;
             this.idParticipant.Visible = false;
-            this.idParticipant.Width = 125;
             // 
             // pdpParticipant
             // 
@@ -138,7 +138,6 @@ namespace myteam_admin.Fenetres
             this.pdpParticipant.MinimumWidth = 6;
             this.pdpParticipant.Name = "pdpParticipant";
             this.pdpParticipant.ReadOnly = true;
-            this.pdpParticipant.Width = 125;
             // 
             // nomParticipant
             // 
@@ -146,7 +145,6 @@ namespace myteam_admin.Fenetres
             this.nomParticipant.MinimumWidth = 6;
             this.nomParticipant.Name = "nomParticipant";
             this.nomParticipant.ReadOnly = true;
-            this.nomParticipant.Width = 125;
             // 
             // prenomParticipant
             // 
@@ -154,7 +152,6 @@ namespace myteam_admin.Fenetres
             this.prenomParticipant.MinimumWidth = 6;
             this.prenomParticipant.Name = "prenomParticipant";
             this.prenomParticipant.ReadOnly = true;
-            this.prenomParticipant.Width = 125;
             // 
             // posteParticipant
             // 
@@ -162,7 +159,6 @@ namespace myteam_admin.Fenetres
             this.posteParticipant.MinimumWidth = 6;
             this.posteParticipant.Name = "posteParticipant";
             this.posteParticipant.ReadOnly = true;
-            this.posteParticipant.Width = 125;
             // 
             // dataGridViewUtilisateurs
             // 
@@ -170,6 +166,7 @@ namespace myteam_admin.Fenetres
             this.dataGridViewUtilisateurs.AllowUserToDeleteRows = false;
             this.dataGridViewUtilisateurs.AllowUserToResizeColumns = false;
             this.dataGridViewUtilisateurs.AllowUserToResizeRows = false;
+            this.dataGridViewUtilisateurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewUtilisateurs.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewUtilisateurs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewUtilisateurs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -212,7 +209,6 @@ namespace myteam_admin.Fenetres
             this.idUtilisateur.Name = "idUtilisateur";
             this.idUtilisateur.ReadOnly = true;
             this.idUtilisateur.Visible = false;
-            this.idUtilisateur.Width = 125;
             // 
             // pdpUtilisateur
             // 
@@ -222,7 +218,6 @@ namespace myteam_admin.Fenetres
             this.pdpUtilisateur.MinimumWidth = 6;
             this.pdpUtilisateur.Name = "pdpUtilisateur";
             this.pdpUtilisateur.ReadOnly = true;
-            this.pdpUtilisateur.Width = 125;
             // 
             // nomUtilisateur
             // 
@@ -230,7 +225,6 @@ namespace myteam_admin.Fenetres
             this.nomUtilisateur.MinimumWidth = 6;
             this.nomUtilisateur.Name = "nomUtilisateur";
             this.nomUtilisateur.ReadOnly = true;
-            this.nomUtilisateur.Width = 125;
             // 
             // prenomUtilisateur
             // 
@@ -238,7 +232,6 @@ namespace myteam_admin.Fenetres
             this.prenomUtilisateur.MinimumWidth = 6;
             this.prenomUtilisateur.Name = "prenomUtilisateur";
             this.prenomUtilisateur.ReadOnly = true;
-            this.prenomUtilisateur.Width = 125;
             // 
             // posteUtilisateur
             // 
@@ -246,7 +239,6 @@ namespace myteam_admin.Fenetres
             this.posteUtilisateur.MinimumWidth = 6;
             this.posteUtilisateur.Name = "posteUtilisateur";
             this.posteUtilisateur.ReadOnly = true;
-            this.posteUtilisateur.Width = 125;
             // 
             // buttonValider
             // 
@@ -270,7 +262,7 @@ namespace myteam_admin.Fenetres
             this.labelUtilisateurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUtilisateurs.Location = new System.Drawing.Point(0, 0);
             this.labelUtilisateurs.Name = "labelUtilisateurs";
-            this.labelUtilisateurs.Size = new System.Drawing.Size(156, 32);
+            this.labelUtilisateurs.Size = new System.Drawing.Size(157, 32);
             this.labelUtilisateurs.TabIndex = 6;
             this.labelUtilisateurs.Text = "Utilisateurs";
             // 
@@ -281,7 +273,7 @@ namespace myteam_admin.Fenetres
             this.labelParticipants.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelParticipants.Location = new System.Drawing.Point(0, 0);
             this.labelParticipants.Name = "labelParticipants";
-            this.labelParticipants.Size = new System.Drawing.Size(164, 32);
+            this.labelParticipants.Size = new System.Drawing.Size(165, 32);
             this.labelParticipants.TabIndex = 8;
             this.labelParticipants.Text = "Participants";
             // 

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using myteam_admin.Modeles;
 using MySql.Data.MySqlClient;
 
-using System.Windows.Forms;
 
 
 namespace myteam_admin.Modeles
@@ -149,7 +148,7 @@ namespace myteam_admin.Modeles
             while (reader.Read())
             {
                 Utilisateurs utilisateur = new Utilisateurs();
-                utilisateur.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetInt32(8));
+                utilisateur.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetString(7), reader.GetInt32(8));
                 utilisateur.setPoste(reader.GetString(7));
                 listeUtilisateurs.Add(utilisateur);
             }
@@ -172,6 +171,41 @@ namespace myteam_admin.Modeles
         {
             return nbrProjetsFini;
 
+        }
+
+        public List<Evenements> getEvenementsAdmin()
+        {
+            List<Evenements> listEvenements = new List<Evenements>();
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.CommandText = "SELECT idEvenement, designation, date, heureDebut, heureFin, idUtilisateur, nom, prenom, dateNaiss, email, idPoste, photoProfil, poste, avertissements FROM `evenements` LEFT JOIN utilisateurs USING(idUtilisateur) LEFT JOIN postes USING(idPoste) WHERE admin = 1 ORDER BY date ASC, heureDebut  ASC";
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                if (listEvenements.Count != 0 && reader.GetString(1) == listEvenements[listEvenements.Count - 1].getDesignation() && Convert.ToDateTime(reader.GetValue(2)) == listEvenements[listEvenements.Count - 1].getDate() && DateTime.Parse(reader.GetString(3)) == listEvenements[listEvenements.Count - 1].getDebut() && DateTime.Parse(reader.GetString(4)) == listEvenements[listEvenements.Count - 1].getFin())
+                {
+                    listEvenements[listEvenements.Count - 1].addIdEvenement(reader.GetInt32(0));
+                    Utilisateurs utilisateur = new Utilisateurs();
+                    utilisateur.initialiser(reader.GetInt32(5), reader.GetString(6), reader.GetString(7), Convert.ToDateTime(reader.GetValue(8)), reader.GetString(9), reader.GetInt32(10), reader.GetString(11).Substring(2), reader.GetString(12), reader.GetInt32(13));
+                    listEvenements[listEvenements.Count - 1].addUtilisateur(utilisateur);
+                }
+                else
+                {
+                    Utilisateurs utilisateur = new Utilisateurs();
+                    utilisateur.initialiser(reader.GetInt32(5), reader.GetString(6), reader.GetString(7), Convert.ToDateTime(reader.GetValue(8)), reader.GetString(9), reader.GetInt32(10), reader.GetString(11).Substring(2), reader.GetString(12), reader.GetInt32(13));
+                    List<Utilisateurs> listUtilisateur = new List<Utilisateurs>();
+                    listUtilisateur.Add(utilisateur);
+
+                    List<int> listIdEvenement = new List<int>();
+                    listIdEvenement.Add(reader.GetInt32(0));
+
+                    Evenements evenement = new Evenements();
+                    evenement.initialiser(listIdEvenement, reader.GetString(1), Convert.ToDateTime(reader.GetValue(2)), DateTime.Parse(reader.GetString(3)), DateTime.Parse(reader.GetString(4)), listUtilisateur);
+                    listEvenements.Add(evenement);
+                }
+            }
+            conn.Close();
+            return listEvenements;
         }
     }
 }

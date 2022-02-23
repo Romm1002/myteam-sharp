@@ -35,7 +35,7 @@ namespace myteam_admin.Fenetres
             this.toolStripMenuItemUtilisateurs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemProjets = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemMessagerie = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemPlanning = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemEvenement = new System.Windows.Forms.ToolStripMenuItem();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panelContenu = new System.Windows.Forms.Panel();
@@ -75,7 +75,7 @@ namespace myteam_admin.Fenetres
             this.toolStripMenuItemUtilisateurs,
             this.toolStripMenuItemProjets,
             this.toolStripMenuItemMessagerie,
-            this.toolStripMenuItemPlanning});
+            this.toolStripMenuItemEvenement});
             this.menuStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip.Location = new System.Drawing.Point(0, 100);
             this.menuStrip.Name = "menuStrip";
@@ -114,14 +114,15 @@ namespace myteam_admin.Fenetres
             this.toolStripMenuItemMessagerie.Text = "MESSAGERIE";
             this.toolStripMenuItemMessagerie.Click += new System.EventHandler(this.toolStripMenuItemMessagerie_Click);
             // 
-            // toolStripMenuItemPlanning
+            // toolStripMenuItemEvenement
             // 
-            this.toolStripMenuItemPlanning.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripMenuItemPlanning.ForeColor = System.Drawing.Color.White;
-            this.toolStripMenuItemPlanning.Name = "toolStripMenuItemPlanning";
-            this.toolStripMenuItemPlanning.Padding = new System.Windows.Forms.Padding(15, 30, 15, 30);
-            this.toolStripMenuItemPlanning.Size = new System.Drawing.Size(254, 84);
-            this.toolStripMenuItemPlanning.Text = "PLANNING";
+            this.toolStripMenuItemEvenement.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripMenuItemEvenement.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItemEvenement.Name = "toolStripMenuItemEvenement";
+            this.toolStripMenuItemEvenement.Padding = new System.Windows.Forms.Padding(15, 30, 15, 30);
+            this.toolStripMenuItemEvenement.Size = new System.Drawing.Size(254, 84);
+            this.toolStripMenuItemEvenement.Text = "EVENEMENTS";
+            this.toolStripMenuItemEvenement.Click += new System.EventHandler(this.toolStripMenuItemEvenement_Click);
             // 
             // panelLogo
             // 
@@ -291,7 +292,7 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemUtilisateurs;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProjets;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMessagerie;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPlanning;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemEvenement;
         private System.Windows.Forms.Panel panelLogo;
         public System.Windows.Forms.Panel panelContenu;
         private System.Windows.Forms.Panel panelHeader;

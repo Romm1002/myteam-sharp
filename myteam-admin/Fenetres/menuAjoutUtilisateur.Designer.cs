@@ -31,6 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menuAjoutUtilisateur));
             this.information = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox_mdp = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tetxBox_mdp = new System.Windows.Forms.Label();
+            this.labelError = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.radioButton_administrateur = new System.Windows.Forms.RadioButton();
             this.radioButton_employe = new System.Windows.Forms.RadioButton();
@@ -48,12 +54,6 @@
             this.textBox_nom = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelError = new System.Windows.Forms.Label();
-            this.textBox_mdp = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tetxBox_mdp = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,6 +96,66 @@
             this.panel1.Size = new System.Drawing.Size(1314, 604);
             this.panel1.TabIndex = 1;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(30, 372);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(719, 17);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Pensez à noté le mot de passe pour le fournir au nouvel utilisateur. Insistez bie" +
+    "n pour qu\'il le change par la suite.";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Location = new System.Drawing.Point(523, 337);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 28);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Générer";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox_mdp
+            // 
+            this.textBox_mdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_mdp.Location = new System.Drawing.Point(30, 337);
+            this.textBox_mdp.Name = "textBox_mdp";
+            this.textBox_mdp.ReadOnly = true;
+            this.textBox_mdp.Size = new System.Drawing.Size(474, 28);
+            this.textBox_mdp.TabIndex = 21;
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(169, 309);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(13, 11);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "*";
+            // 
+            // tetxBox_mdp
+            // 
+            this.tetxBox_mdp.AutoSize = true;
+            this.tetxBox_mdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tetxBox_mdp.ForeColor = System.Drawing.Color.Black;
+            this.tetxBox_mdp.Location = new System.Drawing.Point(25, 309);
+            this.tetxBox_mdp.Name = "tetxBox_mdp";
+            this.tetxBox_mdp.Size = new System.Drawing.Size(142, 25);
+            this.tetxBox_mdp.TabIndex = 19;
+            this.tetxBox_mdp.Text = "Mot de passe";
+            // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(309, 529);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 17);
+            this.labelError.TabIndex = 18;
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,7 +173,7 @@
             this.radioButton_administrateur.AutoSize = true;
             this.radioButton_administrateur.Location = new System.Drawing.Point(174, 451);
             this.radioButton_administrateur.Name = "radioButton_administrateur";
-            this.radioButton_administrateur.Size = new System.Drawing.Size(113, 20);
+            this.radioButton_administrateur.Size = new System.Drawing.Size(120, 21);
             this.radioButton_administrateur.TabIndex = 16;
             this.radioButton_administrateur.TabStop = true;
             this.radioButton_administrateur.Text = "Administrateur";
@@ -124,7 +184,7 @@
             this.radioButton_employe.AutoSize = true;
             this.radioButton_employe.Location = new System.Drawing.Point(30, 451);
             this.radioButton_employe.Name = "radioButton_employe";
-            this.radioButton_employe.Size = new System.Drawing.Size(98, 20);
+            this.radioButton_employe.Size = new System.Drawing.Size(101, 21);
             this.radioButton_employe.TabIndex = 15;
             this.radioButton_employe.TabStop = true;
             this.radioButton_employe.Text = "Employé(e)";
@@ -266,66 +326,6 @@
             this.label1.Size = new System.Drawing.Size(56, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nom";
-            // 
-            // labelError
-            // 
-            this.labelError.AutoSize = true;
-            this.labelError.Location = new System.Drawing.Point(309, 529);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(0, 16);
-            this.labelError.TabIndex = 18;
-            // 
-            // textBox_mdp
-            // 
-            this.textBox_mdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_mdp.Location = new System.Drawing.Point(30, 337);
-            this.textBox_mdp.Name = "textBox_mdp";
-            this.textBox_mdp.ReadOnly = true;
-            this.textBox_mdp.Size = new System.Drawing.Size(474, 28);
-            this.textBox_mdp.TabIndex = 21;
-            // 
-            // label11
-            // 
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(169, 309);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(13, 11);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "*";
-            // 
-            // tetxBox_mdp
-            // 
-            this.tetxBox_mdp.AutoSize = true;
-            this.tetxBox_mdp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tetxBox_mdp.ForeColor = System.Drawing.Color.Black;
-            this.tetxBox_mdp.Location = new System.Drawing.Point(25, 309);
-            this.tetxBox_mdp.Name = "tetxBox_mdp";
-            this.tetxBox_mdp.Size = new System.Drawing.Size(142, 25);
-            this.tetxBox_mdp.TabIndex = 19;
-            this.tetxBox_mdp.Text = "Mot de passe";
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(523, 337);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Générer";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(30, 372);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(663, 16);
-            this.label12.TabIndex = 23;
-            this.label12.Text = "Pensez à noté le mot de passe pour le fournir au nouvel utilisateur. Insistez bie" +
-    "n pour qu\'il le change par la suite.";
             // 
             // menuAjoutUtilisateur
             // 

@@ -274,6 +274,14 @@ namespace myteam_admin.Fenetres
         private void checkBoxArchive_CheckedChanged(object sender, EventArgs e)
         {
             projet.setArchive(checkBoxArchive.Checked);
+            if (checkBoxArchive.Checked)
+            {
+                panelArchive.BackColor = Color.FromArgb(255, 232, 99);
+            }
+            else
+            {
+                panelArchive.BackColor = Color.White;
+            }
         }
 
         private void buttonSupprimer_Click(object sender, EventArgs e)
@@ -297,6 +305,18 @@ namespace myteam_admin.Fenetres
                 {
                     MessageBox.Show("Echec lors de la suppression, contactez Damien pour un dépannage");
                 }
+            }
+        }
+
+        private void panelArchive_Click(object sender, EventArgs e)
+        {
+            if (!checkBoxArchive.Checked)
+            {
+                checkBoxArchive.Checked = true;
+            }
+            else
+            {
+                checkBoxArchive.Checked = false ;
             }
         }
     }

@@ -153,6 +153,7 @@ namespace myteam_admin.Fenetres
             this.dataGridViewParticipants.AllowUserToDeleteRows = false;
             this.dataGridViewParticipants.AllowUserToResizeColumns = false;
             this.dataGridViewParticipants.AllowUserToResizeRows = false;
+            this.dataGridViewParticipants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewParticipants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewParticipants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -179,7 +180,6 @@ namespace myteam_admin.Fenetres
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Visible = false;
-            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -187,7 +187,6 @@ namespace myteam_admin.Fenetres
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 125;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -195,7 +194,6 @@ namespace myteam_admin.Fenetres
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -203,7 +201,6 @@ namespace myteam_admin.Fenetres
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 125;
             // 
             // dataGridViewUtilisateurs
             // 
@@ -211,6 +208,7 @@ namespace myteam_admin.Fenetres
             this.dataGridViewUtilisateurs.AllowUserToDeleteRows = false;
             this.dataGridViewUtilisateurs.AllowUserToResizeColumns = false;
             this.dataGridViewUtilisateurs.AllowUserToResizeRows = false;
+            this.dataGridViewUtilisateurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewUtilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUtilisateurs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idUtilisateur,
@@ -237,7 +235,6 @@ namespace myteam_admin.Fenetres
             this.idUtilisateur.Name = "idUtilisateur";
             this.idUtilisateur.ReadOnly = true;
             this.idUtilisateur.Visible = false;
-            this.idUtilisateur.Width = 125;
             // 
             // nom
             // 
@@ -245,7 +242,6 @@ namespace myteam_admin.Fenetres
             this.nom.MinimumWidth = 6;
             this.nom.Name = "nom";
             this.nom.ReadOnly = true;
-            this.nom.Width = 125;
             // 
             // prenom
             // 
@@ -253,7 +249,6 @@ namespace myteam_admin.Fenetres
             this.prenom.MinimumWidth = 6;
             this.prenom.Name = "prenom";
             this.prenom.ReadOnly = true;
-            this.prenom.Width = 125;
             // 
             // poste
             // 
@@ -261,7 +256,6 @@ namespace myteam_admin.Fenetres
             this.poste.MinimumWidth = 6;
             this.poste.Name = "poste";
             this.poste.ReadOnly = true;
-            this.poste.Width = 125;
             // 
             // labelDateFin
             // 
