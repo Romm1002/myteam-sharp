@@ -44,6 +44,9 @@ namespace myteam_admin.Fenetres
             this.buttonEnregistrer = new System.Windows.Forms.Button();
             this.buttonRetour = new System.Windows.Forms.Button();
             this.panelBody = new System.Windows.Forms.Panel();
+            this.panelMessage = new System.Windows.Forms.Panel();
+            this.textBoxMessage = new System.Windows.Forms.TextBox();
+            this.buttonSend = new System.Windows.Forms.Button();
             this.buttonSupprimer = new System.Windows.Forms.Button();
             this.panelArchive = new System.Windows.Forms.Panel();
             this.checkBoxArchive = new System.Windows.Forms.CheckBox();
@@ -74,6 +77,7 @@ namespace myteam_admin.Fenetres
             this.panelTextBoxDescription = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
             this.panelBody.SuspendLayout();
+            this.panelMessage.SuspendLayout();
             this.panelArchive.SuspendLayout();
             this.panelTextBoxNom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTaches)).BeginInit();
@@ -197,6 +201,8 @@ namespace myteam_admin.Fenetres
             // 
             // panelBody
             // 
+            this.panelBody.Controls.Add(this.panelMessage);
+            this.panelBody.Controls.Add(this.buttonSend);
             this.panelBody.Controls.Add(this.buttonSupprimer);
             this.panelBody.Controls.Add(this.panelArchive);
             this.panelBody.Controls.Add(this.checkBoxCacherTerminee);
@@ -214,8 +220,48 @@ namespace myteam_admin.Fenetres
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBody.Location = new System.Drawing.Point(150, 205);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(1240, 1178);
+            this.panelBody.Size = new System.Drawing.Size(1240, 1292);
             this.panelBody.TabIndex = 1;
+            // 
+            // panelMessage
+            // 
+            this.panelMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMessage.Controls.Add(this.textBoxMessage);
+            this.panelMessage.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.panelMessage.Location = new System.Drawing.Point(19, 1133);
+            this.panelMessage.Margin = new System.Windows.Forms.Padding(0);
+            this.panelMessage.Name = "panelMessage";
+            this.panelMessage.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
+            this.panelMessage.Size = new System.Drawing.Size(1143, 44);
+            this.panelMessage.TabIndex = 20;
+            this.panelMessage.Click += new System.EventHandler(this.panelMessage_Click);
+            // 
+            // textBoxMessage
+            // 
+            this.textBoxMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMessage.Location = new System.Drawing.Point(15, 10);
+            this.textBoxMessage.Margin = new System.Windows.Forms.Padding(0);
+            this.textBoxMessage.Name = "textBoxMessage";
+            this.textBoxMessage.Size = new System.Drawing.Size(1111, 20);
+            this.textBoxMessage.TabIndex = 18;
+            this.textBoxMessage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMessage_KeyUp);
+            // 
+            // buttonSend
+            // 
+            this.buttonSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(100)))), ((int)(((byte)(169)))));
+            this.buttonSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSend.ForeColor = System.Drawing.Color.White;
+            this.buttonSend.Location = new System.Drawing.Point(1162, 1133);
+            this.buttonSend.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonSend.Name = "buttonSend";
+            this.buttonSend.Size = new System.Drawing.Size(78, 44);
+            this.buttonSend.TabIndex = 19;
+            this.buttonSend.Text = "Send";
+            this.buttonSend.UseVisualStyleBackColor = false;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // buttonSupprimer
             // 
@@ -433,6 +479,7 @@ namespace myteam_admin.Fenetres
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewChat.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewChat.Location = new System.Drawing.Point(19, 756);
+            this.dataGridViewChat.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridViewChat.Name = "dataGridViewChat";
             this.dataGridViewChat.ReadOnly = true;
             this.dataGridViewChat.RowHeadersVisible = false;
@@ -590,11 +637,13 @@ namespace myteam_admin.Fenetres
             this.Controls.Add(this.panelHeader);
             this.Name = "menuProjet";
             this.Padding = new System.Windows.Forms.Padding(150, 0, 0, 0);
-            this.Size = new System.Drawing.Size(1390, 1383);
+            this.Size = new System.Drawing.Size(1390, 1497);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panelBody.ResumeLayout(false);
             this.panelBody.PerformLayout();
+            this.panelMessage.ResumeLayout(false);
+            this.panelMessage.PerformLayout();
             this.panelArchive.ResumeLayout(false);
             this.panelArchive.PerformLayout();
             this.panelTextBoxNom.ResumeLayout(false);
@@ -649,5 +698,8 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.CheckBox checkBoxArchive;
         private System.Windows.Forms.Panel panelArchive;
         private System.Windows.Forms.Button buttonSupprimer;
+        private System.Windows.Forms.Button buttonSend;
+        private System.Windows.Forms.TextBox textBoxMessage;
+        private System.Windows.Forms.Panel panelMessage;
     }
 }

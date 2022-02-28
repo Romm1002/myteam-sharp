@@ -21,6 +21,7 @@ namespace myteam_admin.Fenetres
 
             InitializeComponent();
 
+
             // Changements du titre de la fenêtre et du label titre
             this.Text = "Fiche de " + utilisateurs.getPrenom() + " " + utilisateurs.getNom();
             label_fiche_de.Text = "Fiche de " + utilisateurs.getPrenom() + " " + utilisateurs.getNom();
@@ -46,7 +47,14 @@ namespace myteam_admin.Fenetres
             }
             select_poste.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            button_ban.Text = "BANNIR " + utilisateurs.getPrenom() + " " + utilisateurs.getNom();
+            if (utilisateurs.getActif() == 1)
+            {
+                button_ban.Text = "BANNIR " + utilisateurs.getPrenom() + " " + utilisateurs.getNom();
+            }
+            else
+            {
+                button_ban.Text = "DEBANNIR " + utilisateurs.getPrenom() + " " + utilisateurs.getNom();
+            }
             button_avert.Text = "AVERTIR " + utilisateurs.getPrenom() + " " + utilisateurs.getNom();
             label_avert.Text = "*Lorsque " + utilisateurs.getPrenom() + " " + utilisateurs.getNom() + " aura 3 avertissements, il sera automatiquement banni.";
             label_nb_avert.Text = utilisateurs.getAvertissements() + " avertissements";
@@ -88,8 +96,15 @@ namespace myteam_admin.Fenetres
 
         private void button_ban_Click(object sender, EventArgs e)
         {
-            Utilisateurs utilisateurs = new Utilisateurs(idUtilisateur);
-            utilisateurs.ban(Convert.ToInt32(textBox1.Text));
+            Utilisateurs utilisateur = new Utilisateurs(idUtilisateur);
+            if (utilisateur.getActif() == 1)
+            {
+                utilisateur.ban(Convert.ToInt32(textBox1.Text));
+            }
+            else
+            {
+                utilisateur.deban(Convert.ToInt32(textBox1.Text));
+            }
             this.DialogResult = DialogResult.OK;
         }
 
@@ -97,9 +112,9 @@ namespace myteam_admin.Fenetres
         {
             Utilisateurs utilisateurs = new Utilisateurs(idUtilisateur);
 
-            MessageBox.Show(utilisateurs.avertir(Convert.ToInt32(textBox1.Text), utilisateurs.getAvertissements()).ToString());
+            utilisateurs.avertir(idUtilisateur, utilisateurs.getAvertissements());
+            label_nb_avert.Text = utilisateurs.getAvertissements() + 1 + " avertissements";
 
-            //utilisateurs.avertir(Convert.ToInt32(textBox1.Text));
         }
     }
 }

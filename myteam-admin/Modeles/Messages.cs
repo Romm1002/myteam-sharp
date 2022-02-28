@@ -8,9 +8,8 @@ using MySql.Data.MySqlClient;
 
 namespace myteam_admin.Modeles
 {
-    class Messages
+    public class Messages : Application
     {
-        private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
         private int idMessage, idAuteur, idReceveur;
         private DateTime date;

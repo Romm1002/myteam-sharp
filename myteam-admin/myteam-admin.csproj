@@ -95,6 +95,12 @@
     <Compile Include="Fenetres\fenetreEditEvenement.Designer.cs">
       <DependentUpon>fenetreEditEvenement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fenetres\menuAjouterPoste.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fenetres\menuAjouterPoste.Designer.cs">
+      <DependentUpon>menuAjouterPoste.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fenetres\menuAjoutUtilisateur.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -167,11 +173,17 @@
     <Compile Include="Fenetres\modifierUtilisateur.Designer.cs">
       <DependentUpon>modifierUtilisateur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fenetres\menuPostes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fenetres\menuPostes.Designer.cs">
+      <DependentUpon>menuPostes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modeles\Application.cs" />
     <Compile Include="Modeles\Evenements.cs" />
     <Compile Include="Modeles\MessagesProjet.cs" />
     <Compile Include="Modeles\Messages.cs" />
-    <Compile Include="Modeles\Affectation.cs" />
+    <Compile Include="Modeles\Postes.cs" />
     <Compile Include="Modeles\Projets.cs" />
     <Compile Include="Modeles\Taches.cs" />
     <Compile Include="Modeles\Utilisateurs.cs" />
@@ -191,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\fenetreEditEvenement.resx">
       <DependentUpon>fenetreEditEvenement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\menuAjouterPoste.resx">
+      <DependentUpon>menuAjouterPoste.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuAjouterProjet.resx">
       <DependentUpon>menuAjouterProjet.cs</DependentUpon>
@@ -215,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuPlannification.resx">
       <DependentUpon>menuPlannification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\menuPostes.resx">
+      <DependentUpon>menuPostes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuProjet.resx">
       <DependentUpon>menuProjet.cs</DependentUpon>
@@ -255,9 +273,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\logo_white_large.png" />
   </ItemGroup>

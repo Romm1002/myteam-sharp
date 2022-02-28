@@ -1,7 +1,7 @@
 ﻿
 namespace myteam_admin.Fenetres
 {
-    partial class menuUtilisateur
+    partial class menuPostes
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -33,7 +33,10 @@ namespace myteam_admin.Fenetres
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelBody = new System.Windows.Forms.Panel();
+            this.buttonAjoutPoste = new System.Windows.Forms.Button();
+            this.datagridviewPostes = new System.Windows.Forms.DataGridView();
+            this.panelHeader = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -66,16 +69,12 @@ namespace myteam_admin.Fenetres
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button_ajout_salarie = new System.Windows.Forms.Button();
-            this.tableauUtilisateurs = new System.Windows.Forms.DataGridView();
-            this.identifiant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_naissance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.poste_occupe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1.SuspendLayout();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.poste = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelBody.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridviewPostes)).BeginInit();
+            this.panelHeader.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
@@ -96,20 +95,99 @@ namespace myteam_admin.Fenetres
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableauUtilisateurs)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelBody
             // 
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.cardMessageEchanges);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1659, 200);
-            this.panel1.TabIndex = 0;
+            this.panelBody.Controls.Add(this.buttonAjoutPoste);
+            this.panelBody.Controls.Add(this.datagridviewPostes);
+            this.panelBody.Location = new System.Drawing.Point(3, 209);
+            this.panelBody.Name = "panelBody";
+            this.panelBody.Size = new System.Drawing.Size(1659, 707);
+            this.panelBody.TabIndex = 3;
+            // 
+            // buttonAjoutPoste
+            // 
+            this.buttonAjoutPoste.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(100)))), ((int)(((byte)(169)))));
+            this.buttonAjoutPoste.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAjoutPoste.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(100)))), ((int)(((byte)(169)))));
+            this.buttonAjoutPoste.FlatAppearance.BorderSize = 4;
+            this.buttonAjoutPoste.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonAjoutPoste.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonAjoutPoste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAjoutPoste.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAjoutPoste.ForeColor = System.Drawing.Color.White;
+            this.buttonAjoutPoste.Location = new System.Drawing.Point(59, 622);
+            this.buttonAjoutPoste.Name = "buttonAjoutPoste";
+            this.buttonAjoutPoste.Size = new System.Drawing.Size(277, 64);
+            this.buttonAjoutPoste.TabIndex = 1;
+            this.buttonAjoutPoste.Text = "Ajouter un poste";
+            this.buttonAjoutPoste.UseVisualStyleBackColor = false;
+            this.buttonAjoutPoste.Click += new System.EventHandler(this.buttonAjoutPoste_Click);
+            this.buttonAjoutPoste.MouseEnter += new System.EventHandler(this.button_ajout_salarie_MouseEnter);
+            this.buttonAjoutPoste.MouseLeave += new System.EventHandler(this.button_ajout_salarie_MouseLeave);
+            // 
+            // datagridviewPostes
+            // 
+            this.datagridviewPostes.AllowUserToAddRows = false;
+            this.datagridviewPostes.AllowUserToDeleteRows = false;
+            this.datagridviewPostes.AllowUserToResizeColumns = false;
+            this.datagridviewPostes.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.datagridviewPostes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.datagridviewPostes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datagridviewPostes.BackgroundColor = System.Drawing.Color.White;
+            this.datagridviewPostes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.datagridviewPostes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridviewPostes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.datagridviewPostes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridviewPostes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.poste,
+            this.grade});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datagridviewPostes.DefaultCellStyle = dataGridViewCellStyle3;
+            this.datagridviewPostes.Location = new System.Drawing.Point(59, 18);
+            this.datagridviewPostes.Name = "datagridviewPostes";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridviewPostes.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.datagridviewPostes.RowHeadersVisible = false;
+            this.datagridviewPostes.RowHeadersWidth = 51;
+            this.datagridviewPostes.RowTemplate.Height = 24;
+            this.datagridviewPostes.Size = new System.Drawing.Size(1540, 598);
+            this.datagridviewPostes.TabIndex = 0;
+            this.datagridviewPostes.Click += new System.EventHandler(this.datagridviewPostes_Click);
+            // 
+            // panelHeader
+            // 
+            this.panelHeader.Controls.Add(this.panel4);
+            this.panelHeader.Controls.Add(this.panel3);
+            this.panelHeader.Controls.Add(this.panel2);
+            this.panelHeader.Controls.Add(this.cardMessageEchanges);
+            this.panelHeader.Location = new System.Drawing.Point(3, 3);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(1659, 200);
+            this.panelHeader.TabIndex = 2;
             // 
             // panel4
             // 
@@ -154,7 +232,7 @@ namespace myteam_admin.Fenetres
             this.statUtilisateur4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statUtilisateur4.Location = new System.Drawing.Point(117, 71);
             this.statUtilisateur4.Name = "statUtilisateur4";
-            this.statUtilisateur4.Size = new System.Drawing.Size(152, 42);
+            this.statUtilisateur4.Size = new System.Drawing.Size(158, 44);
             this.statUtilisateur4.TabIndex = 2;
             this.statUtilisateur4.Text = "Romain";
             // 
@@ -483,148 +561,41 @@ namespace myteam_admin.Fenetres
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // panel5
+            // id
             // 
-            this.panel5.Controls.Add(this.button_ajout_salarie);
-            this.panel5.Controls.Add(this.tableauUtilisateurs);
-            this.panel5.Location = new System.Drawing.Point(3, 209);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1659, 707);
-            this.panel5.TabIndex = 1;
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
             // 
-            // button_ajout_salarie
+            // poste
             // 
-            this.button_ajout_salarie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(100)))), ((int)(((byte)(169)))));
-            this.button_ajout_salarie.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_ajout_salarie.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(100)))), ((int)(((byte)(169)))));
-            this.button_ajout_salarie.FlatAppearance.BorderSize = 4;
-            this.button_ajout_salarie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button_ajout_salarie.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button_ajout_salarie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_ajout_salarie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_ajout_salarie.ForeColor = System.Drawing.Color.White;
-            this.button_ajout_salarie.Location = new System.Drawing.Point(59, 622);
-            this.button_ajout_salarie.Name = "button_ajout_salarie";
-            this.button_ajout_salarie.Size = new System.Drawing.Size(277, 64);
-            this.button_ajout_salarie.TabIndex = 1;
-            this.button_ajout_salarie.Text = "Inscrire un salarié";
-            this.button_ajout_salarie.UseVisualStyleBackColor = false;
-            this.button_ajout_salarie.Click += new System.EventHandler(this.button_ajout_salarie_Click);
-            this.button_ajout_salarie.MouseEnter += new System.EventHandler(this.button_ajout_salarie_MouseEnter);
-            this.button_ajout_salarie.MouseLeave += new System.EventHandler(this.button_ajout_salarie_MouseLeave);
+            this.poste.FillWeight = 167.9144F;
+            this.poste.HeaderText = "Poste";
+            this.poste.MinimumWidth = 6;
+            this.poste.Name = "poste";
+            this.poste.ReadOnly = true;
             // 
-            // tableauUtilisateurs
+            // grade
             // 
-            this.tableauUtilisateurs.AllowUserToAddRows = false;
-            this.tableauUtilisateurs.AllowUserToDeleteRows = false;
-            this.tableauUtilisateurs.AllowUserToResizeColumns = false;
-            this.tableauUtilisateurs.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tableauUtilisateurs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.tableauUtilisateurs.BackgroundColor = System.Drawing.Color.White;
-            this.tableauUtilisateurs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableauUtilisateurs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableauUtilisateurs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.tableauUtilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableauUtilisateurs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.identifiant,
-            this.nom,
-            this.prenom,
-            this.date_naissance,
-            this.email,
-            this.poste_occupe});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tableauUtilisateurs.DefaultCellStyle = dataGridViewCellStyle3;
-            this.tableauUtilisateurs.Location = new System.Drawing.Point(59, 18);
-            this.tableauUtilisateurs.Name = "tableauUtilisateurs";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableauUtilisateurs.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.tableauUtilisateurs.RowHeadersVisible = false;
-            this.tableauUtilisateurs.RowHeadersWidth = 51;
-            this.tableauUtilisateurs.RowTemplate.Height = 24;
-            this.tableauUtilisateurs.Size = new System.Drawing.Size(1540, 598);
-            this.tableauUtilisateurs.TabIndex = 0;
-            this.tableauUtilisateurs.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableauUtilisateurs_CellEnter);
-            this.tableauUtilisateurs.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tableauUtilisateurs_CellMouseDoubleClick);
+            this.grade.FillWeight = 32.08556F;
+            this.grade.HeaderText = "Autorisation";
+            this.grade.MinimumWidth = 30;
+            this.grade.Name = "grade";
+            this.grade.ReadOnly = true;
             // 
-            // identifiant
-            // 
-            this.identifiant.HeaderText = "N°";
-            this.identifiant.MinimumWidth = 6;
-            this.identifiant.Name = "identifiant";
-            this.identifiant.ReadOnly = true;
-            this.identifiant.Width = 256;
-            // 
-            // nom
-            // 
-            this.nom.HeaderText = "Nom";
-            this.nom.MinimumWidth = 6;
-            this.nom.Name = "nom";
-            this.nom.ReadOnly = true;
-            this.nom.Width = 256;
-            // 
-            // prenom
-            // 
-            this.prenom.HeaderText = "Prénom";
-            this.prenom.MinimumWidth = 6;
-            this.prenom.Name = "prenom";
-            this.prenom.ReadOnly = true;
-            this.prenom.Width = 256;
-            // 
-            // date_naissance
-            // 
-            this.date_naissance.HeaderText = "Date de naissance";
-            this.date_naissance.MinimumWidth = 6;
-            this.date_naissance.Name = "date_naissance";
-            this.date_naissance.ReadOnly = true;
-            this.date_naissance.Width = 256;
-            // 
-            // email
-            // 
-            this.email.HeaderText = "Email";
-            this.email.MinimumWidth = 6;
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            this.email.Width = 256;
-            // 
-            // poste_occupe
-            // 
-            this.poste_occupe.HeaderText = "Poste occupé";
-            this.poste_occupe.MinimumWidth = 6;
-            this.poste_occupe.Name = "poste_occupe";
-            this.poste_occupe.ReadOnly = true;
-            this.poste_occupe.Width = 256;
-            // 
-            // menuUtilisateur
+            // menuPostes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel1);
-            this.Name = "menuUtilisateur";
+            this.Controls.Add(this.panelBody);
+            this.Controls.Add(this.panelHeader);
+            this.Name = "menuPostes";
             this.Size = new System.Drawing.Size(1665, 919);
-            this.panel1.ResumeLayout(false);
+            this.panelBody.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datagridviewPostes)).EndInit();
+            this.panelHeader.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
@@ -649,31 +620,16 @@ namespace myteam_admin.Fenetres
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tableauUtilisateurs)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label statUtilisateur2;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Panel cardMessageEchanges;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label statUtilisateur1;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelBody;
+        private System.Windows.Forms.Button buttonAjoutPoste;
+        private System.Windows.Forms.DataGridView datagridviewPostes;
+        private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -690,14 +646,24 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button_ajout_salarie;
-        private System.Windows.Forms.DataGridView tableauUtilisateurs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn identifiant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prenom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date_naissance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn poste_occupe;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label statUtilisateur2;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Panel cardMessageEchanges;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label statUtilisateur1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn poste;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grade;
     }
 }

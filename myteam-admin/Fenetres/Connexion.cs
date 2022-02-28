@@ -16,7 +16,7 @@ namespace myteam_admin
     using BCrypt.Net;
     public partial class Connexion : Form
     {
-        Utilisateurs utilisateurs = new Utilisateurs();
+        Utilisateurs utilisateur = new Utilisateurs();
 
         public Connexion()
         {
@@ -83,35 +83,60 @@ namespace myteam_admin
         }
 
         // Lorsqu'on clique sur le bouton "CONNEXION" :
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonConnexion_Click(object sender, EventArgs e)
         {
-            // Liste qui permet de stocker l'email et le mdp d'un utilisateur
-            List<string> resultat = utilisateurs.connexion(textEmail.Text);
+            send();
+        }
 
+        private void enter(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                send();
+            }
+        }
+        private void send()
+        {
             // Variable qui gère les erreurs
             int erreurs = 0;
 
-            // Si la liste n'est pas vide
-            if (resultat.Any())
+            // Si l'email saisie existe
+            if (utilisateur.verifEmail(textEmail.Text) == 1)
             {
+                errorEmail.Text = "";
+
+                utilisateur.connexion(textEmail.Text);
                 // Si le mdp ne correspond pas à celui hashé en BDD
-                if (!BCrypt.Verify(textPassword.Text, resultat[1]))
+                if (!BCrypt.Verify(textPassword.Text, utilisateur.getMdp()))
                 {
-                    errorPassword.Text = "Mot de passe incorrect !";
+                    errorEmail.Text = "Email ou mot de passe incorrect !";
                     erreurs++;
                 }
+                else
+                {
+                    // Si l'utilisateur a l'autorisation de se connecter
+                    if (utilisateur.getGrade() != 10)
+                    {
+                        errorEmail.Text = "Vous n'avez pas l'autorisation requise pour vous connecter";
+                        erreurs++;
+                    }else if (utilisateur.getGrade() == 10 && utilisateur.getActif() == 0)
+                    {
+                        errorEmail.Text = "Vous avez été banni !";
+                        erreurs++;
+                    }
+                }
             }
-            // Si l'email saisie n'existe pas
             else
             {
-                errorEmail.Text = "L'adresse e-mail n'existe pas !";
+                errorEmail.Text = "Email ou mot de passe incorrect !";
                 erreurs++;
             }
+
 
             // Si le nombre d'erreur est à 0 alors on connecte la personne et on change de fenêtre
             if (erreurs == 0)
             {
-                Accueil form = new Accueil();
+                Accueil form = new Accueil(this, utilisateur.getId());
                 form.Show();
                 this.Hide();
             }

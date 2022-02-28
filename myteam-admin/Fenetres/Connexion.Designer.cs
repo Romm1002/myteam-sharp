@@ -40,7 +40,6 @@ namespace myteam_admin
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorEmail = new System.Windows.Forms.Label();
-            this.errorPassword = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.closeWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizedWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -73,6 +72,7 @@ namespace myteam_admin
             this.textEmail.Size = new System.Drawing.Size(293, 21);
             this.textEmail.TabIndex = 6;
             this.textEmail.Text = "Adresse e-mail";
+            this.textEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.enter);
             this.textEmail.Leave += new System.EventHandler(this.textEmail_Leave);
             this.textEmail.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textEmail_MouseDown);
             // 
@@ -86,6 +86,7 @@ namespace myteam_admin
             this.textPassword.TabIndex = 7;
             this.textPassword.Text = "Mot de passe";
             this.textPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textPassword_KeyDown);
+            this.textPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.enter);
             this.textPassword.Leave += new System.EventHandler(this.textPassword_Leave);
             this.textPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textPassword_MouseDown);
             // 
@@ -99,7 +100,7 @@ namespace myteam_admin
             this.button1.TabIndex = 8;
             this.button1.Text = "CONNEXION";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.buttonConnexion_Click);
             // 
             // closeWindow
             // 
@@ -161,17 +162,8 @@ namespace myteam_admin
             this.errorEmail.ForeColor = System.Drawing.Color.Red;
             this.errorEmail.Location = new System.Drawing.Point(91, 320);
             this.errorEmail.Name = "errorEmail";
-            this.errorEmail.Size = new System.Drawing.Size(0, 16);
+            this.errorEmail.Size = new System.Drawing.Size(0, 17);
             this.errorEmail.TabIndex = 11;
-            // 
-            // errorPassword
-            // 
-            this.errorPassword.AutoSize = true;
-            this.errorPassword.ForeColor = System.Drawing.Color.Red;
-            this.errorPassword.Location = new System.Drawing.Point(91, 416);
-            this.errorPassword.Name = "errorPassword";
-            this.errorPassword.Size = new System.Drawing.Size(0, 16);
-            this.errorPassword.TabIndex = 12;
             // 
             // Connexion
             // 
@@ -179,7 +171,6 @@ namespace myteam_admin
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(500, 650);
-            this.Controls.Add(this.errorPassword);
             this.Controls.Add(this.errorEmail);
             this.Controls.Add(this.closeWindow);
             this.Controls.Add(this.minimizedWindow);
@@ -218,7 +209,6 @@ namespace myteam_admin
         private System.Windows.Forms.PictureBox minimizedWindow;
         private System.Windows.Forms.PictureBox closeWindow;
         private System.Windows.Forms.Label errorEmail;
-        private System.Windows.Forms.Label errorPassword;
     }
 }
 

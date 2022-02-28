@@ -34,7 +34,8 @@ namespace myteam_admin.Fenetres
                 Bitmap pdp = new Bitmap(participants.getPhoto());
                 dataGridViewParticipants.Rows.Add(participants.getId(), pdp, participants.getNom(), participants.getPrenom(), participants.getPoste());
             }
-            
+
+
             //POPULATE DGV CHAT
             foreach (MessagesProjet message in projet.getChat())
             {
@@ -318,6 +319,35 @@ namespace myteam_admin.Fenetres
             {
                 checkBoxArchive.Checked = false ;
             }
+        }
+
+        private void panelMessage_Click(object sender, EventArgs e)
+        {
+            textBoxMessage.Focus();
+        }
+
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            nouveauMessage();
+        }
+
+        private void textBoxMessage_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                nouveauMessage();
+            }
+        }
+
+        private void nouveauMessage()
+        {
+            MessagesProjet message = new MessagesProjet();
+            if (message.newMessage(accueil.currentUser.getId(), textBoxMessage.Text, DateTime.Now, projet.getId()))
+            {
+                dataGridViewChat.Rows.Add(message.getId(), accueil.currentUser.getNom(), accueil.currentUser.getPrenom(), message.getMessage());
+                textBoxMessage.Text = "";
+            }
+            dataGridViewChat.CurrentCell = dataGridViewChat.Rows[dataGridViewChat.Rows.Count - 1].Cells[3];
         }
     }
 }

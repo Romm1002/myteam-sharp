@@ -8,17 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using myteam_admin.Modeles;
+
 namespace myteam_admin.Fenetres
 {
     public partial class Accueil : Form
     {
         bool maximized = true;
+        public Utilisateurs currentUser;
+        private Connexion connexion;
 
-        public Accueil()
+        public Accueil(Connexion connexion = null, int idUtilisateur = 1)
         {
             InitializeComponent();
 
+            currentUser = new Utilisateurs(idUtilisateur);
+            this.connexion = connexion;
             maximize();
+            labelBienvenue.Text = "Bienvenue " + currentUser.getPrenom() +".";
         }
 
         //MENU STRIP 
@@ -68,7 +75,17 @@ namespace myteam_admin.Fenetres
             selectButton(toolStripMenuItemEvenement);
             labelHeaderTitle.Text = "EVENEMENTS";
         }
-        
+        private void toolStripMenuItemPostes_Click(object sender, EventArgs e)
+        {
+            menuPostes panel = new menuPostes(this);
+
+            panel.AutoScroll = true;
+            this.panelContenu.Controls.Clear();
+            this.panelContenu.Controls.Add(panel);
+
+            selectButton(toolStripMenuItemPostes);
+            labelHeaderTitle.Text = "POSTES";
+        }
         //MENU STRIP STYLE
         private void selectButton(ToolStripMenuItem btn)
         {
@@ -83,6 +100,10 @@ namespace myteam_admin.Fenetres
         //FONCTIONS CLOSE/MINIMIZE
         private void buttonCloseForm_Click(object sender, EventArgs e)
         {
+            if (connexion != null)
+            {
+                connexion.Close();
+            }
             this.Close();
         }
         private void maximize()

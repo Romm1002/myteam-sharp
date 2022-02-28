@@ -13,7 +13,7 @@ namespace myteam_admin.Fenetres
 {
     public partial class menuEvenement : UserControl
     {
-        Accueil accueil = new Accueil();
+        Accueil accueil;
         Evenements newEvenement = new Evenements();
         private Modeles.Application app;
         private List<Utilisateurs> listUtilisateur;

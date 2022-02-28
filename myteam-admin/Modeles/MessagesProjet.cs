@@ -7,9 +7,8 @@ using MySql.Data.MySqlClient;
 
 namespace myteam_admin.Modeles
 {
-    public class MessagesProjet
+    public class MessagesProjet : Application
     {
-        private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
         private int idMessage, idAuteur;
         private DateTime date;
@@ -44,6 +43,38 @@ namespace myteam_admin.Modeles
         public string getPrenom()
         {
             return prenomAuteur;
+        }
+        
+        public bool newMessage(int idAuteur, string message, DateTime date, int idProjet)
+        {
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.Parameters.AddWithValue("@idAuteur", idAuteur);
+            command.Parameters.AddWithValue("@message", message);
+            command.Parameters.AddWithValue("@date", date.ToString("yyyy-MM-dd HH:mm:ss"));
+            command.Parameters.AddWithValue("@idProjet", idProjet);
+            command.CommandText = "INSERT INTO chatprojet (idUtilisateur, message, dateMessage ,idProjet) VALUES (@idAuteur, @message, @date, @idProjet);";
+            if ((command.ExecuteNonQuery() > 0))
+            {
+                conn.Close();
+                conn.Open();
+                command.CommandText = "SELECT idMessage FROM chatprojet ORDER BY idMessage DESC LIMIT 1;";
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    this.idMessage = reader.GetInt32(0);
+                }
+                conn.Close();
+                this.idAuteur = idAuteur;
+                this.message = message;
+                this.date = date;
+                return true;
+            }
+            else
+            {
+                conn.Close();
+                return false;
+            }
         }
     }
 }

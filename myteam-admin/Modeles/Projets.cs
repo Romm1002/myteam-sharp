@@ -9,9 +9,8 @@ using MySql.Data.MySqlClient;
 
 namespace myteam_admin.Modeles
 {
-    public class Projets
+    public class Projets : Application
     {
-        private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
         private int id;
         private string nom;
@@ -81,13 +80,13 @@ namespace myteam_admin.Modeles
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
             command.Parameters.AddWithValue("@id", id);
-            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, idposte, photoProfil, poste, avertissements FROM participationprojet LEFT JOIN utilisateurs USING(idUtilisateur) RIGHT JOIN postes USING(idPoste) WHERE idProjet = @id";
+            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, idposte, photoProfil, poste, avertissements, actif FROM participationprojet LEFT JOIN utilisateurs USING(idUtilisateur) RIGHT JOIN postes USING(idPoste) WHERE idProjet = @id AND actif = 1";
             MySqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
             {
                 Utilisateurs utilisateurs = new Utilisateurs();
-                utilisateurs.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetString(7), reader.GetInt32(8));
+                utilisateurs.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetString(7), reader.GetInt32(8), reader.GetInt32(9));
                 utilisateurs.setPoste(reader.GetString(7));
                 listUtilisateurs.Add(utilisateurs);
             }

@@ -9,25 +9,25 @@ using MySql.Data.MySqlClient;
 namespace myteam_admin.Modeles
 {
 
-    public class Utilisateurs
+    public class Utilisateurs : Application
     {
-        private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
-        private int idUtilisateur, idPoste, avertissements, avertissements_plus;
+        private int idUtilisateur, idPoste, avertissements, grade, actif;
 
         private string nom, prenom, email, poste, mdp;
-        private string photoProfil = "C:/xampp/htdocs/myteam";
+        private string photoProfil;
 
         DateTime dateNaiss;
 
         public Utilisateurs(int id = -1)
         {
+            photoProfil = directory;
             if (id != -1)
             {
                 conn.Open();
                 MySqlCommand command = conn.CreateCommand();
                 command.Parameters.AddWithValue("@id", id);
-                command.CommandText = "SELECT u.idUtilisateur, u.nom, u.prenom, u.dateNaiss, u.email, u.avertissements, p.poste FROM utilisateurs AS u LEFT JOIN postes AS p USING(idposte) WHERE idUtilisateur = @id";
+                command.CommandText = "SELECT u.idUtilisateur, u.nom, u.prenom, u.dateNaiss, u.email, u.avertissements, p.poste, actif FROM utilisateurs AS u LEFT JOIN postes AS p USING(idposte) WHERE idUtilisateur = @id";
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -38,12 +38,13 @@ namespace myteam_admin.Modeles
                     this.email = reader.GetString(4);
                     this.avertissements = reader.GetInt32(5);
                     this.poste = reader.GetString(6);
+                    this.actif = reader.GetInt32(7);
                 }
                 conn.Close();
             }
         }
 
-        public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, int idPoste, string photoProfil, string poste, int avertissements)
+        public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, int idPoste, string photoProfil, string poste, int avertissements, int actif)
         {
             this.idUtilisateur = idUtilisateur;
             this.nom = nom;
@@ -54,6 +55,7 @@ namespace myteam_admin.Modeles
             this.photoProfil += photoProfil;
             this.poste = poste;
             this.avertissements = avertissements;
+            this.actif = actif;
         }
 
         //SETTERS
@@ -104,6 +106,18 @@ namespace myteam_admin.Modeles
         {
             return photoProfil;
         }
+        public string getMdp()
+        {
+            return mdp;
+        }
+        public int getGrade()
+        {
+            return grade;
+        }
+        public int getActif()
+        {
+            return actif;
+        }
 
         // Méthode qui permet l'inscription par un admin
         public void inscription(string nom, string prenom, DateTime dateNaiss, string email, string mdp, int idposte, string photoProfil)
@@ -132,22 +146,38 @@ namespace myteam_admin.Modeles
         }
 
         // Méthode qui permet la connexion
-        public List<string> connexion(string result)
+        int result;
+        public int verifEmail(string email)
         {
-            List<string> connexion = new List<string>();
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
-            command.Parameters.AddWithValue("@email", result);
-            command.CommandText = "SELECT email, mdp FROM utilisateurs WHERE email = @email";
+            command.Parameters.AddWithValue("@email", email);
+            command.CommandText = "SELECT COUNT(*) FROM utilisateurs WHERE email = @email";
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                connexion.Add(reader.GetString(0));
-                connexion.Add(reader.GetString(1));
-
+                result = reader.GetInt32(0);
             }
             conn.Close();
-            return connexion;
+            return result;
+        }
+        public void connexion(string email)
+        {
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@email", email);
+            command.CommandText = "SELECT email, mdp, grade, idUtilisateur, actif FROM utilisateurs LEFT JOIN postes USING(idPoste) WHERE email = @email";
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                this.email = reader.GetString(0);
+                this.mdp = reader.GetString(1);
+                this.grade = reader.GetInt32(2);
+                this.idUtilisateur = reader.GetInt32(3);
+                this.actif = reader.GetInt32(4);
+            }
+            conn.Close();
+            return;
         }
 
         // Modification des informations d'un utilisateur
@@ -191,23 +221,31 @@ namespace myteam_admin.Modeles
 
             command.ExecuteNonQuery();
         }
-
-        // Avertir un utilisateur
-        public int avertir(int id, int avertissement)
+        // Débannir un utilisateur
+        public void deban(int id)
         {
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
 
             command.Parameters.AddWithValue("@id", id);
-            command.CommandText = "SELECT avertissements FROM utilisateurs WHERE idUtilisateur = @id";
-            MySqlDataReader reader = command.ExecuteReader();
+            command.CommandText = "UPDATE utilisateurs SET actif = 1 WHERE idUtilisateur = @id";
 
-            while (reader.Read())
-            {
-                avertissements = reader.GetInt32(0);
-            }
+            command.ExecuteNonQuery();
+        }
 
-            return avertissements;
+        // Avertir un utilisateur
+        public void avertir(int id, int avertissement)
+        {
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@avertissement", avertissement + 1);
+            command.CommandText = "UPDATE utilisateurs set avertissements = @avertissement WHERE idUtilisateur = @id";
+            command.ExecuteNonQuery();
+            conn.Close();
+
+
         }
 
         // Méthode pour remplir les stats

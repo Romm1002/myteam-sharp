@@ -7,11 +7,10 @@ using MySql.Data.MySqlClient;
 
 namespace myteam_admin.Modeles
 {
-    public class Taches
+    public class Taches : Application
     {
 
 
-        private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
 
         int id;
         private string libelle;

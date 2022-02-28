@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using System.Windows.Forms;
 
 namespace myteam_admin.Modeles
 {
-    class Evenements
+    public class Evenements : Application
     {
-        private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
-
 
         private List<int> listIdEvenements;
         private string designation;

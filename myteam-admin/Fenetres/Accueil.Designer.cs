@@ -36,9 +36,11 @@ namespace myteam_admin.Fenetres
             this.toolStripMenuItemProjets = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemMessagerie = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemEvenement = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemPostes = new System.Windows.Forms.ToolStripMenuItem();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.panelContenu = new System.Windows.Forms.Panel();
+            this.labelBienvenue = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.panelHeaderTitle = new System.Windows.Forms.Panel();
             this.labelHeaderTitle = new System.Windows.Forms.Label();
@@ -50,6 +52,7 @@ namespace myteam_admin.Fenetres
             this.menuStrip.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            this.panelContenu.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.panelHeaderTitle.SuspendLayout();
             this.panelHeaderBtn.SuspendLayout();
@@ -75,7 +78,8 @@ namespace myteam_admin.Fenetres
             this.toolStripMenuItemUtilisateurs,
             this.toolStripMenuItemProjets,
             this.toolStripMenuItemMessagerie,
-            this.toolStripMenuItemEvenement});
+            this.toolStripMenuItemEvenement,
+            this.toolStripMenuItemPostes});
             this.menuStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip.Location = new System.Drawing.Point(0, 100);
             this.menuStrip.Name = "menuStrip";
@@ -124,6 +128,16 @@ namespace myteam_admin.Fenetres
             this.toolStripMenuItemEvenement.Text = "EVENEMENTS";
             this.toolStripMenuItemEvenement.Click += new System.EventHandler(this.toolStripMenuItemEvenement_Click);
             // 
+            // toolStripMenuItemPostes
+            // 
+            this.toolStripMenuItemPostes.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripMenuItemPostes.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItemPostes.Name = "toolStripMenuItemPostes";
+            this.toolStripMenuItemPostes.Padding = new System.Windows.Forms.Padding(15, 30, 15, 30);
+            this.toolStripMenuItemPostes.Size = new System.Drawing.Size(254, 84);
+            this.toolStripMenuItemPostes.Text = "POSTES";
+            this.toolStripMenuItemPostes.Click += new System.EventHandler(this.toolStripMenuItemPostes_Click);
+            // 
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(100)))), ((int)(((byte)(169)))));
@@ -152,12 +166,23 @@ namespace myteam_admin.Fenetres
             // panelContenu
             // 
             this.panelContenu.AutoScroll = true;
+            this.panelContenu.Controls.Add(this.labelBienvenue);
             this.panelContenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenu.Location = new System.Drawing.Point(255, 100);
             this.panelContenu.Name = "panelContenu";
             this.panelContenu.Padding = new System.Windows.Forms.Padding(0, 100, 0, 0);
             this.panelContenu.Size = new System.Drawing.Size(652, 510);
             this.panelContenu.TabIndex = 1;
+            // 
+            // labelBienvenue
+            // 
+            this.labelBienvenue.AutoSize = true;
+            this.labelBienvenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBienvenue.Location = new System.Drawing.Point(39, 45);
+            this.labelBienvenue.Name = "labelBienvenue";
+            this.labelBienvenue.Size = new System.Drawing.Size(109, 39);
+            this.labelBienvenue.TabIndex = 0;
+            this.labelBienvenue.Text = "label1";
             // 
             // panelHeader
             // 
@@ -277,6 +302,8 @@ namespace myteam_admin.Fenetres
             this.menuStrip.PerformLayout();
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            this.panelContenu.ResumeLayout(false);
+            this.panelContenu.PerformLayout();
             this.panelHeader.ResumeLayout(false);
             this.panelHeaderTitle.ResumeLayout(false);
             this.panelHeaderBtn.ResumeLayout(false);
@@ -302,5 +329,7 @@ namespace myteam_admin.Fenetres
         public System.Windows.Forms.Label labelHeaderTitle;
         private System.Windows.Forms.Button buttonMinimizeForm;
         private System.Windows.Forms.Button buttonMaximizeForm;
+        private System.Windows.Forms.Label labelBienvenue;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPostes;
     }
 }

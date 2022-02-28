@@ -36,9 +36,13 @@ namespace myteam_admin.Fenetres
 
 
 
-            foreach(Utilisateurs utilisateurs in app.getUtilisateurs())
+            foreach(Utilisateurs utilisateur in app.getUtilisateursEtBannis())
             {
-                tableauUtilisateurs.Rows.Add(utilisateurs.getId(), utilisateurs.getNom(), utilisateurs.getPrenom(), utilisateurs.getDateNaiss().ToString("dd-MM-yyyy"), utilisateurs.getEmail(), utilisateurs.getPoste());
+                tableauUtilisateurs.Rows.Add(utilisateur.getId(), utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getDateNaiss().ToString("dd-MM-yyyy"), utilisateur.getEmail(), utilisateur.getPoste());
+                if (utilisateur.getActif() == 0)
+                {
+                    tableauUtilisateurs.Rows[tableauUtilisateurs.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.Red;
+                }
             }
         }
 
@@ -75,10 +79,6 @@ namespace myteam_admin.Fenetres
         }
 
         // Style du bouton "Inscrire un salarié"
-        private void button_ajout_salarie_DragOver(object sender, DragEventArgs e)
-        {
-            button_ajout_salarie.ForeColor = Color.White;
-        }
         private void button_ajout_salarie_MouseEnter(object sender, EventArgs e)
         {
             button_ajout_salarie.ForeColor = Color.FromArgb(54, 100, 169);

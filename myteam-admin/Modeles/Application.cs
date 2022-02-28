@@ -10,13 +10,13 @@ using MySql.Data.MySqlClient;
 
 namespace myteam_admin.Modeles
 {
-    class Application
+    public class Application
     {
-        private MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
+        protected MySqlConnection conn = new MySqlConnection("database=myteam; server=localhost; user id = root; pwd=");
+        protected string directory = "C:/xampp/htdocs/myteam";
         private int nbrProjetsEnCours = 0;
         private int nbrProjetsAVenir = 0;
         private int nbrProjetsFini = 0;
-        private string nomProjet;
 
 
         public List<Messages> getMessages()
@@ -111,36 +111,11 @@ namespace myteam_admin.Modeles
             conn.Close();
             return listeProjets;
         }
-
-        //public List<String> getProjetsParUtilisateur()
-        //{
-        //    MySqlCommand command = conn.CreateCommand();
-        //    conn.Open();
-        //    command.CommandText = "SELECT nomProjet FROM utilisateurs LEFT JOIN affectation USING(idUtilisateur) LEFT JOIN projets USING(idProjet)";
-        //    MySqlDataReader reader = command.ExecuteReader();
-
-        //    List<String> listeProjets = new List<String>();
-
-        //    while (reader.Read())
-        //    {
-                
-        //        listeProjets.Add(reader.GetString(0));
-        //    }
-        //    conn.Close();
-
-        //    return listeProjets;
-        //}
-
-        public string getNomProjet()
-        {
-            return nomProjet;
-        }
-
         public List<Utilisateurs> getUtilisateurs()
         {
             MySqlCommand command = conn.CreateCommand();
             conn.Open();
-            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, idPoste, photoProfil, poste, avertissements FROM utilisateurs LEFT JOIN postes USING(idposte) ORDER BY idposte;";
+            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, idPoste, photoProfil, poste, avertissements, actif FROM utilisateurs LEFT JOIN postes USING(idposte) WHERE actif = 1 ORDER BY idposte ;";
             MySqlDataReader reader = command.ExecuteReader();
 
             List<Utilisateurs> listeUtilisateurs = new List<Utilisateurs>();
@@ -148,13 +123,53 @@ namespace myteam_admin.Modeles
             while (reader.Read())
             {
                 Utilisateurs utilisateur = new Utilisateurs();
-                utilisateur.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetString(7), reader.GetInt32(8));
+                utilisateur.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetString(7), reader.GetInt32(8), reader.GetInt32(9));
                 utilisateur.setPoste(reader.GetString(7));
                 listeUtilisateurs.Add(utilisateur);
             }
             conn.Close();
 
             return listeUtilisateurs;
+        }
+        public List<Utilisateurs> getUtilisateursEtBannis()
+        {
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, idPoste, photoProfil, poste, avertissements, actif FROM utilisateurs LEFT JOIN postes USING(idposte) ORDER BY actif DESC, idposte ;";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            List<Utilisateurs> listeUtilisateurs = new List<Utilisateurs>();
+
+            while (reader.Read())
+            {
+                Utilisateurs utilisateur = new Utilisateurs();
+                utilisateur.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetString(7), reader.GetInt32(8), reader.GetInt32(9));
+                utilisateur.setPoste(reader.GetString(7));
+                listeUtilisateurs.Add(utilisateur);
+            }
+            conn.Close();
+
+            return listeUtilisateurs;
+        }
+
+        public List<Postes> getPostes()
+        {
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.CommandText = "SELECT idposte, poste, grade FROM postes ORDER BY grade DESC;";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            List<Postes> listPostes = new List<Postes>();
+
+            while (reader.Read())
+            {
+                Postes poste = new Postes();
+                poste.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+                listPostes.Add(poste);
+            }
+            conn.Close();
+
+            return listPostes;
         }
 
         public int getNbrProjetsEnCours()
@@ -178,7 +193,7 @@ namespace myteam_admin.Modeles
             List<Evenements> listEvenements = new List<Evenements>();
             MySqlCommand command = conn.CreateCommand();
             conn.Open();
-            command.CommandText = "SELECT idEvenement, designation, date, heureDebut, heureFin, idUtilisateur, nom, prenom, dateNaiss, email, idPoste, photoProfil, poste, avertissements FROM `evenements` LEFT JOIN utilisateurs USING(idUtilisateur) LEFT JOIN postes USING(idPoste) WHERE admin = 1 ORDER BY date ASC, heureDebut  ASC";
+            command.CommandText = "SELECT idEvenement, designation, date, heureDebut, heureFin, idUtilisateur, nom, prenom, dateNaiss, email, idPoste, photoProfil, poste, avertissements, actif FROM `evenements` LEFT JOIN utilisateurs USING(idUtilisateur) LEFT JOIN postes USING(idPoste) WHERE admin = 1 ORDER BY date ASC, heureDebut  ASC";
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -186,22 +201,29 @@ namespace myteam_admin.Modeles
                 {
                     listEvenements[listEvenements.Count - 1].addIdEvenement(reader.GetInt32(0));
                     Utilisateurs utilisateur = new Utilisateurs();
-                    utilisateur.initialiser(reader.GetInt32(5), reader.GetString(6), reader.GetString(7), Convert.ToDateTime(reader.GetValue(8)), reader.GetString(9), reader.GetInt32(10), reader.GetString(11).Substring(2), reader.GetString(12), reader.GetInt32(13));
-                    listEvenements[listEvenements.Count - 1].addUtilisateur(utilisateur);
+                    utilisateur.initialiser(reader.GetInt32(5), reader.GetString(6), reader.GetString(7), Convert.ToDateTime(reader.GetValue(8)), reader.GetString(9), reader.GetInt32(10), reader.GetString(11).Substring(2), reader.GetString(12), reader.GetInt32(13), reader.GetInt32(14));
+                    if (utilisateur.getActif() == 1)
+                    {
+                        listEvenements[listEvenements.Count - 1].addUtilisateur(utilisateur);
+                    }
                 }
                 else
                 {
                     Utilisateurs utilisateur = new Utilisateurs();
-                    utilisateur.initialiser(reader.GetInt32(5), reader.GetString(6), reader.GetString(7), Convert.ToDateTime(reader.GetValue(8)), reader.GetString(9), reader.GetInt32(10), reader.GetString(11).Substring(2), reader.GetString(12), reader.GetInt32(13));
-                    List<Utilisateurs> listUtilisateur = new List<Utilisateurs>();
-                    listUtilisateur.Add(utilisateur);
+                    utilisateur.initialiser(reader.GetInt32(5), reader.GetString(6), reader.GetString(7), Convert.ToDateTime(reader.GetValue(8)), reader.GetString(9), reader.GetInt32(10), reader.GetString(11).Substring(2), reader.GetString(12), reader.GetInt32(13), reader.GetInt32(14));
+                    if (utilisateur.getActif() == 1)
+                    {
+                        List<Utilisateurs> listUtilisateur = new List<Utilisateurs>();
+                        listUtilisateur.Add(utilisateur);
 
-                    List<int> listIdEvenement = new List<int>();
-                    listIdEvenement.Add(reader.GetInt32(0));
+                        List<int> listIdEvenement = new List<int>();
+                        listIdEvenement.Add(reader.GetInt32(0));
 
-                    Evenements evenement = new Evenements();
-                    evenement.initialiser(listIdEvenement, reader.GetString(1), Convert.ToDateTime(reader.GetValue(2)), DateTime.Parse(reader.GetString(3)), DateTime.Parse(reader.GetString(4)), listUtilisateur);
-                    listEvenements.Add(evenement);
+                        Evenements evenement = new Evenements();
+                        evenement.initialiser(listIdEvenement, reader.GetString(1), Convert.ToDateTime(reader.GetValue(2)), DateTime.Parse(reader.GetString(3)), DateTime.Parse(reader.GetString(4)), listUtilisateur);
+                        listEvenements.Add(evenement);
+                    }
+
                 }
             }
             conn.Close();
