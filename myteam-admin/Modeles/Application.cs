@@ -348,6 +348,14 @@ namespace myteam_admin.Modeles
         }
         public int getMaintenance()
         {
+            return this.maintenance;
+        }
+        public void setMaintenance(int statut)
+        {
+            this.maintenance = statut;
+        }
+        public int initialiserMaintenance()
+        {
             MySqlCommand command = conn.CreateCommand();
             conn.Open();
             command.CommandText = "SELECT * FROM `maintenance` ";
@@ -359,8 +367,12 @@ namespace myteam_admin.Modeles
             conn.Close();
             return maintenance;
         }
-        public bool setMaintenance(int maintenance)
+        public bool updateMaintenance(int statut = -1)
         {
+            if (statut != -1)
+            {
+                this.maintenance = statut;
+            }
             MySqlCommand command = conn.CreateCommand();
             conn.Open();
             command.Parameters.AddWithValue("@maintenance", maintenance);

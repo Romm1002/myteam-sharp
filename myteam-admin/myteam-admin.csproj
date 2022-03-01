@@ -95,6 +95,12 @@
     <Compile Include="Fenetres\fenetreEditEvenement.Designer.cs">
       <DependentUpon>fenetreEditEvenement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fenetres\menuAccueil.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fenetres\menuAccueil.Designer.cs">
+      <DependentUpon>menuAccueil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fenetres\menuAjouterPoste.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\fenetreEditEvenement.resx">
       <DependentUpon>fenetreEditEvenement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\menuAccueil.resx">
+      <DependentUpon>menuAccueil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuAjouterPoste.resx">
       <DependentUpon>menuAjouterPoste.cs</DependentUpon>
