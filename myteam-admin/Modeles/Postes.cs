@@ -15,11 +15,15 @@ namespace myteam_admin.Modeles
         public string poste;
         public int grade;
 
-        public void initialiser( int idPoste, string poste, int grade)
+        public Postes()
+        {
+
+        }
+        public Postes(int idPoste, string poste, int grade)
         {
             this.idPoste = idPoste;
-            this.poste = poste; 
-            this.grade = grade; 
+            this.poste = poste;
+            this.grade = grade;
         }
 
         public int getId()
@@ -33,6 +37,14 @@ namespace myteam_admin.Modeles
         public int getGrade()
         {
             return grade;
+        }
+        public void setIdPoste(int idPoste)
+        {
+            this.idPoste = idPoste;
+        }
+        public void setGrade(int grade)
+        {
+            this.grade = grade;
         }
         public bool supprimerPoste()
         {
@@ -78,6 +90,17 @@ namespace myteam_admin.Modeles
                 conn.Close();
                 return false;
             }
+        }
+        public void update()
+        {
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.Parameters.AddWithValue("@id", idPoste);
+            command.Parameters.AddWithValue("@poste", poste);
+            command.Parameters.AddWithValue("@grade", grade);
+            command.CommandText = "UPDATE postes SET poste = @poste, grade = @grade WHERE idposte = @id;";
+            command.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }

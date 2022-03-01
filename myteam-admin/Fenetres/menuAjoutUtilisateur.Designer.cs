@@ -38,8 +38,6 @@
             this.tetxBox_mdp = new System.Windows.Forms.Label();
             this.labelError = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.radioButton_administrateur = new System.Windows.Forms.RadioButton();
-            this.radioButton_employe = new System.Windows.Forms.RadioButton();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox_dateNaissance = new System.Windows.Forms.DateTimePicker();
@@ -54,6 +52,7 @@
             this.textBox_nom = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxPostes = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +67,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.comboBoxPostes);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.textBox_mdp);
@@ -75,8 +75,6 @@
             this.panel1.Controls.Add(this.tetxBox_mdp);
             this.panel1.Controls.Add(this.labelError);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.radioButton_administrateur);
-            this.panel1.Controls.Add(this.radioButton_employe);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.textBox_dateNaissance);
@@ -101,10 +99,10 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(30, 372);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(719, 17);
+            this.label12.Size = new System.Drawing.Size(724, 17);
             this.label12.TabIndex = 23;
-            this.label12.Text = "Pensez à noté le mot de passe pour le fournir au nouvel utilisateur. Insistez bie" +
-    "n pour qu\'il le change par la suite.";
+            this.label12.Text = "Pensez à noter le mot de passe pour le fournir au nouvel utilisateur. Insistez bi" +
+    "en pour qu\'il le change par la suite.";
             // 
             // button2
             // 
@@ -167,28 +165,6 @@
             this.button1.Text = "INSCRIRE";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // radioButton_administrateur
-            // 
-            this.radioButton_administrateur.AutoSize = true;
-            this.radioButton_administrateur.Location = new System.Drawing.Point(174, 451);
-            this.radioButton_administrateur.Name = "radioButton_administrateur";
-            this.radioButton_administrateur.Size = new System.Drawing.Size(120, 21);
-            this.radioButton_administrateur.TabIndex = 16;
-            this.radioButton_administrateur.TabStop = true;
-            this.radioButton_administrateur.Text = "Administrateur";
-            this.radioButton_administrateur.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_employe
-            // 
-            this.radioButton_employe.AutoSize = true;
-            this.radioButton_employe.Location = new System.Drawing.Point(30, 451);
-            this.radioButton_employe.Name = "radioButton_employe";
-            this.radioButton_employe.Size = new System.Drawing.Size(101, 21);
-            this.radioButton_employe.TabIndex = 15;
-            this.radioButton_employe.TabStop = true;
-            this.radioButton_employe.Text = "Employé(e)";
-            this.radioButton_employe.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -327,6 +303,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nom";
             // 
+            // comboBoxPostes
+            // 
+            this.comboBoxPostes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxPostes.FormattingEnabled = true;
+            this.comboBoxPostes.Location = new System.Drawing.Point(30, 450);
+            this.comboBoxPostes.Name = "comboBoxPostes";
+            this.comboBoxPostes.Size = new System.Drawing.Size(474, 30);
+            this.comboBoxPostes.TabIndex = 24;
+            this.comboBoxPostes.SelectedIndexChanged += new System.EventHandler(this.comboBoxPostes_SelectedIndexChanged);
+            // 
             // menuAjoutUtilisateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -358,8 +344,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton_administrateur;
-        private System.Windows.Forms.RadioButton radioButton_employe;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label labelError;
@@ -368,5 +352,6 @@
         private System.Windows.Forms.Label tetxBox_mdp;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBoxPostes;
     }
 }

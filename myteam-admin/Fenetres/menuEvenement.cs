@@ -33,7 +33,7 @@ namespace myteam_admin.Fenetres
             foreach (Utilisateurs utilisateur in listUtilisateur)
             {
                  Bitmap pdp = new Bitmap(utilisateur.getPhoto());
-                 dataGridViewUtilisateurs.Rows.Add(utilisateur.getId(), pdp, utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getPoste());
+                 dataGridViewUtilisateurs.Rows.Add(utilisateur.getId(), pdp, utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getPoste().getPoste());
             }
 
             Evenements evenementPrecedent = null;

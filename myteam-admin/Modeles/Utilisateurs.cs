@@ -12,11 +12,12 @@ namespace myteam_admin.Modeles
     public class Utilisateurs : Application
     {
 
-        private int idUtilisateur, idPoste, avertissements, grade, actif;
+        private int idUtilisateur, avertissements, actif;
 
-        private string nom, prenom, email, poste, mdp;
+        private string nom, prenom, email, mdp;
         private string photoProfil;
 
+        Postes poste;
         DateTime dateNaiss;
 
         public Utilisateurs(int id = -1)
@@ -27,7 +28,7 @@ namespace myteam_admin.Modeles
                 conn.Open();
                 MySqlCommand command = conn.CreateCommand();
                 command.Parameters.AddWithValue("@id", id);
-                command.CommandText = "SELECT u.idUtilisateur, u.nom, u.prenom, u.dateNaiss, u.email, u.avertissements, p.poste, actif FROM utilisateurs AS u LEFT JOIN postes AS p USING(idposte) WHERE idUtilisateur = @id";
+                command.CommandText = "SELECT u.idUtilisateur, u.nom, u.prenom, u.dateNaiss, u.email, u.avertissements, u.actif, p.idPoste, p.poste, p.grade FROM utilisateurs AS u LEFT JOIN postes AS p USING(idposte) WHERE idUtilisateur = @id";
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -37,35 +38,36 @@ namespace myteam_admin.Modeles
                     this.dateNaiss = Convert.ToDateTime(reader.GetValue(3));
                     this.email = reader.GetString(4);
                     this.avertissements = reader.GetInt32(5);
-                    this.poste = reader.GetString(6);
-                    this.actif = reader.GetInt32(7);
+                    this.actif = reader.GetInt32(6);
+                    this.poste = new Postes(reader.GetInt32(7), reader.GetString(8), reader.GetInt32(9));
                 }
                 conn.Close();
             }
         }
 
-        public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, int idPoste, string photoProfil, string poste, int avertissements, int actif)
+        public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, string photoProfil, int avertissements, int actif,Postes poste)
         {
             this.idUtilisateur = idUtilisateur;
             this.nom = nom;
             this.prenom = prenom;
             this.dateNaiss = dateNaiss;
             this.email = email;
-            this.idPoste = idPoste;
             this.photoProfil += photoProfil;
-            this.poste = poste;
             this.avertissements = avertissements;
             this.actif = actif;
+            this.poste = poste;
+        }
+        public void initialiserShort(int idUtilisateur, string nom, string prenom)
+        {
+            this.idUtilisateur = idUtilisateur;
+            this.nom = nom;
+            this.prenom = prenom;
         }
 
         //SETTERS
-        public void setPoste(string poste)
+        public void setPoste(Postes poste)
         {
             this.poste = poste;
-        }
-        public void setIdPoste(int idPoste)
-        {
-            this.idPoste = idPoste;
         }
 
         //GETTERS
@@ -93,11 +95,7 @@ namespace myteam_admin.Modeles
         {
             return email;
         }
-        public int getIdPoste()
-        {
-            return idPoste;
-        }
-        public string getPoste()
+        public Postes getPoste()
         {
             return poste;
         }
@@ -110,24 +108,21 @@ namespace myteam_admin.Modeles
         {
             return mdp;
         }
-        public int getGrade()
-        {
-            return grade;
-        }
+
         public int getActif()
         {
             return actif;
         }
 
         // Méthode qui permet l'inscription par un admin
-        public void inscription(string nom, string prenom, DateTime dateNaiss, string email, string mdp, int idposte, string photoProfil)
+        public void inscription(string nom, string prenom, DateTime dateNaiss, string email, string mdp, Postes poste, string photoProfil)
         {
             this.nom = nom;
             this.prenom = prenom;
             this.dateNaiss = dateNaiss;
             this.email = email;
             this.mdp = mdp;
-            this.idPoste = idposte;
+            this.poste = poste;
             this.photoProfil = photoProfil;
 
             conn.Open();
@@ -137,7 +132,7 @@ namespace myteam_admin.Modeles
             command.Parameters.AddWithValue("@dateNaiss", dateNaiss);
             command.Parameters.AddWithValue("@email", email);
             command.Parameters.AddWithValue("@mdp", mdp);
-            command.Parameters.AddWithValue("@idposte", idposte);
+            command.Parameters.AddWithValue("@idposte", poste.getId());
             command.Parameters.AddWithValue("@photoProfil", photoProfil);
 
             command.CommandText = "INSERT INTO utilisateurs(nom, prenom, dateNaiss, email, mdp, idposte, photoProfil) VALUES(@nom, @prenom, @dateNaiss, @email, @mdp, @idposte, @photoProfil)";
@@ -145,7 +140,7 @@ namespace myteam_admin.Modeles
             conn.Close();
         }
 
-        // Méthode qui permet la connexion
+        // Méthodes qui permet la connexion
         int result;
         public int verifEmail(string email)
         {
@@ -172,7 +167,9 @@ namespace myteam_admin.Modeles
             {
                 this.email = reader.GetString(0);
                 this.mdp = reader.GetString(1);
-                this.grade = reader.GetInt32(2);
+                Postes poste = new Postes();
+                poste.setGrade(reader.GetInt32(2));
+                this.poste = poste;
                 this.idUtilisateur = reader.GetInt32(3);
                 this.actif = reader.GetInt32(4);
             }
@@ -232,14 +229,28 @@ namespace myteam_admin.Modeles
 
             command.ExecuteNonQuery();
         }
+        public void supprimerUtilisateur(int id = -1)
+        {
+            if(id != -1)
+            {
+                this.idUtilisateur = id;
+            }
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+
+            command.Parameters.AddWithValue("@id", idUtilisateur);
+            command.CommandText = "DELETE FROM utilisateurs WHERE idUtilisateur = @id";
+
+            command.ExecuteNonQuery();
+        }
 
         // Avertir un utilisateur
-        public void avertir(int id, int avertissement)
+        public void avertir(int idUtilisateur, int avertissement)
         {
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
 
-            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@id", idUtilisateur);
             command.Parameters.AddWithValue("@avertissement", avertissement + 1);
             command.CommandText = "UPDATE utilisateurs set avertissements = @avertissement WHERE idUtilisateur = @id";
             command.ExecuteNonQuery();
@@ -248,73 +259,6 @@ namespace myteam_admin.Modeles
 
         }
 
-        // Méthode pour remplir les stats
-        public List<int> nbrEmployes()
-        {
-            List<int> nbrEmployes = new List<int>();
-            conn.Open();
-            MySqlCommand command = conn.CreateCommand();
-            command.CommandText = "SELECT COUNT(idUtilisateur) FROM utilisateurs";
-            MySqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                nbrEmployes.Add(reader.GetInt32(0));
-            }
-            conn.Close();
-            return nbrEmployes;
-        }
-
-        public List<int> nbrAdministrateurs(int idPoste)
-        {
-            List<int> nbrAdministrateurs = new List<int>();
-            conn.Open();
-            MySqlCommand command = conn.CreateCommand();
-            command.Parameters.AddWithValue("@idPoste", idPoste);
-            command.CommandText = "SELECT COUNT(idUtilisateur) FROM utilisateurs WHERE idposte = @idPoste";
-            MySqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                nbrAdministrateurs.Add(reader.GetInt32(0));
-            }
-            conn.Close();
-            return nbrAdministrateurs;
-        }
-
-        public List<int> nesAujourdhui()
-        {
-            List<int> nesAujourdhui = new List<int>();
-            conn.Open();
-            MySqlCommand command = conn.CreateCommand();
-            command.Parameters.AddWithValue("@idPoste", idPoste);
-            command.CommandText = "SELECT COUNT(idUtilisateur) FROM utilisateurs WHERE MONTH(dateNaiss) = MONTH(DATE_ADD(NOW(), INTERVAL 0 MONTH))";
-            MySqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                nesAujourdhui.Add(reader.GetInt32(0));
-            }
-            conn.Close();
-            return nesAujourdhui;
-        }
-
-        public List<string> derniereRecrue()
-        {
-            List<string> derniereRecrue = new List<string>();
-            conn.Open();
-            MySqlCommand command = conn.CreateCommand();
-            command.Parameters.AddWithValue("@idPoste", idPoste);
-            command.CommandText = "SELECT prenom FROM utilisateurs ORDER BY idUtilisateur DESC LIMIT 1";
-            MySqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                derniereRecrue.Add(reader.GetString(0));
-            }
-            conn.Close();
-            return derniereRecrue;
-        }
         public int getIndex(List<Utilisateurs> listUilisateurs)
         {
             int i = 0;

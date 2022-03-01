@@ -25,13 +25,12 @@ namespace myteam_admin.Modeles
             this.terminee = terminee;
         }
 
-        public void nouvelleTache(string libelle, bool terminee)
-        {
-            this.libelle = libelle;
-            this.terminee = terminee;
-        }
 
         // Getters
+        public int getId()
+        {
+            return id;
+        }
         public string getLibelle()
         {
             return libelle;
@@ -48,10 +47,6 @@ namespace myteam_admin.Modeles
         {
             return supprime;
         }
-        public int getId()
-        {
-            return id;
-        }
         public void setLibelle(string libelle)
         {
             this.libelle = libelle;
@@ -67,6 +62,11 @@ namespace myteam_admin.Modeles
         public void setSupprime(bool supprime)
         {
             this.supprime = supprime;
+        }
+        public void nouvelleTache(string libelle, bool terminee)
+        {
+            this.libelle = libelle;
+            this.terminee = terminee;
         }
     }
 }

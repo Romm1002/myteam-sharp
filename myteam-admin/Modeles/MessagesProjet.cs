@@ -10,18 +10,17 @@ namespace myteam_admin.Modeles
     public class MessagesProjet : Application
     {
 
-        private int idMessage, idAuteur;
+        private int idMessage;
         private DateTime date;
-        private string message, nomAuteur, prenomAuteur;
+        private string message;
+        Utilisateurs auteur;
 
-        public void initialiser(int idMessage, int idAuteur, string nomAuteur, string prenomAuteur, string message, DateTime date)
+        public void initialiser(int idMessage, Utilisateurs auteur, string message, DateTime date)
         {
             this.idMessage = idMessage;
-            this.nomAuteur = nomAuteur;
-            this.prenomAuteur = prenomAuteur;
+            this.auteur = auteur;
             this.message = message;
             this.date = date;
-            this.idAuteur = idAuteur;
         }
 
         public int getId()
@@ -36,15 +35,10 @@ namespace myteam_admin.Modeles
         {
             return message;
         }
-        public string getNom()
+        public Utilisateurs getAuteur()
         {
-            return nomAuteur;
+            return this.auteur;
         }
-        public string getPrenom()
-        {
-            return prenomAuteur;
-        }
-        
         public bool newMessage(int idAuteur, string message, DateTime date, int idProjet)
         {
             MySqlCommand command = conn.CreateCommand();
@@ -65,7 +59,6 @@ namespace myteam_admin.Modeles
                     this.idMessage = reader.GetInt32(0);
                 }
                 conn.Close();
-                this.idAuteur = idAuteur;
                 this.message = message;
                 this.date = date;
                 return true;

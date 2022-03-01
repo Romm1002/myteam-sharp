@@ -17,7 +17,7 @@ namespace myteam_admin.Fenetres
         bool maximized = true;
         public Utilisateurs currentUser;
         private Connexion connexion;
-
+        private Modeles.Application app = new Modeles.Application();
         public Accueil(Connexion connexion = null, int idUtilisateur = 1)
         {
             InitializeComponent();
@@ -26,6 +26,10 @@ namespace myteam_admin.Fenetres
             this.connexion = connexion;
             maximize();
             labelBienvenue.Text = "Bienvenue " + currentUser.getPrenom() +".";
+            if ( app.getMaintenance() == 1)
+            {
+                panelMaintenance.BackColor = Color.Red;
+            }
         }
 
         //MENU STRIP 
@@ -132,6 +136,18 @@ namespace myteam_admin.Fenetres
             }
         }
 
-        
+        private void buttonMaintenance_Click(object sender, EventArgs e)
+        {
+            if( app.getMaintenance() == 1)
+            {
+                app.setMaintenance(0);
+                panelMaintenance.BackColor = Color.White;
+            }
+            else
+            {
+                app.setMaintenance(1);
+                panelMaintenance.BackColor = Color.Red;
+            }
+        }
     }
 }

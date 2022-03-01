@@ -154,7 +154,7 @@ namespace myteam_admin.Fenetres
             this.statUtilisateur4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statUtilisateur4.Location = new System.Drawing.Point(117, 71);
             this.statUtilisateur4.Name = "statUtilisateur4";
-            this.statUtilisateur4.Size = new System.Drawing.Size(152, 42);
+            this.statUtilisateur4.Size = new System.Drawing.Size(158, 44);
             this.statUtilisateur4.TabIndex = 2;
             this.statUtilisateur4.Text = "Romain";
             // 
@@ -566,6 +566,7 @@ namespace myteam_admin.Fenetres
             this.tableauUtilisateurs.TabIndex = 0;
             this.tableauUtilisateurs.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableauUtilisateurs_CellEnter);
             this.tableauUtilisateurs.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tableauUtilisateurs_CellMouseDoubleClick);
+            this.tableauUtilisateurs.Click += new System.EventHandler(this.tableauUtilisateurs_Click);
             // 
             // identifiant
             // 

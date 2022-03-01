@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using myteam_admin.Modeles;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 
 
@@ -17,6 +18,7 @@ namespace myteam_admin.Modeles
         private int nbrProjetsEnCours = 0;
         private int nbrProjetsAVenir = 0;
         private int nbrProjetsFini = 0;
+        private int maintenance;
 
 
         public List<Messages> getMessages()
@@ -24,7 +26,7 @@ namespace myteam_admin.Modeles
             conn.Open();
 
             MySqlCommand command = conn.CreateCommand();
-            command.CommandText = "SELECT m.idMessage, u.nom, u.prenom, m.contenu, m.heure, u2.nom, u2.prenom, m.idUtilisateur, m.idReceveur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur ORDER BY idMessage ASC";
+            command.CommandText = "SELECT m.idMessage, m.contenu, m.heure, u1.idUtilisateur, u1.nom, u1.prenom, u2.idUtilisateur, u2.nom, u2.prenom FROM messagerie AS m LEFT JOIN utilisateurs AS u1 ON u1.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur ORDER BY idMessage ASC";
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -32,7 +34,11 @@ namespace myteam_admin.Modeles
             while (reader.Read())
             {
                 Messages message = new Messages();
-                message.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(7), reader.GetInt32(8));
+                Utilisateurs auteur = new Utilisateurs();
+                auteur.initialiserShort(reader.GetInt32(3), reader.GetString(4), reader.GetString(5));
+                Utilisateurs receveur = new Utilisateurs();
+                receveur.initialiserShort(reader.GetInt32(6), reader.GetString(7), reader.GetString(8));
+                message.initialiser(reader.GetInt32(0), reader.GetString(1), Convert.ToDateTime(reader.GetValue(2)), auteur, receveur);
                 listeMessages.Add(message);
             }
             conn.Close();
@@ -45,14 +51,19 @@ namespace myteam_admin.Modeles
 
             MySqlCommand command = conn.CreateCommand();
             command.Parameters.AddWithValue("@traite", traite);
-            command.CommandText = "SELECT ms.idMessage, ms.message, u.prenom, u.nom, u2.prenom, u2.nom, u2.idUtilisateur FROM messages_signales AS ms LEFT JOIN utilisateurs AS u USING(idUtilisateur) LEFT JOIN utilisateurs AS u2 ON ms.idSignale = u2.idUtilisateur WHERE traite = @traite";
+            command.CommandText = "SELECT m.idMessage, m.contenu, m.heure, u1.idUtilisateur, u1.nom, u1.prenom, u2.idUtilisateur, u2.nom, u2.prenom, traite FROM messagerie AS m LEFT JOIN utilisateurs AS u1 ON u1.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur LEFT JOIN messages_signales USING(idMessage) WHERE traite = @traite;";
             MySqlDataReader reader = command.ExecuteReader();
 
             List<Messages> listeMessagesSignales = new List<Messages>();
             while (reader.Read())
             {
                 Messages message = new Messages();
-                message.initialiserMessagesSignales(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetInt32(6));
+                Utilisateurs auteur = new Utilisateurs();
+                auteur.initialiserShort(reader.GetInt32(3), reader.GetString(4), reader.GetString(5));
+                Utilisateurs receveur = new Utilisateurs();
+                receveur.initialiserShort(reader.GetInt32(6), reader.GetString(7), reader.GetString(8));
+                message.initialiser(reader.GetInt32(0), reader.GetString(1), Convert.ToDateTime(reader.GetValue(2)), auteur, receveur);
+                message.setTraite(reader.GetInt32(9));
                 listeMessagesSignales.Add(message);
             }
             conn.Close();
@@ -66,14 +77,18 @@ namespace myteam_admin.Modeles
             MySqlCommand command = conn.CreateCommand();
             command.Parameters.AddWithValue("@u1", u1);
             command.Parameters.AddWithValue("@u2", u2);
-            command.CommandText = "SELECT m.idMessage, m.contenu, m.idUtilisateur, m.idReceveur, u.idUtilisateur, u2.idUtilisateur FROM messagerie AS m LEFT JOIN utilisateurs AS u ON u.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur WHERE(m.idUtilisateur = @u1 AND idReceveur = @u2) OR (m.idUtilisateur = @u2 AND idReceveur = @u1)";
+            command.CommandText = "SELECT m.idMessage, m.contenu, m.heure, u1.idUtilisateur, u1.nom, u1.prenom, u2.idUtilisateur, u2.nom, u2.prenom FROM messagerie AS m LEFT JOIN utilisateurs AS u1 ON u1.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur WHERE(m.idUtilisateur = @u1 AND idReceveur = @u2) OR (m.idUtilisateur = @2 AND idReceveur = @u1);";
             MySqlDataReader reader = command.ExecuteReader();
 
             List<Messages> listeMessages = new List<Messages>();
             while (reader.Read())
             {
                 Messages message = new Messages();
-                message.initialiserMessagesParConversations(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3));
+                Utilisateurs auteur = new Utilisateurs();
+                auteur.initialiserShort(reader.GetInt32(3), reader.GetString(4), reader.GetString(5));
+                Utilisateurs receveur = new Utilisateurs();
+                receveur.initialiserShort(reader.GetInt32(6), reader.GetString(7), reader.GetString(8));
+                message.initialiser(reader.GetInt32(0), reader.GetString(1), Convert.ToDateTime(reader.GetValue(2)), auteur, receveur);
                 listeMessages.Add(message);
             }
             conn.Close();
@@ -93,7 +108,7 @@ namespace myteam_admin.Modeles
             while (reader.Read())
             {
                 Projets projet = new Projets();
-                projet.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), Convert.ToDateTime(reader.GetValue(4)), reader.GetString(5), reader.GetBoolean(6));
+                projet.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), Convert.ToDateTime(reader.GetValue(4)), reader.GetBoolean(6));
                 listeProjets.Add(projet);
                 if (projet.getStatut() == 0 && !projet.getArchive())
                 {
@@ -111,11 +126,14 @@ namespace myteam_admin.Modeles
             conn.Close();
             return listeProjets;
         }
+
+
+        // PARTIE UTILISATEURS
         public List<Utilisateurs> getUtilisateurs()
         {
             MySqlCommand command = conn.CreateCommand();
             conn.Open();
-            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, idPoste, photoProfil, poste, avertissements, actif FROM utilisateurs LEFT JOIN postes USING(idposte) WHERE actif = 1 ORDER BY idposte ;";
+            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, photoProfil, avertissements, actif, idPoste, poste, grade FROM utilisateurs LEFT JOIN postes USING(idposte) WHERE actif = 1 ORDER BY idposte ;";
             MySqlDataReader reader = command.ExecuteReader();
 
             List<Utilisateurs> listeUtilisateurs = new List<Utilisateurs>();
@@ -123,8 +141,8 @@ namespace myteam_admin.Modeles
             while (reader.Read())
             {
                 Utilisateurs utilisateur = new Utilisateurs();
-                utilisateur.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetString(7), reader.GetInt32(8), reader.GetInt32(9));
-                utilisateur.setPoste(reader.GetString(7));
+                Postes poste = new Postes(reader.GetInt32(8), reader.GetString(9), reader.GetInt32(10));
+                utilisateur.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetString(5).Substring(2), reader.GetInt32(6), reader.GetInt32(7), poste);
                 listeUtilisateurs.Add(utilisateur);
             }
             conn.Close();
@@ -135,7 +153,7 @@ namespace myteam_admin.Modeles
         {
             MySqlCommand command = conn.CreateCommand();
             conn.Open();
-            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, idPoste, photoProfil, poste, avertissements, actif FROM utilisateurs LEFT JOIN postes USING(idposte) ORDER BY actif DESC, idposte ;";
+            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, photoProfil, avertissements, actif, idPoste, poste, grade FROM utilisateurs LEFT JOIN postes USING(idposte) ORDER BY actif DESC, grade DESC;";
             MySqlDataReader reader = command.ExecuteReader();
 
             List<Utilisateurs> listeUtilisateurs = new List<Utilisateurs>();
@@ -143,14 +161,78 @@ namespace myteam_admin.Modeles
             while (reader.Read())
             {
                 Utilisateurs utilisateur = new Utilisateurs();
-                utilisateur.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetString(7), reader.GetInt32(8), reader.GetInt32(9));
-                utilisateur.setPoste(reader.GetString(7));
+                Postes poste = new Postes(reader.GetInt32(8), reader.GetString(9), reader.GetInt32(10));
+                utilisateur.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetString(5).Substring(2), reader.GetInt32(6), reader.GetInt32(7), poste);
                 listeUtilisateurs.Add(utilisateur);
             }
             conn.Close();
 
             return listeUtilisateurs;
         }
+        public List<int> nbrEmployes()
+        {
+            List<int> nbrEmployes = new List<int>();
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT COUNT(idUtilisateur) FROM utilisateurs";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                nbrEmployes.Add(reader.GetInt32(0));
+            }
+            conn.Close();
+            return nbrEmployes;
+        }
+        public List<int> nbrAdministrateurs(int idPoste)
+        {
+            List<int> nbrAdministrateurs = new List<int>();
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@idPoste", idPoste);
+            command.CommandText = "SELECT COUNT(idUtilisateur) FROM utilisateurs WHERE idposte = @idPoste";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                nbrAdministrateurs.Add(reader.GetInt32(0));
+            }
+            conn.Close();
+            return nbrAdministrateurs;
+        }
+        public List<int> nesAujourdhui()
+        {
+            List<int> nesAujourdhui = new List<int>();
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT COUNT(idUtilisateur) FROM utilisateurs WHERE MONTH(dateNaiss) = MONTH(DATE_ADD(NOW(), INTERVAL 0 MONTH))";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                nesAujourdhui.Add(reader.GetInt32(0));
+            }
+            conn.Close();
+            return nesAujourdhui;
+        }
+
+        public List<string> derniereRecrue()
+        {
+            List<string> derniereRecrue = new List<string>();
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.CommandText = "SELECT prenom FROM utilisateurs ORDER BY idUtilisateur DESC LIMIT 1";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                derniereRecrue.Add(reader.GetString(0));
+            }
+            conn.Close();
+            return derniereRecrue;
+        }
+
+
 
         public List<Postes> getPostes()
         {
@@ -163,13 +245,47 @@ namespace myteam_admin.Modeles
 
             while (reader.Read())
             {
-                Postes poste = new Postes();
-                poste.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+                Postes poste = new Postes(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
                 listPostes.Add(poste);
             }
             conn.Close();
 
             return listPostes;
+        }
+        public List<List<string>> getPostesStats()
+        {
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.CommandText = "SELECT poste, COUNT(*) AS utilisateur FROM utilisateurs LEFT JOIN postes USING(idposte) GROUP BY poste ORDER BY utilisateur DESC LIMIT 2;";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            List<List<string>> stats = new List<List<string>>();
+
+            while (reader.Read())
+            {
+                List<string> stat = new List<string>();
+
+                stat.Add(reader.GetString(0));
+                stat.Add(reader.GetString(1));
+                stats.Add(stat);
+            }
+            conn.Close();
+            conn.Open();
+
+            command.CommandText = "SELECT poste, COUNT(*) AS utilisateur FROM utilisateurs LEFT JOIN postes USING(idposte) GROUP BY poste ORDER BY utilisateur ASC LIMIT 2;";
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                List<string> stat = new List<string>();
+
+                stat.Add(reader.GetString(0));
+                stat.Add(reader.GetString(1));
+                stats.Add(stat);
+            }
+            conn.Close();
+
+            return stats;
         }
 
         public int getNbrProjetsEnCours()
@@ -187,13 +303,12 @@ namespace myteam_admin.Modeles
             return nbrProjetsFini;
 
         }
-
         public List<Evenements> getEvenementsAdmin()
         {
             List<Evenements> listEvenements = new List<Evenements>();
             MySqlCommand command = conn.CreateCommand();
             conn.Open();
-            command.CommandText = "SELECT idEvenement, designation, date, heureDebut, heureFin, idUtilisateur, nom, prenom, dateNaiss, email, idPoste, photoProfil, poste, avertissements, actif FROM `evenements` LEFT JOIN utilisateurs USING(idUtilisateur) LEFT JOIN postes USING(idPoste) WHERE admin = 1 ORDER BY date ASC, heureDebut  ASC";
+            command.CommandText = "SELECT idEvenement, designation, date, heureDebut, heureFin, idUtilisateur, nom, prenom, dateNaiss, email, photoProfil, avertissements, actif, idPoste, poste, grade FROM `evenements` LEFT JOIN utilisateurs USING(idUtilisateur) LEFT JOIN postes USING(idPoste) WHERE admin = 1 ORDER BY date ASC, heureDebut  ASC";
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -201,7 +316,8 @@ namespace myteam_admin.Modeles
                 {
                     listEvenements[listEvenements.Count - 1].addIdEvenement(reader.GetInt32(0));
                     Utilisateurs utilisateur = new Utilisateurs();
-                    utilisateur.initialiser(reader.GetInt32(5), reader.GetString(6), reader.GetString(7), Convert.ToDateTime(reader.GetValue(8)), reader.GetString(9), reader.GetInt32(10), reader.GetString(11).Substring(2), reader.GetString(12), reader.GetInt32(13), reader.GetInt32(14));
+                    Postes poste = new Postes(reader.GetInt32(13), reader.GetString(14), reader.GetInt32(15));
+                    utilisateur.initialiser(reader.GetInt32(5), reader.GetString(6), reader.GetString(7), Convert.ToDateTime(reader.GetValue(8)), reader.GetString(9), reader.GetString(10).Substring(2), reader.GetInt32(11), reader.GetInt32(12), poste);
                     if (utilisateur.getActif() == 1)
                     {
                         listEvenements[listEvenements.Count - 1].addUtilisateur(utilisateur);
@@ -210,7 +326,8 @@ namespace myteam_admin.Modeles
                 else
                 {
                     Utilisateurs utilisateur = new Utilisateurs();
-                    utilisateur.initialiser(reader.GetInt32(5), reader.GetString(6), reader.GetString(7), Convert.ToDateTime(reader.GetValue(8)), reader.GetString(9), reader.GetInt32(10), reader.GetString(11).Substring(2), reader.GetString(12), reader.GetInt32(13), reader.GetInt32(14));
+                    Postes poste = new Postes(reader.GetInt32(13), reader.GetString(14), reader.GetInt32(15));
+                    utilisateur.initialiser(reader.GetInt32(5), reader.GetString(6), reader.GetString(7), Convert.ToDateTime(reader.GetValue(8)), reader.GetString(9), reader.GetString(10).Substring(2), reader.GetInt32(11), reader.GetInt32(12), poste);
                     if (utilisateur.getActif() == 1)
                     {
                         List<Utilisateurs> listUtilisateur = new List<Utilisateurs>();
@@ -229,5 +346,37 @@ namespace myteam_admin.Modeles
             conn.Close();
             return listEvenements;
         }
+        public int getMaintenance()
+        {
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.CommandText = "SELECT * FROM `maintenance` ";
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                this.maintenance = reader.GetInt32(0);
+            }
+            conn.Close();
+            return maintenance;
+        }
+        public bool setMaintenance(int maintenance)
+        {
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.Parameters.AddWithValue("@maintenance", maintenance);
+            command.CommandText = "UPDATE `maintenance` SET maintenance = @maintenance";
+            if (command.ExecuteNonQuery() > 1)
+            {
+                conn.Close();
+                return true;
+            }
+            else
+            {
+                conn.Close();
+                return false;
+            }
+            
+        }
+
     }
 }

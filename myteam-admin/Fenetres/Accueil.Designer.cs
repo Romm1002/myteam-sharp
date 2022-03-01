@@ -48,6 +48,8 @@ namespace myteam_admin.Fenetres
             this.buttonMaximizeForm = new System.Windows.Forms.Button();
             this.buttonMinimizeForm = new System.Windows.Forms.Button();
             this.buttonCloseForm = new System.Windows.Forms.Button();
+            this.panelMaintenance = new System.Windows.Forms.Panel();
+            this.buttonMaintenance = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -56,6 +58,7 @@ namespace myteam_admin.Fenetres
             this.panelHeader.SuspendLayout();
             this.panelHeaderTitle.SuspendLayout();
             this.panelHeaderBtn.SuspendLayout();
+            this.panelMaintenance.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -166,6 +169,7 @@ namespace myteam_admin.Fenetres
             // panelContenu
             // 
             this.panelContenu.AutoScroll = true;
+            this.panelContenu.Controls.Add(this.panelMaintenance);
             this.panelContenu.Controls.Add(this.labelBienvenue);
             this.panelContenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenu.Location = new System.Drawing.Point(255, 100);
@@ -180,9 +184,9 @@ namespace myteam_admin.Fenetres
             this.labelBienvenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBienvenue.Location = new System.Drawing.Point(39, 45);
             this.labelBienvenue.Name = "labelBienvenue";
-            this.labelBienvenue.Size = new System.Drawing.Size(109, 39);
+            this.labelBienvenue.Size = new System.Drawing.Size(171, 38);
             this.labelBienvenue.TabIndex = 0;
-            this.labelBienvenue.Text = "label1";
+            this.labelBienvenue.Text = "Bienvenue";
             // 
             // panelHeader
             // 
@@ -281,6 +285,24 @@ namespace myteam_admin.Fenetres
             this.buttonCloseForm.UseVisualStyleBackColor = true;
             this.buttonCloseForm.Click += new System.EventHandler(this.buttonCloseForm_Click);
             // 
+            // panelMaintenance
+            // 
+            this.panelMaintenance.Controls.Add(this.buttonMaintenance);
+            this.panelMaintenance.Location = new System.Drawing.Point(340, 103);
+            this.panelMaintenance.Name = "panelMaintenance";
+            this.panelMaintenance.Size = new System.Drawing.Size(158, 109);
+            this.panelMaintenance.TabIndex = 1;
+            // 
+            // buttonMaintenance
+            // 
+            this.buttonMaintenance.Location = new System.Drawing.Point(15, 44);
+            this.buttonMaintenance.Name = "buttonMaintenance";
+            this.buttonMaintenance.Size = new System.Drawing.Size(119, 23);
+            this.buttonMaintenance.TabIndex = 0;
+            this.buttonMaintenance.Text = "MAINTENANCE";
+            this.buttonMaintenance.UseVisualStyleBackColor = true;
+            this.buttonMaintenance.Click += new System.EventHandler(this.buttonMaintenance_Click);
+            // 
             // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -307,6 +329,7 @@ namespace myteam_admin.Fenetres
             this.panelHeader.ResumeLayout(false);
             this.panelHeaderTitle.ResumeLayout(false);
             this.panelHeaderBtn.ResumeLayout(false);
+            this.panelMaintenance.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -323,7 +346,6 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.Panel panelLogo;
         public System.Windows.Forms.Panel panelContenu;
         private System.Windows.Forms.Panel panelHeader;
-        private System.Windows.Forms.Panel panelHeaderBtn;
         private System.Windows.Forms.Button buttonCloseForm;
         private System.Windows.Forms.Panel panelHeaderTitle;
         public System.Windows.Forms.Label labelHeaderTitle;
@@ -331,5 +353,8 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.Button buttonMaximizeForm;
         private System.Windows.Forms.Label labelBienvenue;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPostes;
+        private System.Windows.Forms.Panel panelHeaderBtn;
+        private System.Windows.Forms.Panel panelMaintenance;
+        private System.Windows.Forms.Button buttonMaintenance;
     }
 }

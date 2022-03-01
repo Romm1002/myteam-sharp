@@ -30,8 +30,8 @@ namespace myteam_admin.Fenetres
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menuParticipantsProjet));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewParticipants = new System.Windows.Forms.DataGridView();
@@ -97,14 +97,14 @@ namespace myteam_admin.Fenetres
             this.nomParticipant,
             this.prenomParticipant,
             this.posteParticipant});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewParticipants.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewParticipants.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewParticipants.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewParticipants.Location = new System.Drawing.Point(0, 32);
             this.dataGridViewParticipants.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
@@ -177,14 +177,14 @@ namespace myteam_admin.Fenetres
             this.nomUtilisateur,
             this.prenomUtilisateur,
             this.posteUtilisateur});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewUtilisateurs.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewUtilisateurs.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewUtilisateurs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewUtilisateurs.Location = new System.Drawing.Point(0, 32);
             this.dataGridViewUtilisateurs.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
@@ -304,7 +304,6 @@ namespace myteam_admin.Fenetres
             // 
             this.panelUtilisateurs.Controls.Add(this.dataGridViewUtilisateurs);
             this.panelUtilisateurs.Controls.Add(this.labelUtilisateurs);
-            this.panelUtilisateurs.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelUtilisateurs.Location = new System.Drawing.Point(0, 0);
             this.panelUtilisateurs.Name = "panelUtilisateurs";
             this.panelUtilisateurs.Size = new System.Drawing.Size(525, 459);
@@ -312,9 +311,9 @@ namespace myteam_admin.Fenetres
             // 
             // panelParticipants
             // 
+            this.panelParticipants.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelParticipants.Controls.Add(this.dataGridViewParticipants);
             this.panelParticipants.Controls.Add(this.labelParticipants);
-            this.panelParticipants.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelParticipants.Location = new System.Drawing.Point(547, 0);
             this.panelParticipants.Name = "panelParticipants";
             this.panelParticipants.Size = new System.Drawing.Size(526, 459);

@@ -5,17 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using myteam_admin.Modeles;
 using MySql.Data.MySqlClient;
-
+    
 namespace myteam_admin.Modeles
 {
     public class Messages : Application
     {
 
-        private int idMessage, idAuteur, idReceveur;
+        private int idMessage;
+        private Utilisateurs auteur, receveur;
         private DateTime date;
-        private string message, nomAuteur, prenomAuteur, nomReceveur, prenomReceveur;
-        private List<Utilisateurs> listUtilisateurs = new List<Utilisateurs>();
-        private List<Messages> messages = new List<Messages>();
+        private string message;
+        private int traite;
 
 
 
@@ -32,50 +32,53 @@ namespace myteam_admin.Modeles
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
+                    auteur = new Utilisateurs();
+                    auteur.initialiserShort(reader.GetInt32(5), reader.GetString(3), reader.GetString(4));
+                    receveur = new Utilisateurs();
+                    receveur.initialiserShort(reader.GetInt32(8), reader.GetString(6), reader.GetString(7));
                     this.idMessage = reader.GetInt32(0);
                     this.message = reader.GetString(1);
                     this.date = Convert.ToDateTime(reader.GetValue(2));
-                    this.nomAuteur = reader.GetString(3);
-                    this.prenomAuteur= reader.GetString(4);
-                    this.idAuteur = reader.GetInt32(5);
-                    this.nomReceveur = reader.GetString(6);
-                    this.prenomReceveur = reader.GetString(7);
-                    this.idReceveur = reader.GetInt32(8);
                 }
                 conn.Close();
             }
         }
 
-        public void initialiser(int idMessage, string nomAuteur, string prenomAuteur, string message, DateTime date, string nomReceveur = null, string prenomReceveur = null, int idAuteur = -1, int idReceveur = -1)
+        public void initialiser(int idMessage, string message, DateTime date, Utilisateurs auteur, Utilisateurs receveur)
         {
             this.idMessage = idMessage;
-            this.nomAuteur = nomAuteur;
-            this.prenomAuteur = prenomAuteur;
             this.message = message;
             this.date = date;
-            this.idAuteur = idAuteur;
-            this.idReceveur = idReceveur;
-            this.nomReceveur = nomReceveur;
-            this.prenomReceveur = prenomReceveur;
+            this.auteur = auteur;
+            this.receveur = receveur;
         }
 
-        public void initialiserMessagesParConversations(int idMessage, string message, int idAuteur, int idReceveur)
-        {
-            this.idMessage = idMessage;
-            this.message = message;
-            this.idAuteur = idAuteur;
-            this.idReceveur = idReceveur;
-        }
 
-        public void initialiserMessagesSignales(int idMessage, string message, string prenomAuteur, string nomAuteur, string nomSignale, string prenomSignale, int idReceveur)
+        
+        
+        public int getId()
         {
-            this.idMessage = idMessage;
-            this.message = message;
-            this.prenomAuteur = prenomAuteur;
-            this.nomAuteur = nomAuteur;
-            this.prenomReceveur = prenomSignale;
-            this.nomReceveur = nomSignale;
-            this.idReceveur = idReceveur;
+            return idMessage;
+        }
+        public DateTime getDate()
+        {
+            return date;
+        }
+        public string getMessage()
+        {
+            return message;
+        }
+        public Utilisateurs getAuteur()
+        {
+            return auteur;
+        }
+        public Utilisateurs getReceveur()
+        {
+            return receveur;
+        }
+        public void setTraite(int traite)
+        {
+            this.traite = traite;
         }
 
         public void supprimerMessage(int idMessage)
@@ -94,43 +97,6 @@ namespace myteam_admin.Modeles
             command.Parameters.AddWithValue("@idMessage", idMessage);
             command.CommandText = "UPDATE messages_signales SET traite = 1 WHERE idMessage = @idMessage";
             command.ExecuteNonQuery();
-        }
-
-        public int getIdReceveur()
-        {
-            return idReceveur;
-        }
-        public string getNomReceveur()
-        {
-            return nomReceveur;
-        }
-        public int getIdAuteur()
-        {
-            return idAuteur;
-        }
-        public string getPrenomReceveur()
-        {
-            return prenomReceveur;
-        }
-        public int getId()
-        {
-            return idMessage;
-        }
-        public DateTime getDate()
-        {
-            return date;
-        }
-        public string getMessage()
-        {
-            return message;
-        }
-        public string getNom()
-        {
-            return nomAuteur;
-        }
-        public string getPrenom()
-        {
-            return prenomAuteur;
         }
 
         public List<int> nbrMessagesEchanges()

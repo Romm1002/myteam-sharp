@@ -115,11 +115,11 @@ namespace myteam_admin
                 else
                 {
                     // Si l'utilisateur a l'autorisation de se connecter
-                    if (utilisateur.getGrade() != 10)
+                    if (utilisateur.getPoste().getGrade() != 10)
                     {
                         errorEmail.Text = "Vous n'avez pas l'autorisation requise pour vous connecter";
                         erreurs++;
-                    }else if (utilisateur.getGrade() == 10 && utilisateur.getActif() == 0)
+                    }else if (utilisateur.getPoste().getGrade() == 10 && utilisateur.getActif() == 0)
                     {
                         errorEmail.Text = "Vous avez été banni !";
                         erreurs++;
@@ -131,7 +131,6 @@ namespace myteam_admin
                 errorEmail.Text = "Email ou mot de passe incorrect !";
                 erreurs++;
             }
-
 
             // Si le nombre d'erreur est à 0 alors on connecte la personne et on change de fenêtre
             if (erreurs == 0)

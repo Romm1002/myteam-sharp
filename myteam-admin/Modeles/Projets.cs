@@ -17,8 +17,8 @@ namespace myteam_admin.Modeles
         private string description;
         private DateTime debut;
         private DateTime fin;
-        private string image = "C:/wamp64/www/myteam";
         private int statut;
+        private string image;
         private bool archive;
         private List<Utilisateurs> listUtilisateurs = new List<Utilisateurs>();
         public List<Utilisateurs> listUtilisateursBackup = new List<Utilisateurs>();
@@ -41,7 +41,6 @@ namespace myteam_admin.Modeles
                     this.description = reader.GetString(2);
                     this.debut = Convert.ToDateTime(reader.GetValue(3));
                     this.fin = Convert.ToDateTime(reader.GetValue(4));
-                    this.image += reader.GetString(5).Substring(2);
                     this.archive = reader.GetBoolean(6);
                 }
                 conn.Close();
@@ -52,14 +51,13 @@ namespace myteam_admin.Modeles
 
         }
 
-        public void initialiser(int idProjet, string nomProjet, string descriptionProjet, DateTime dateDebut, DateTime dateFin, string pathImage, bool archive)
+        public void initialiser(int idProjet, string nomProjet, string descriptionProjet, DateTime dateDebut, DateTime dateFin, bool archive)
         {
             this.id = idProjet;
             this.nom = nomProjet;
             this.description = descriptionProjet;
             this.debut = dateDebut;
             this.fin = dateFin;
-            this.image += pathImage.Substring(2);
             this.archive = archive;
             DateTime ajd = DateTime.Now;
             if (dateDebut <= ajd && dateFin >= ajd)
@@ -80,14 +78,14 @@ namespace myteam_admin.Modeles
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
             command.Parameters.AddWithValue("@id", id);
-            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, idposte, photoProfil, poste, avertissements, actif FROM participationprojet LEFT JOIN utilisateurs USING(idUtilisateur) RIGHT JOIN postes USING(idPoste) WHERE idProjet = @id AND actif = 1";
+            command.CommandText = "SELECT idUtilisateur, nom, prenom, dateNaiss, email, photoProfil, avertissements, actif, idposte, poste, grade FROM participationprojet LEFT JOIN utilisateurs USING(idUtilisateur) RIGHT JOIN postes USING(idPoste) WHERE idProjet = @id AND actif = 1";
             MySqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
             {
                 Utilisateurs utilisateurs = new Utilisateurs();
-                utilisateurs.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetInt32(5), reader.GetString(6).Substring(2), reader.GetString(7), reader.GetInt32(8), reader.GetInt32(9));
-                utilisateurs.setPoste(reader.GetString(7));
+                Postes poste = new Postes(reader.GetInt32(8), reader.GetString(9), reader.GetInt32(10));
+                utilisateurs.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), Convert.ToDateTime(reader.GetValue(3)), reader.GetString(4), reader.GetString(5).Substring(2), reader.GetInt32(6), reader.GetInt32(7), poste);
                 listUtilisateurs.Add(utilisateurs);
             }
             conn.Close();
@@ -106,7 +104,9 @@ namespace myteam_admin.Modeles
             while (reader.Read())
             {
                 MessagesProjet message = new MessagesProjet();
-                message.initialiser(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), Convert.ToDateTime(reader.GetValue(5)));
+                Utilisateurs utilisateur = new Utilisateurs();
+                utilisateur.initialiserShort(reader.GetInt32(1), reader.GetString(2), reader.GetString(3));
+                message.initialiser(reader.GetInt32(0), utilisateur, reader.GetString(4), Convert.ToDateTime(reader.GetValue(5)));
                 chat.Add(message);
             }
             conn.Close();
@@ -147,10 +147,6 @@ namespace myteam_admin.Modeles
         public DateTime getFin()
         {
             return fin;
-        }
-        public string getImage()
-        {
-            return image;
         }
         public int getStatut()
         {

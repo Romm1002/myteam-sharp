@@ -35,14 +35,14 @@
             this.tableau_MessagesSignales = new System.Windows.Forms.DataGridView();
             this.valider = new System.Windows.Forms.Button();
             this.annuler = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.message = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.signale_par = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_banni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idUtilsateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avertissement = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Bannissement = new System.Windows.Forms.DataGridViewButtonColumn();
             this.supprimer = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.tableau_MessagesSignales)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +52,9 @@
             this.tableau_MessagesSignales.AllowUserToAddRows = false;
             this.tableau_MessagesSignales.AllowUserToDeleteRows = false;
             this.tableau_MessagesSignales.AllowUserToResizeRows = false;
+            this.tableau_MessagesSignales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableau_MessagesSignales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableau_MessagesSignales.BackgroundColor = System.Drawing.Color.White;
             this.tableau_MessagesSignales.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -69,7 +72,7 @@
             this.numero,
             this.message,
             this.signale_par,
-            this.id_banni,
+            this.idUtilsateur,
             this.avertissement,
             this.Bannissement,
             this.supprimer});
@@ -81,7 +84,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.tableau_MessagesSignales.DefaultCellStyle = dataGridViewCellStyle2;
-            this.tableau_MessagesSignales.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableau_MessagesSignales.Location = new System.Drawing.Point(0, 0);
             this.tableau_MessagesSignales.Name = "tableau_MessagesSignales";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -101,6 +103,7 @@
             // 
             // valider
             // 
+            this.valider.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.valider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(100)))), ((int)(((byte)(169)))));
             this.valider.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(100)))), ((int)(((byte)(169)))));
             this.valider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -116,6 +119,7 @@
             // 
             // annuler
             // 
+            this.annuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.annuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.annuler.Location = new System.Drawing.Point(736, 14);
             this.annuler.Name = "annuler";
@@ -124,6 +128,17 @@
             this.annuler.Text = "Annuler";
             this.annuler.UseVisualStyleBackColor = true;
             this.annuler.Click += new System.EventHandler(this.annuler_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.Controls.Add(this.valider);
+            this.panel1.Controls.Add(this.annuler);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 550);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1064, 64);
+            this.panel1.TabIndex = 3;
             // 
             // numero
             // 
@@ -143,12 +158,12 @@
             this.signale_par.MinimumWidth = 6;
             this.signale_par.Name = "signale_par";
             // 
-            // id_banni
+            // idUtilsateur
             // 
-            this.id_banni.HeaderText = "Column1";
-            this.id_banni.MinimumWidth = 6;
-            this.id_banni.Name = "id_banni";
-            this.id_banni.Visible = false;
+            this.idUtilsateur.HeaderText = "idUtilsateur";
+            this.idUtilsateur.MinimumWidth = 6;
+            this.idUtilsateur.Name = "idUtilsateur";
+            this.idUtilsateur.Visible = false;
             // 
             // avertissement
             // 
@@ -180,17 +195,6 @@
             this.supprimer.Text = "Ignorer";
             this.supprimer.UseColumnTextForButtonValue = true;
             // 
-            // panel1
-            // 
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Controls.Add(this.valider);
-            this.panel1.Controls.Add(this.annuler);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 550);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1064, 64);
-            this.panel1.TabIndex = 3;
-            // 
             // fenetreMessagesSignales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -211,13 +215,13 @@
         private System.Windows.Forms.DataGridView tableau_MessagesSignales;
         private System.Windows.Forms.Button valider;
         private System.Windows.Forms.Button annuler;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn message;
         private System.Windows.Forms.DataGridViewTextBoxColumn signale_par;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_banni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idUtilsateur;
         private System.Windows.Forms.DataGridViewButtonColumn avertissement;
         private System.Windows.Forms.DataGridViewButtonColumn Bannissement;
         private System.Windows.Forms.DataGridViewButtonColumn supprimer;
-        private System.Windows.Forms.Panel panel1;
     }
 }

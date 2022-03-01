@@ -26,7 +26,7 @@ namespace myteam_admin.Fenetres
             listUtilisateurs = application.getUtilisateurs();
             foreach(Utilisateurs utilisateur in listUtilisateurs)
             {
-                dataGridViewUtilisateurs.Rows.Add(utilisateur.getId(), utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getPoste());
+                dataGridViewUtilisateurs.Rows.Add(utilisateur.getId(), utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getPoste().getPoste());
 
             }
         }

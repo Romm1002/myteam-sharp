@@ -435,15 +435,6 @@
   <data name="&gt;&gt;label_photo_profil.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="select_poste.Items" xml:space="preserve">
-    <value>Employé(e)</value>
-  </data>
-  <data name="select_poste.Items1" xml:space="preserve">
-    <value>Administrateur</value>
-  </data>
-  <data name="select_poste.Items2" xml:space="preserve">
-    <value>Administrateur</value>
-  </data>
   <data name="select_poste.Location" type="System.Drawing.Point, System.Drawing">
     <value>19, 362</value>
   </data>

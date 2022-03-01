@@ -25,8 +25,8 @@ namespace myteam_admin.Fenetres
             InitializeComponent();
 
             // Ajout des colonnes qui correspondent aux noms des utilisateurs de la conversation
-            tableauMessages.Columns[1].HeaderText += message.getNom() + " " + message.getPrenom();
-            tableauMessages.Columns[3].HeaderText += message.getNomReceveur() + " " + message.getPrenomReceveur();
+            tableauMessages.Columns[1].HeaderText += message.getAuteur().getNom() + " " + message.getAuteur().getPrenom();
+            tableauMessages.Columns[3].HeaderText += message.getReceveur().getNom() + " " + message.getReceveur().getPrenom();
 
             // Style du DGV
             tableauMessages.Columns[1].Width = 500;
@@ -36,9 +36,9 @@ namespace myteam_admin.Fenetres
 
             
 
-            foreach (Messages messages in app.getMessagesParConversation(message.getIdAuteur(), message.getIdReceveur()))
+            foreach (Messages messages in app.getMessagesParConversation(message.getAuteur().getId(), message.getReceveur().getId()))
             {
-                if(messages.getIdAuteur() == message.getIdAuteur())
+                if(messages.getAuteur().getId() == message.getReceveur().getId())
                 {
                     tableauMessages.Rows.Add(messages.getId(), messages.getMessage(), " ", " ");
                 }

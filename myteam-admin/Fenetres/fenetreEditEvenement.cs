@@ -35,7 +35,7 @@ namespace myteam_admin.Fenetres
             foreach (Utilisateurs participant in evenement.getListUtilisateurs())
             {
                 Bitmap pdp = new Bitmap(participant.getPhoto());
-                dataGridViewParticipants.Rows.Add(participant.getId(), pdp, participant.getNom(), participant.getPrenom(), participant.getPoste());
+                dataGridViewParticipants.Rows.Add(participant.getId(), pdp, participant.getNom(), participant.getPrenom(), participant.getPoste().getPoste());
             }
             foreach (Utilisateurs utilisateur in this.listUtilisateurs)
             {
@@ -46,7 +46,7 @@ namespace myteam_admin.Fenetres
                 else
                 {
                     Bitmap pdp = new Bitmap(utilisateur.getPhoto());
-                    dataGridViewUtilisateurs.Rows.Add(utilisateur.getId(), pdp, utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getPoste());
+                    dataGridViewUtilisateurs.Rows.Add(utilisateur.getId(), pdp, utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getPoste().getPoste());
                 }
             }
 

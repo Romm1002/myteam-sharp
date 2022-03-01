@@ -14,50 +14,50 @@ namespace myteam_admin.Fenetres
     public partial class modifierUtilisateur : Form
     {
         private int idUtilisateur;
+        private Modeles.Application app = new Modeles.Application();
+        private Utilisateurs utilisateur;
+        private List<Postes> listPoste;
         public modifierUtilisateur(menuUtilisateur menu, int idUtilisateur)
         {
             this.idUtilisateur = idUtilisateur;
-            Utilisateurs utilisateurs = new Utilisateurs(idUtilisateur);
-
+            this. utilisateur = new Utilisateurs(idUtilisateur);
+            this.listPoste = app.getPostes();
             InitializeComponent();
 
 
             // Changements du titre de la fenêtre et du label titre
-            this.Text = "Fiche de " + utilisateurs.getPrenom() + " " + utilisateurs.getNom();
-            label_fiche_de.Text = "Fiche de " + utilisateurs.getPrenom() + " " + utilisateurs.getNom();
+            this.Text = "Fiche de " + utilisateur.getPrenom() + " " + utilisateur.getNom();
+            label_fiche_de.Text = "Fiche de " + utilisateur.getPrenom() + " " + utilisateur.getNom();
 
             // Affichage dans les textBox des informations d'un utilisateur
-            textBox1.Text = utilisateurs.getId().ToString();
+            textBox1.Text = utilisateur.getId().ToString();
             textBox1.Visible = false;
-            textBox_nom.Text = utilisateurs.getNom();
-            textBox_prenom.Text = utilisateurs.getPrenom();
-            textBox_email.Text = utilisateurs.getEmail();
-            dateTimePicker_date_naissance.Value = utilisateurs.getDateNaiss();
-            switch (utilisateurs.getPoste())
+            textBox_nom.Text = utilisateur.getNom();
+            textBox_prenom.Text = utilisateur.getPrenom();
+            textBox_email.Text = utilisateur.getEmail();
+            dateTimePicker_date_naissance.Value = utilisateur.getDateNaiss();
+
+            foreach (Postes poste in listPoste)
             {
-                case "Visiteur":
-                    select_poste.SelectedIndex = 0;
-                    break;
-                case "Employé(e)":
-                    select_poste.SelectedIndex = 1;
-                    break;
-                case "Administrateur":
-                    select_poste.SelectedIndex = 2;
-                    break;
+                select_poste.Items.Add(poste.getPoste());
+                if (utilisateur.getPoste().getPoste() == poste.getPoste())
+                {
+                    select_poste.SelectedIndex = listPoste.IndexOf(poste);
+                }
             }
             select_poste.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            if (utilisateurs.getActif() == 1)
+            if (utilisateur.getActif() == 1)
             {
-                button_ban.Text = "BANNIR " + utilisateurs.getPrenom() + " " + utilisateurs.getNom();
+                button_ban.Text = "BANNIR " + utilisateur.getPrenom() + " " + utilisateur.getNom();
             }
             else
             {
-                button_ban.Text = "DEBANNIR " + utilisateurs.getPrenom() + " " + utilisateurs.getNom();
+                button_ban.Text = "DEBANNIR " + utilisateur.getPrenom() + " " + utilisateur.getNom();
             }
-            button_avert.Text = "AVERTIR " + utilisateurs.getPrenom() + " " + utilisateurs.getNom();
-            label_avert.Text = "*Lorsque " + utilisateurs.getPrenom() + " " + utilisateurs.getNom() + " aura 3 avertissements, il sera automatiquement banni.";
-            label_nb_avert.Text = utilisateurs.getAvertissements() + " avertissements";
+            button_avert.Text = "AVERTIR " + utilisateur.getPrenom() + " " + utilisateur.getNom();
+            label_avert.Text = "*Lorsque " + utilisateur.getPrenom() + " " + utilisateur.getNom() + " aura 3 avertissements, il sera automatiquement banni.";
+            label_nb_avert.Text = utilisateur.getAvertissements() + " avertissements";
         }
 
         private void annuler_Click(object sender, EventArgs e)
@@ -67,22 +67,8 @@ namespace myteam_admin.Fenetres
 
         private void valider_Click(object sender, EventArgs e)
         {
-            Utilisateurs utilisateurs = new Utilisateurs(idUtilisateur);
 
-            switch (select_poste.Text)
-            {
-                case "Visiteur":
-                    utilisateurs.setIdPoste(3);
-                    break;
-                case "Employé(e)":
-                    utilisateurs.setIdPoste(1);
-                    break;
-                case "Administrateur":
-                    utilisateurs.setIdPoste(2);
-                    break;
-            }
-
-            utilisateurs.modifications_informations(textBox_nom.Text, textBox_prenom.Text, textBox_email.Text, dateTimePicker_date_naissance.Value, utilisateurs.getIdPoste(), Convert.ToInt32(textBox1.Text));
+            utilisateur.modifications_informations(textBox_nom.Text, textBox_prenom.Text, textBox_email.Text, dateTimePicker_date_naissance.Value, utilisateur.getPoste().getId(), Convert.ToInt32(textBox1.Text));
 
             this.DialogResult = DialogResult.OK;
         }
@@ -115,6 +101,11 @@ namespace myteam_admin.Fenetres
             utilisateurs.avertir(idUtilisateur, utilisateurs.getAvertissements());
             label_nb_avert.Text = utilisateurs.getAvertissements() + 1 + " avertissements";
 
+        }
+
+        private void select_poste_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            utilisateur.setPoste(listPoste[select_poste.SelectedIndex]);
         }
     }
 }

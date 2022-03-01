@@ -32,14 +32,14 @@ namespace myteam_admin.Fenetres
             foreach (Utilisateurs participants in projet.getParticipants())
             {
                 Bitmap pdp = new Bitmap(participants.getPhoto());
-                dataGridViewParticipants.Rows.Add(participants.getId(), pdp, participants.getNom(), participants.getPrenom(), participants.getPoste());
+                dataGridViewParticipants.Rows.Add(participants.getId(), pdp, participants.getNom(), participants.getPrenom(), participants.getPoste().getPoste());
             }
 
 
             //POPULATE DGV CHAT
             foreach (MessagesProjet message in projet.getChat())
             {
-                dataGridViewChat.Rows.Add(message.getId(), message.getNom(), message.getPrenom(), message.getMessage());
+                dataGridViewChat.Rows.Add(message.getId(), message.getAuteur().getNom(), message.getAuteur().getPrenom(), message.getMessage());
                 dataGridViewChat.FirstDisplayedScrollingRowIndex = dataGridViewChat.RowCount - 1;
             }
 
@@ -240,14 +240,15 @@ namespace myteam_admin.Fenetres
             }
             dataGridViewTaches.ClearSelection();
             int rowIndex = dataGridViewTaches.HitTest(me.X, me.Y).RowIndex;
+            if (rowIndex == -1 || rowIndex == dataGridViewTaches.Rows.Count-1)
+            {
+                return;
+            }
             dataGridViewTaches.CurrentCell = dataGridViewTaches.Rows[rowIndex].Cells[1];
-
-
 
             ContextMenu cm = new ContextMenu();
             cm.MenuItems.Add(new MenuItem("Supprimer", new EventHandler(supprimerTache)));
             cm.Show(dataGridViewTaches, me.Location);
-
         }
         private void supprimerTache( object sender, EventArgs e)
         {
@@ -266,7 +267,7 @@ namespace myteam_admin.Fenetres
                 foreach (Utilisateurs participant in fenetre.participants)
                 {
                     Bitmap pdp = new Bitmap(participant.getPhoto());
-                    dataGridViewParticipants.Rows.Add(participant.getId(), pdp, participant.getNom(), participant.getPrenom(), participant.getPoste());
+                    dataGridViewParticipants.Rows.Add(participant.getId(), pdp, participant.getNom(), participant.getPrenom(), participant.getPoste().getPoste());
                 }
                 projet.setListParticipant(fenetre.participants);
             }
@@ -341,6 +342,10 @@ namespace myteam_admin.Fenetres
 
         private void nouveauMessage()
         {
+            if (textBoxMessage.Text == "")
+            {
+                return;
+            }
             MessagesProjet message = new MessagesProjet();
             if (message.newMessage(accueil.currentUser.getId(), textBoxMessage.Text, DateTime.Now, projet.getId()))
             {

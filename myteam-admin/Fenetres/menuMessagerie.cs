@@ -39,7 +39,7 @@ namespace myteam_admin.Fenetres
             //Remplissage du dataGridView
             foreach (Messages message in app.getMessages())
             {
-                tableauUtilisateurs.Rows.Add(message.getId(), message.getNom() + " " + message.getPrenom(), message.getNomReceveur() + " " + message.getPrenomReceveur(), message.getMessage(), message.getDate(), message.getIdAuteur(), message.getIdReceveur());
+                tableauUtilisateurs.Rows.Add(message.getId(), message.getAuteur().getNom() + " " + message.getAuteur().getPrenom(), message.getReceveur().getNom() + " " + message.getReceveur().getPrenom(), message.getMessage(), message.getDate(), message.getAuteur().getId(), message.getReceveur().getId());
             }
         }
 

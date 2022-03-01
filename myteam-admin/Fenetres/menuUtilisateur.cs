@@ -14,7 +14,6 @@ namespace myteam_admin.Fenetres
     public partial class menuUtilisateur : UserControl
     {
         // Déclaration et instanciation des objets
-        Utilisateurs utilisateur = new Utilisateurs();
         Modeles.Application app = new Modeles.Application();
         private Accueil accueil;
 
@@ -24,13 +23,13 @@ namespace myteam_admin.Fenetres
             this.accueil = acceuil;
 
             // Remplissage des stats
-            List<int> nbrEmployes = utilisateur.nbrEmployes();
+            List<int> nbrEmployes = app.nbrEmployes();
             statUtilisateur1.Text = nbrEmployes[0].ToString();
 
-            List<int> nesAujourdui = utilisateur.nesAujourdhui();
+            List<int> nesAujourdui = app.nesAujourdhui();
             statUtilisateur3.Text = nesAujourdui[0].ToString();
 
-            List<string> derniereRecrue = utilisateur.derniereRecrue();
+            List<string> derniereRecrue = app.derniereRecrue();
             statUtilisateur4.Text = derniereRecrue[0];
 
 
@@ -38,7 +37,7 @@ namespace myteam_admin.Fenetres
 
             foreach(Utilisateurs utilisateur in app.getUtilisateursEtBannis())
             {
-                tableauUtilisateurs.Rows.Add(utilisateur.getId(), utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getDateNaiss().ToString("dd-MM-yyyy"), utilisateur.getEmail(), utilisateur.getPoste());
+                tableauUtilisateurs.Rows.Add(utilisateur.getId(), utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getDateNaiss().ToString("dd-MM-yyyy"), utilisateur.getEmail(), utilisateur.getPoste().getPoste());
                 if (utilisateur.getActif() == 0)
                 {
                     tableauUtilisateurs.Rows[tableauUtilisateurs.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.Red;
@@ -97,6 +96,42 @@ namespace myteam_admin.Fenetres
             accueil.panelContenu.Controls.Add(panel);
             panel.Show();
             accueil.labelHeaderTitle.Text = "INSCRIRE UN UTILISATEUR";
+        }
+
+        private void tableauUtilisateurs_Click(object sender, EventArgs e)
+        {
+            // cast de l'event en mouse event
+            MouseEventArgs me = (MouseEventArgs)e;
+
+            if (me.Button != MouseButtons.Right)
+            {
+                return;
+            }
+            tableauUtilisateurs.ClearSelection();
+            int rowIndex = tableauUtilisateurs.HitTest(me.X, me.Y).RowIndex;
+            if (rowIndex == -1)
+            {
+                return;
+            }
+            tableauUtilisateurs.CurrentCell = tableauUtilisateurs.Rows[rowIndex].Cells[1];
+
+            ContextMenu cm = new ContextMenu();
+            cm.MenuItems.Add(new MenuItem("Supprimer", new EventHandler(supprimerUtilisateur)));
+            cm.Show(tableauUtilisateurs, me.Location);
+
+        }
+        private void supprimerUtilisateur(object sender, EventArgs e)
+        {
+            int index = tableauUtilisateurs.CurrentRow.Index;
+
+            Utilisateurs utilisateur = new Utilisateurs((int)tableauUtilisateurs.CurrentRow.Cells[0].Value);
+            dialogAlert alert = new dialogAlert("Êtes-vous sûr de vouloir supprimer\r\n" + utilisateur.getNom() + " " + utilisateur.getPrenom() + " ?");
+
+            if( alert.ShowDialog() == DialogResult.OK)
+            {
+                utilisateur.supprimerUtilisateur();
+                tableauUtilisateurs.Rows.RemoveAt(index);
+            }
         }
     }
 }

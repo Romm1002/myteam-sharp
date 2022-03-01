@@ -14,11 +14,23 @@ namespace myteam_admin.Fenetres
     public partial class menuAjoutUtilisateur : UserControl
     {
         private Accueil accueil;
+        private List<Postes> listPoste;
+        private Utilisateurs utilisateur = new Utilisateurs();
 
         public menuAjoutUtilisateur(Accueil accueil)
         {
-            InitializeComponent();
+            Modeles.Application app = new Modeles.Application();
+            listPoste = app.getPostes();
             this.accueil = accueil;
+            InitializeComponent();
+
+            foreach (Postes poste in listPoste)
+            {
+                comboBoxPostes.Items.Add(poste.getPoste());
+            }
+
+            textBox_dateNaissance.Value = DateTime.Now;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -38,31 +50,35 @@ namespace myteam_admin.Fenetres
                 labelError.Text = "VEUILLEZ SAISIR UN PRENOM";
                 textBox_prenom.Focus();
             }
-            else if(textBox_email.Text == "")
+            else if (textBox_email.Text == "")
             {
                 error = true;
                 labelError.Text = "VEUILLEZ SAISIR UNE ADRESSE EMAIL";
                 textBox_email.Focus();
             }
-            else if(radioButton_employe.Checked == false && radioButton_administrateur.Checked == false)
+            else if (DateTime.Now.Year - textBox_dateNaissance.Value.Year < 18)
             {
                 error = true;
-                labelError.Text = "VEUILLEZ CHOISIR ENTRE EMPLOYE OU ADMINISTRATEUR";
+                labelError.Text = "L'UTILISATEUR EST TROP JEUNE POUR ETRE INSCRIT";
+                textBox_dateNaissance.Focus();
+            }
+            else if (textBox_mdp.Text == "")
+            {
+                error = true;
+                labelError.Text = "VEUILLEZ GENERER UN MOT DE PASSE ET LE TRANSMETTRE AU NOUVEL UTILISATEUR";
+                textBox_mdp.Focus();
+            }
+            else if (comboBoxPostes.SelectedIndex == -1)
+            {
+                error = true;
+                labelError.Text = "VEUILLEZ CHOISIR UN POSTE";
+                comboBoxPostes.Focus();
             }
 
             if (!error)
             {
-                int idPoste = -1;
-                if (radioButton_employe.Checked)
-                {
-                    idPoste = 1;
-                }
-                else if (radioButton_administrateur.Checked)
-                {
-                    idPoste = 2;
-                }
-
-                utilisateurs.inscription(textBox_nom.Text, textBox_prenom.Text, textBox_dateNaissance.Value, textBox_email.Text, BCrypt.Net.BCrypt.HashPassword(textBox_mdp.Text), idPoste, "../pages/images/avatar/photoProfil.jpg");
+                
+                utilisateurs.inscription(textBox_nom.Text, textBox_prenom.Text, textBox_dateNaissance.Value, textBox_email.Text, BCrypt.Net.BCrypt.HashPassword(textBox_mdp.Text), utilisateur.getPoste(), "../pages/images/avatar/photoProfil.jpg");
                 labelError.Text = "INSCRIPTION REALISEE";
             }
         }
@@ -70,7 +86,7 @@ namespace myteam_admin.Fenetres
         // Générer un mot de passe
         private void button2_Click(object sender, EventArgs e)
         {
-                var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789*%_-";
                 var Charsarr = new char[10];
                 var random = new Random();
 
@@ -80,6 +96,11 @@ namespace myteam_admin.Fenetres
                 }
 
                 textBox_mdp.Text = new String(Charsarr);
+        }
+
+        private void comboBoxPostes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            utilisateur.setPoste(listPoste[comboBoxPostes.SelectedIndex]);
         }
     }
 }

@@ -13,14 +13,12 @@ namespace myteam_admin.Fenetres
 {
     public partial class fenetreMessagesSignales : Form
     {
-        private int idMessage;
         Messages messages = new Messages();
         Utilisateurs utilisateurs = new Utilisateurs();
         Modeles.Application app = new Modeles.Application();
 
         public fenetreMessagesSignales(menuMessagerie menu)
         {
-            this.idMessage = idMessage;
 
             InitializeComponent();
 
@@ -28,7 +26,7 @@ namespace myteam_admin.Fenetres
 
             foreach (Messages messages in app.getMessagesSignales(0))
             {
-                tableau_MessagesSignales.Rows.Add(messages.getId(), "\"" + messages.getMessage() + "\" envoyé par " + messages.getPrenomReceveur() + " " + messages.getNomReceveur(), messages.getPrenom() + " " + messages.getNom(), messages.getIdReceveur());
+                tableau_MessagesSignales.Rows.Add(messages.getId(), "\"" + messages.getMessage() + "\" envoyé par " + messages.getAuteur().getNom() + " " + messages.getAuteur().getPrenom(), messages.getReceveur().getPrenom() + " " + messages.getReceveur().getNom(), messages.getAuteur().getId());
             }
         }
 
@@ -53,7 +51,11 @@ namespace myteam_admin.Fenetres
 
             if(e.ColumnIndex == tableau_MessagesSignales.Columns["avertissement"].Index && e.RowIndex >= 0)
             {
-                // à faire
+                Utilisateurs utilisateur = new Utilisateurs(Convert.ToInt32(tableau_MessagesSignales.CurrentRow.Cells[3].Value.ToString()));
+                utilisateur.avertir(utilisateur.getId(), utilisateur.getAvertissements());
+                messages.traiterMessage(Convert.ToInt32(tableau_MessagesSignales.CurrentRow.Cells[0].Value.ToString()));
+                tableau_MessagesSignales.Rows.RemoveAt(tableau_MessagesSignales.CurrentRow.Index);
+
             }
         }
 

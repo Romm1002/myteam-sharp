@@ -158,12 +158,9 @@
             // select_poste
             // 
             this.select_poste.FormattingEnabled = true;
-            this.select_poste.Items.AddRange(new object[] {
-            resources.GetString("select_poste.Items"),
-            resources.GetString("select_poste.Items1"),
-            resources.GetString("select_poste.Items2")});
             resources.ApplyResources(this.select_poste, "select_poste");
             this.select_poste.Name = "select_poste";
+            this.select_poste.SelectedIndexChanged += new System.EventHandler(this.select_poste_SelectedIndexChanged);
             // 
             // label1
             // 
