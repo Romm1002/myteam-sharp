@@ -225,7 +225,7 @@ namespace myteam_admin.Modeles
             MySqlCommand command = conn.CreateCommand();
 
             command.Parameters.AddWithValue("@id", id);
-            command.CommandText = "UPDATE utilisateurs SET actif = 1 WHERE idUtilisateur = @id";
+            command.CommandText = "UPDATE utilisateurs SET actif = 1, avertissements = 0 WHERE idUtilisateur = @id";
 
             command.ExecuteNonQuery();
         }

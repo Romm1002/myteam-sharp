@@ -131,6 +131,10 @@ namespace myteam_admin.Fenetres
             {
                 utilisateur.supprimerUtilisateur();
                 tableauUtilisateurs.Rows.RemoveAt(index);
+                if (tableauUtilisateurs.Rows.Count >= 1)
+                {
+                    tableauUtilisateurs.CurrentCell = tableauUtilisateurs.Rows[0].Cells[1];
+                }
             }
         }
     }

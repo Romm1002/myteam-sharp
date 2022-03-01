@@ -49,6 +49,7 @@ namespace myteam_admin.Fenetres
             this.textBoxEvenement = new System.Windows.Forms.TextBox();
             this.buttonValider = new System.Windows.Forms.Button();
             this.buttonAnnuler = new System.Windows.Forms.Button();
+            this.buttonSupprimer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticipants)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtilisateurs)).BeginInit();
             this.SuspendLayout();
@@ -253,11 +254,22 @@ namespace myteam_admin.Fenetres
             this.buttonAnnuler.UseVisualStyleBackColor = true;
             this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
             // 
+            // buttonSupprimer
+            // 
+            this.buttonSupprimer.Location = new System.Drawing.Point(500, 120);
+            this.buttonSupprimer.Name = "buttonSupprimer";
+            this.buttonSupprimer.Size = new System.Drawing.Size(168, 26);
+            this.buttonSupprimer.TabIndex = 25;
+            this.buttonSupprimer.Text = "Supprimer";
+            this.buttonSupprimer.UseVisualStyleBackColor = true;
+            this.buttonSupprimer.Click += new System.EventHandler(this.buttonSupprimer_Click);
+            // 
             // fenetreEditEvenement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 474);
+            this.Controls.Add(this.buttonSupprimer);
             this.Controls.Add(this.buttonAnnuler);
             this.Controls.Add(this.buttonValider);
             this.Controls.Add(this.labelMessage);
@@ -269,7 +281,7 @@ namespace myteam_admin.Fenetres
             this.Controls.Add(this.textBoxEvenement);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fenetreEditEvenement";
-            this.Text = "Form1";
+            this.Text = "Modifier ";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticipants)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtilisateurs)).EndInit();
             this.ResumeLayout(false);
@@ -298,5 +310,6 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.TextBox textBoxEvenement;
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Button buttonAnnuler;
+        private System.Windows.Forms.Button buttonSupprimer;
     }
 }

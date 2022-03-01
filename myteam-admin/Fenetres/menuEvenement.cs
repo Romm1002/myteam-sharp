@@ -175,7 +175,6 @@ namespace myteam_admin.Fenetres
                     accueil.panelContenu.Controls.Clear();
                     accueil.panelContenu.Controls.Add(panel);
                 }
-
             }
         }
     }

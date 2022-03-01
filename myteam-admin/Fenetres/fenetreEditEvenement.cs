@@ -30,6 +30,8 @@ namespace myteam_admin.Fenetres
             dateTimePickerDate.Value = evenement.getDate();
             dateTimePickerDebut.Value = evenement.getDebut();
             dateTimePickerFin.Value = evenement.getFin();
+            this.Text += evenement.getDesignation();
+
 
             this.listUtilisateurs = app.getUtilisateurs();
             foreach (Utilisateurs participant in evenement.getListUtilisateurs())
@@ -59,16 +61,6 @@ namespace myteam_admin.Fenetres
 
         private void buttonValider_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ajout");
-            foreach (Utilisateurs utilisateur in listUtilisateursAjout)
-            {
-                MessageBox.Show(utilisateur.getNom());
-            }
-            MessageBox.Show("suppression");
-            foreach (Utilisateurs utilisateur in listUtilisateursSupr)
-            {
-                MessageBox.Show(utilisateur.getNom());
-            }
             evenement.updateEvenement(evenement.getListIdEvenements(), textBoxEvenement.Text, dateTimePickerDate.Value, dateTimePickerDebut.Value, dateTimePickerFin.Value);
             evenement.newEvenement(textBoxEvenement.Text, dateTimePickerDate.Value, dateTimePickerDebut.Value, dateTimePickerFin.Value, listUtilisateursAjout);
             evenement.supprimerEvenement(listIdEvenementSupr);
@@ -125,6 +117,16 @@ namespace myteam_admin.Fenetres
                 }
                 dataGridViewUtilisateurs.Rows.Add(currentRow.Cells[0].Value, currentRow.Cells[1].Value, currentRow.Cells[2].Value, currentRow.Cells[3].Value, currentRow.Cells[4].Value);
                 dataGridViewParticipants.Rows.RemoveAt(e.RowIndex);
+            }
+        }
+
+        private void buttonSupprimer_Click(object sender, EventArgs e)
+        {
+            dialogAlert alert = new dialogAlert("Êtes-vous sûr de vouloir supprimer\r\n" + evenement.getDesignation() + " ?");
+            if (alert.ShowDialog() == DialogResult.OK)
+            {
+                evenement.supprimerEvenement(evenement.getListIdEvenements());
+                this.DialogResult = DialogResult.OK;
             }
         }
     }

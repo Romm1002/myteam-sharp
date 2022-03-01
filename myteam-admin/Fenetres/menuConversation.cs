@@ -40,11 +40,11 @@ namespace myteam_admin.Fenetres
             {
                 if(messages.getAuteur().getId() == message.getReceveur().getId())
                 {
-                    tableauMessages.Rows.Add(messages.getId(), messages.getMessage(), " ", " ");
+                    tableauMessages.Rows.Add("", "", messages.getId(), messages.getMessage());
                 }
                 else
                 {
-                    tableauMessages.Rows.Add(" ", " ", messages.getId(), messages.getMessage());
+                    tableauMessages.Rows.Add(messages.getId(), messages.getMessage(), "", "");
                 }
             }
         }

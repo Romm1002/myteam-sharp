@@ -77,7 +77,7 @@ namespace myteam_admin.Modeles
             MySqlCommand command = conn.CreateCommand();
             command.Parameters.AddWithValue("@u1", u1);
             command.Parameters.AddWithValue("@u2", u2);
-            command.CommandText = "SELECT m.idMessage, m.contenu, m.heure, u1.idUtilisateur, u1.nom, u1.prenom, u2.idUtilisateur, u2.nom, u2.prenom FROM messagerie AS m LEFT JOIN utilisateurs AS u1 ON u1.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur WHERE(m.idUtilisateur = @u1 AND idReceveur = @u2) OR (m.idUtilisateur = @2 AND idReceveur = @u1);";
+            command.CommandText = "SELECT m.idMessage, m.contenu, m.heure, u1.idUtilisateur, u1.nom, u1.prenom, u2.idUtilisateur, u2.nom, u2.prenom FROM messagerie AS m LEFT JOIN utilisateurs AS u1 ON u1.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur WHERE(m.idUtilisateur = @u1 AND idReceveur = @u2) OR (m.idUtilisateur = @u2 AND idReceveur = @u1);";
             MySqlDataReader reader = command.ExecuteReader();
 
             List<Messages> listeMessages = new List<Messages>();
