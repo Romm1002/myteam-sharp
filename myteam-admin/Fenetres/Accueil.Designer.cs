@@ -48,6 +48,7 @@ namespace myteam_admin.Fenetres
             this.buttonMaximizeForm = new System.Windows.Forms.Button();
             this.buttonMinimizeForm = new System.Windows.Forms.Button();
             this.buttonCloseForm = new System.Windows.Forms.Button();
+            this.toolStripMenuItemConges = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -65,7 +66,7 @@ namespace myteam_admin.Fenetres
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(255, 610);
+            this.panelMenu.Size = new System.Drawing.Size(255, 749);
             this.panelMenu.TabIndex = 0;
             // 
             // menuStrip
@@ -79,12 +80,13 @@ namespace myteam_admin.Fenetres
             this.toolStripMenuItemProjets,
             this.toolStripMenuItemMessagerie,
             this.toolStripMenuItemEvenement,
-            this.toolStripMenuItemPostes});
+            this.toolStripMenuItemPostes,
+            this.toolStripMenuItemConges});
             this.menuStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip.Location = new System.Drawing.Point(0, 100);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(255, 510);
+            this.menuStrip.Size = new System.Drawing.Size(255, 649);
             this.menuStrip.TabIndex = 2;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -180,7 +182,7 @@ namespace myteam_admin.Fenetres
             this.panelContenu.Location = new System.Drawing.Point(255, 100);
             this.panelContenu.Name = "panelContenu";
             this.panelContenu.Padding = new System.Windows.Forms.Padding(0, 100, 0, 0);
-            this.panelContenu.Size = new System.Drawing.Size(652, 510);
+            this.panelContenu.Size = new System.Drawing.Size(652, 649);
             this.panelContenu.TabIndex = 1;
             // 
             // panelHeader
@@ -280,12 +282,22 @@ namespace myteam_admin.Fenetres
             this.buttonCloseForm.UseVisualStyleBackColor = true;
             this.buttonCloseForm.Click += new System.EventHandler(this.buttonCloseForm_Click);
             // 
+            // toolStripMenuItemConges
+            // 
+            this.toolStripMenuItemConges.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripMenuItemConges.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItemConges.Name = "toolStripMenuItemConges";
+            this.toolStripMenuItemConges.Padding = new System.Windows.Forms.Padding(15, 30, 15, 30);
+            this.toolStripMenuItemConges.Size = new System.Drawing.Size(254, 84);
+            this.toolStripMenuItemConges.Text = "CONGÉS";
+            this.toolStripMenuItemConges.Click += new System.EventHandler(this.toolStripMenuItemConges_Click);
+            // 
             // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(907, 610);
+            this.ClientSize = new System.Drawing.Size(907, 749);
             this.Controls.Add(this.panelContenu);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panelMenu);
@@ -328,5 +340,6 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPostes;
         private System.Windows.Forms.Panel panelHeaderBtn;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAccueil;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemConges;
     }
 }

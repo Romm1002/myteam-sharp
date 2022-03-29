@@ -20,31 +20,53 @@ namespace myteam_admin.Modeles
         Postes poste;
         DateTime dateNaiss;
 
-        public Utilisateurs(int id = -1)
+        public Utilisateurs() 
         {
             photoProfil = directory;
-            if (id != -1)
+        }
+        public Utilisateurs(int id)
+        {
+            photoProfil = directory;
+
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@id", id);
+            command.CommandText = "SELECT u.idUtilisateur, u.nom, u.prenom, u.dateNaiss, u.email, u.avertissements, u.actif, p.idPoste, p.poste, p.grade FROM utilisateurs AS u LEFT JOIN postes AS p USING(idposte) WHERE idUtilisateur = @id";
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
             {
-                conn.Open();
-                MySqlCommand command = conn.CreateCommand();
-                command.Parameters.AddWithValue("@id", id);
-                command.CommandText = "SELECT u.idUtilisateur, u.nom, u.prenom, u.dateNaiss, u.email, u.avertissements, u.actif, p.idPoste, p.poste, p.grade FROM utilisateurs AS u LEFT JOIN postes AS p USING(idposte) WHERE idUtilisateur = @id";
-                MySqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    this.idUtilisateur = reader.GetInt32(0);
-                    this.nom = reader.GetString(1);
-                    this.prenom = reader.GetString(2);
-                    this.dateNaiss = Convert.ToDateTime(reader.GetValue(3));
-                    this.email = reader.GetString(4);
-                    this.avertissements = reader.GetInt32(5);
-                    this.actif = reader.GetInt32(6);
-                    this.poste = new Postes(reader.GetInt32(7), reader.GetString(8), reader.GetInt32(9));
-                }
-                conn.Close();
+                this.idUtilisateur = reader.GetInt32(0);
+                this.nom = reader.GetString(1);
+                this.prenom = reader.GetString(2);
+                this.dateNaiss = Convert.ToDateTime(reader.GetValue(3));
+                this.email = reader.GetString(4);
+                this.avertissements = reader.GetInt32(5);
+                this.actif = reader.GetInt32(6);
+                this.poste = new Postes(reader.GetInt32(7), reader.GetString(8), reader.GetInt32(9));
             }
+            conn.Close();
         }
 
+        public Utilisateurs(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, string photoProfil, int avertissements, int actif, Postes poste)
+        {
+            photoProfil = directory;
+
+            this.idUtilisateur = idUtilisateur;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.dateNaiss = dateNaiss;
+            this.email = email;
+            this.photoProfil += photoProfil;
+            this.avertissements = avertissements;
+            this.actif = actif;
+            this.poste = poste;
+        }
+        public Utilisateurs(int idUtilisateur, string nom, string prenom)
+        {
+            this.idUtilisateur = idUtilisateur;
+            this.nom = nom;
+            this.prenom = prenom;
+        }
         public void initialiser(int idUtilisateur, string nom, string prenom, DateTime dateNaiss, string email, string photoProfil, int avertissements, int actif,Postes poste)
         {
             this.idUtilisateur = idUtilisateur;

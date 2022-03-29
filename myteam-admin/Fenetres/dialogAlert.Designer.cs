@@ -45,7 +45,7 @@ namespace myteam_admin.Fenetres
             this.labelTitre.Size = new System.Drawing.Size(582, 269);
             this.labelTitre.TabIndex = 0;
             this.labelTitre.Text = "Placeholder";
-            this.labelTitre.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonAnnuler
             // 
@@ -54,7 +54,7 @@ namespace myteam_admin.Fenetres
             this.buttonAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAnnuler.ForeColor = System.Drawing.Color.White;
-            this.buttonAnnuler.Location = new System.Drawing.Point(159, 347);
+            this.buttonAnnuler.Location = new System.Drawing.Point(487, 376);
             this.buttonAnnuler.Margin = new System.Windows.Forms.Padding(150, 3, 3, 3);
             this.buttonAnnuler.Name = "buttonAnnuler";
             this.buttonAnnuler.Size = new System.Drawing.Size(130, 39);
@@ -70,7 +70,7 @@ namespace myteam_admin.Fenetres
             this.buttonConfirmer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonConfirmer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfirmer.ForeColor = System.Drawing.Color.White;
-            this.buttonConfirmer.Location = new System.Drawing.Point(511, 347);
+            this.buttonConfirmer.Location = new System.Drawing.Point(634, 376);
             this.buttonConfirmer.Margin = new System.Windows.Forms.Padding(3, 3, 150, 3);
             this.buttonConfirmer.Name = "buttonConfirmer";
             this.buttonConfirmer.Size = new System.Drawing.Size(130, 39);

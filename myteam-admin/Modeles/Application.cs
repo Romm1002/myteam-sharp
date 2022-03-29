@@ -303,12 +303,13 @@ namespace myteam_admin.Modeles
             return nbrProjetsFini;
 
         }
+        // Récupère la liste des evements administrateur
         public List<Evenements> getEvenementsAdmin()
         {
             List<Evenements> listEvenements = new List<Evenements>();
             MySqlCommand command = conn.CreateCommand();
             conn.Open();
-            command.CommandText = "SELECT idEvenement, designation, date, heureDebut, heureFin, idUtilisateur, nom, prenom, dateNaiss, email, photoProfil, avertissements, actif, idPoste, poste, grade FROM `evenements` LEFT JOIN utilisateurs USING(idUtilisateur) LEFT JOIN postes USING(idPoste) WHERE admin = 1 ORDER BY date ASC, heureDebut  ASC";
+            command.CommandText = "SELECT idEvenement, designation, date, heureDebut, heureFin, idUtilisateur, nom, prenom, dateNaiss, email, photoProfil, avertissements, actif, idPoste, poste, grade FROM `evenements` LEFT JOIN utilisateurs USING(idUtilisateur) LEFT JOIN postes USING(idPoste) WHERE admin = 1 ORDER BY date DESC, heureDebut  ASC";
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -388,6 +389,111 @@ namespace myteam_admin.Modeles
                 return false;
             }
             
+        }
+
+        // Récupère la liste des logs
+        public List<Logs> getLogs()
+        {
+            List<Logs> logs = new List<Logs>();
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.CommandText = "SELECT idLog, date, ip, idUtilisateur, nom, prenom,dateNaiss, email, photoProfil, avertissements, actif, idPoste, poste, grade FROM `logs_connexion` LEFT JOIN utilisateurs USING(idUtilisateur) LEFT JOIN postes USING(idPoste) ORDER BY idLog DESC;";
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Postes poste = new Postes(reader.GetInt32(11), reader.GetString(12), reader.GetInt32(13));
+                Utilisateurs utilisateur = new Utilisateurs(reader.GetInt32(3), reader.GetString(4), reader.GetString(5), Convert.ToDateTime(reader.GetString(6)), reader.GetString(7), reader.GetString(8), reader.GetInt32(9), reader.GetInt32(10), poste);
+                Logs log = new Logs(reader.GetInt32(0), utilisateur, Convert.ToDateTime(reader.GetString(1)), reader.GetString(2));
+
+                logs.Add(log);
+            }
+            conn.Close();
+            return logs;
+        }
+
+        // Récupère la liste des IPs bannis
+        public List<Ips> getIpBannis()
+        {
+            List<Ips> ips = new List<Ips>();
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.CommandText = "SELECT idBannedIp, ip FROM `banned_ips` ORDER BY ip DESC;";
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Ips ip = new Ips(reader.GetInt32(0), reader.GetString(1));
+
+                ips.Add(ip);
+            }
+            conn.Close();
+            return ips;
+        }
+
+        // Récupère la liste des congés
+        public List<Conges> getConges()
+        {
+            List<Conges> conges = new List<Conges>();
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.CommandText = "SELECT idConge, idUtilisateur, nom, prenom, dateDebut, dateFin, commentaire, status, raison FROM `conges` LEFT JOIN utilisateurs USING(idUtilisateur) ORDER BY dateDebut DESC;";
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Utilisateurs utilisateur = new Utilisateurs(reader.GetInt32(1), reader.GetString(2), reader.GetString(3));
+
+                Conges conge = new Conges(reader.GetInt32(0), utilisateur, Convert.ToDateTime(reader.GetString(4)), Convert.ToDateTime(reader.GetString(5)), reader.GetString(6), reader.GetInt32(7), reader.GetString(8));
+
+                conges.Add(conge);
+            }
+            conn.Close();
+            return conges;
+        }
+
+        // Récupère le nombre de personne actuellemnt en congé
+        public int getCountCongesActuel()
+        {
+            int count = 0;
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.CommandText = "SELECT COUNT(*) FROM `conges` WHERE dateDebut <= CURDATE() AND dateFin >= CURDATE() AND status = 1;";
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                count = reader.GetInt32(0);
+            }
+            conn.Close();
+            return count;
+        }
+
+        // Récupère le nombre de congé à venir
+        public int getCountCongesAVenir()
+        {
+            int count = 0;
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.CommandText = "SELECT COUNT(*) FROM `conges` WHERE dateDebut >= CURDATE() AND status = 0;";
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                count = reader.GetInt32(0);
+            }
+            conn.Close();
+            return count;
+        }
+        // Récupère le nombre de congé en attente
+        public int getCountCongesEnAttente()
+        {
+            int count = 0;
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.CommandText = "SELECT COUNT(*) FROM `conges` WHERE dateDebut >= CURDATE() AND status = 0;";
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                count = reader.GetInt32(0);
+            }
+            conn.Close();
+            return count;
         }
 
     }

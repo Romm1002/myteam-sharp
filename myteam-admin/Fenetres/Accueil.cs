@@ -33,11 +33,11 @@ namespace myteam_admin.Fenetres
             panel.Show();
 
             selectButton(toolStripMenuItemAccueil);
-            labelHeaderTitle.Text = "ACCUEIL";
+            labelHeaderTitle.Text = "Bienvenue " + currentUser.getPrenom() + ".";
 
 
-            
-            
+
+
         }
 
         //MENU STRIP 
@@ -50,7 +50,7 @@ namespace myteam_admin.Fenetres
             panel.Show();
 
             selectButton(toolStripMenuItemAccueil);
-            labelHeaderTitle.Text = "ACCUEIL";
+            labelHeaderTitle.Text = "Bienvenue " + currentUser.getPrenom() + ".";
         }
         private void toolStripMenuItemUtilisateurs_Click(object sender, EventArgs e)
         {
@@ -109,6 +109,18 @@ namespace myteam_admin.Fenetres
             selectButton(toolStripMenuItemPostes);
             labelHeaderTitle.Text = "POSTES";
         }
+
+        private void toolStripMenuItemConges_Click(object sender, EventArgs e)
+        {
+            menuConges panel = new menuConges(this);
+
+            panel.AutoScroll = true;
+            this.panelContenu.Controls.Clear();
+            this.panelContenu.Controls.Add(panel);
+
+            selectButton(toolStripMenuItemConges);
+            labelHeaderTitle.Text = "CONGÉS";
+        }
         //MENU STRIP STYLE
         private void selectButton(ToolStripMenuItem btn)
         {
@@ -155,6 +167,5 @@ namespace myteam_admin.Fenetres
             }
         }
 
-        
     }
 }

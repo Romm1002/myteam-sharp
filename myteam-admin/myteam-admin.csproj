@@ -83,16 +83,22 @@
     <Compile Include="Fenetres\dialogAlert.Designer.cs">
       <DependentUpon>dialogAlert.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\fenetreMessagesSignales.cs">
+    <Compile Include="Fenetres\Module Projets\fenetreTache.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fenetres\fenetreMessagesSignales.Designer.cs">
+    <Compile Include="Fenetres\Module Projets\fenetreTache.Designer.cs">
+      <DependentUpon>fenetreTache.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fenetres\Module Messagerie\fenetreMessagesSignales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fenetres\Module Messagerie\fenetreMessagesSignales.Designer.cs">
       <DependentUpon>fenetreMessagesSignales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\fenetreEditEvenement.cs">
+    <Compile Include="Fenetres\Module Evenements\fenetreEditEvenement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fenetres\fenetreEditEvenement.Designer.cs">
+    <Compile Include="Fenetres\Module Evenements\fenetreEditEvenement.Designer.cs">
       <DependentUpon>fenetreEditEvenement.cs</DependentUpon>
     </Compile>
     <Compile Include="Fenetres\menuAccueil.cs">
@@ -101,91 +107,106 @@
     <Compile Include="Fenetres\menuAccueil.Designer.cs">
       <DependentUpon>menuAccueil.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuAjouterPoste.cs">
+    <Compile Include="Fenetres\Module Postes\menuAjouterPoste.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fenetres\menuAjouterPoste.Designer.cs">
+    <Compile Include="Fenetres\Module Postes\menuAjouterPoste.Designer.cs">
       <DependentUpon>menuAjouterPoste.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuAjoutUtilisateur.cs">
+    <Compile Include="Fenetres\Module Evenements\menuAjoutEvenement.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fenetres\menuAjoutUtilisateur.Designer.cs">
+    <Compile Include="Fenetres\Module Evenements\menuAjoutEvenement.Designer.cs">
+      <DependentUpon>menuAjoutEvenement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fenetres\Module Utilisateurs\menuAjoutUtilisateur.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fenetres\Module Utilisateurs\menuAjoutUtilisateur.Designer.cs">
       <DependentUpon>menuAjoutUtilisateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuConversation.cs">
+    <Compile Include="Fenetres\Module Messagerie\menuConversation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fenetres\menuConversation.Designer.cs">
+    <Compile Include="Fenetres\Module Messagerie\menuConversation.Designer.cs">
       <DependentUpon>menuConversation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuEvenement.cs">
+    <Compile Include="Fenetres\Module Evenements\menuEvenement.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fenetres\menuEvenement.Designer.cs">
+    <Compile Include="Fenetres\Module Evenements\menuEvenement.Designer.cs">
       <DependentUpon>menuEvenement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuMessagerie.cs">
+    <Compile Include="Fenetres\Module Messagerie\menuMessagerie.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fenetres\menuMessagerie.Designer.cs">
+    <Compile Include="Fenetres\Module Messagerie\menuMessagerie.Designer.cs">
       <DependentUpon>menuMessagerie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuMessagesSignales.cs">
+    <Compile Include="Fenetres\Module Messagerie\menuMessagesSignales.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fenetres\menuMessagesSignales.Designer.cs">
+    <Compile Include="Fenetres\Module Messagerie\menuMessagesSignales.Designer.cs">
       <DependentUpon>menuMessagesSignales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuParticipantsProjet.cs">
+    <Compile Include="Fenetres\Module Projets\menuParticipantsProjet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fenetres\menuParticipantsProjet.Designer.cs">
+    <Compile Include="Fenetres\Module Projets\menuParticipantsProjet.Designer.cs">
       <DependentUpon>menuParticipantsProjet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuPlannification.cs">
+    <Compile Include="Fenetres\Module Utilisateurs\menuUtilisateur.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fenetres\menuPlannification.Designer.cs">
-      <DependentUpon>menuPlannification.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Fenetres\menuUtilisateur.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Fenetres\menuUtilisateur.Designer.cs">
+    <Compile Include="Fenetres\Module Utilisateurs\menuUtilisateur.Designer.cs">
       <DependentUpon>menuUtilisateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuProjets.cs">
+    <Compile Include="Fenetres\Module Projets\menuProjets.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fenetres\menuProjets.Designer.cs">
+    <Compile Include="Fenetres\Module Projets\menuProjets.Designer.cs">
       <DependentUpon>menuProjets.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuProjet.cs">
+    <Compile Include="Fenetres\Module Projets\menuProjet.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fenetres\menuProjet.Designer.cs">
+    <Compile Include="Fenetres\Module Projets\menuProjet.Designer.cs">
       <DependentUpon>menuProjet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuAjouterProjet.cs">
+    <Compile Include="Fenetres\Module Projets\menuAjouterProjet.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fenetres\menuAjouterProjet.Designer.cs">
+    <Compile Include="Fenetres\Module Projets\menuAjouterProjet.Designer.cs">
       <DependentUpon>menuAjouterProjet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\modifierUtilisateur.cs">
+    <Compile Include="Fenetres\Module Utilisateurs\modifierUtilisateur.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fenetres\modifierUtilisateur.Designer.cs">
+    <Compile Include="Fenetres\Module Utilisateurs\modifierUtilisateur.Designer.cs">
       <DependentUpon>modifierUtilisateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fenetres\menuPostes.cs">
+    <Compile Include="Fenetres\Module Postes\menuPostes.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fenetres\menuPostes.Designer.cs">
+    <Compile Include="Fenetres\Module Postes\menuPostes.Designer.cs">
       <DependentUpon>menuPostes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fenetres\menuIpBannis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fenetres\menuIpBannis.Designer.cs">
+      <DependentUpon>menuIpBannis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fenetres\Module Conges\menuConges.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fenetres\Module Conges\menuConges.Designer.cs">
+      <DependentUpon>menuConges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modeles\Application.cs" />
+    <Compile Include="Modeles\Conges.cs" />
+    <Compile Include="Modeles\Ips.cs" />
+    <Compile Include="Modeles\Logs.cs" />
     <Compile Include="Modeles\Evenements.cs" />
     <Compile Include="Modeles\MessagesProjet.cs" />
     <Compile Include="Modeles\Messages.cs" />
@@ -204,75 +225,79 @@
     <EmbeddedResource Include="Fenetres\dialogAlert.resx">
       <DependentUpon>dialogAlert.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\fenetreMessagesSignales.resx">
+    <EmbeddedResource Include="Fenetres\Module Conges\menuConges.resx">
+      <DependentUpon>menuConges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\Module Messagerie\fenetreMessagesSignales.resx">
       <DependentUpon>fenetreMessagesSignales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\fenetreEditEvenement.resx">
+    <EmbeddedResource Include="Fenetres\Module Evenements\fenetreEditEvenement.resx">
       <DependentUpon>fenetreEditEvenement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fenetres\menuAccueil.resx">
       <DependentUpon>menuAccueil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuAjouterPoste.resx">
+    <EmbeddedResource Include="Fenetres\Module Postes\menuAjouterPoste.resx">
       <DependentUpon>menuAjouterPoste.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuAjouterProjet.resx">
+    <EmbeddedResource Include="Fenetres\Module Projets\fenetreTache.resx">
+      <DependentUpon>fenetreTache.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\Module Projets\menuAjouterProjet.resx">
       <DependentUpon>menuAjouterProjet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuAjoutUtilisateur.resx">
+    <EmbeddedResource Include="Fenetres\Module Evenements\menuAjoutEvenement.resx">
+      <DependentUpon>menuAjoutEvenement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\Module Utilisateurs\menuAjoutUtilisateur.resx">
       <DependentUpon>menuAjoutUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuConversation.resx">
+    <EmbeddedResource Include="Fenetres\menuIpBannis.resx">
+      <DependentUpon>menuIpBannis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fenetres\Module Messagerie\menuConversation.resx">
       <DependentUpon>menuConversation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuEvenement.resx">
+    <EmbeddedResource Include="Fenetres\Module Evenements\menuEvenement.resx">
       <DependentUpon>menuEvenement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuMessagerie.resx">
+    <EmbeddedResource Include="Fenetres\Module Messagerie\menuMessagerie.resx">
       <DependentUpon>menuMessagerie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuMessagesSignales.resx">
+    <EmbeddedResource Include="Fenetres\Module Messagerie\menuMessagesSignales.resx">
       <DependentUpon>menuMessagesSignales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuParticipantsProjet.resx">
+    <EmbeddedResource Include="Fenetres\Module Projets\menuParticipantsProjet.resx">
       <DependentUpon>menuParticipantsProjet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuPlannification.resx">
-      <DependentUpon>menuPlannification.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuPostes.resx">
+    <EmbeddedResource Include="Fenetres\Module Postes\menuPostes.resx">
       <DependentUpon>menuPostes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuProjet.resx">
+    <EmbeddedResource Include="Fenetres\Module Projets\menuProjet.resx">
       <DependentUpon>menuProjet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuProjets.resx">
+    <EmbeddedResource Include="Fenetres\Module Projets\menuProjets.resx">
       <DependentUpon>menuProjets.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\menuUtilisateur.resx">
+    <EmbeddedResource Include="Fenetres\Module Utilisateurs\menuUtilisateur.resx">
       <DependentUpon>menuUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\modifierUtilisateur.fr.resx">
+    <EmbeddedResource Include="Fenetres\Module Utilisateurs\modifierUtilisateur.fr.resx">
       <DependentUpon>modifierUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fenetres\modifierUtilisateur.resx">
+    <EmbeddedResource Include="Fenetres\Module Utilisateurs\modifierUtilisateur.resx">
       <DependentUpon>modifierUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -282,7 +307,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\group.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo_white_large.png" />
   </ItemGroup>
@@ -336,6 +363,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\photoProfil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\birthday-cake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recruitment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users-group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multiple-users-silhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2-users-silhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-users-silhouette.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
