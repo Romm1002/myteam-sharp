@@ -18,6 +18,7 @@ namespace myteam_admin.Modeles
         private bool supprime;
         private Utilisateurs utilisateur;
         private DateTime dateFin;
+        private Projets projet;
 
         public Taches() { }
         public Taches(int id)
@@ -47,13 +48,15 @@ namespace myteam_admin.Modeles
             }
             conn.Close();
         }
-        public void initialiser(int id, string libelle, bool terminee)
+        public Taches(int id, string libelle, bool terminee, int idTacheParente, Utilisateurs utilisateur, DateTime dateFin)
         {
             this.id = id;
             this.libelle = libelle;
             this.terminee = terminee;
+            this.idTacheParente = idTacheParente;
+            this.utilisateur = utilisateur;
+            this.dateFin = dateFin;
         }
-
 
         // Getters
         public int getId()
@@ -80,9 +83,21 @@ namespace myteam_admin.Modeles
         {
             return supprime;
         }
+        public Utilisateurs getUtilisateur()
+        {
+            return utilisateur;
+        }
+        public DateTime getDateFin()
+        {
+            return dateFin;
+        }
         public void setLibelle(string libelle)
         {
             this.libelle = libelle;
+        }
+        public void setIdTacheParente(int id)
+        {
+            this.idTacheParente = id;
         }
         public void setTerminee(bool terminee)
         {
@@ -96,10 +111,58 @@ namespace myteam_admin.Modeles
         {
             this.supprime = supprime;
         }
+        public void setUtilisateur(Utilisateurs utilisateur)
+        {
+            this.utilisateur = utilisateur;
+        }
+        public void setDateFin(DateTime dateFin)
+        {
+            this.dateFin = dateFin;
+        }
+        public void setProjet(Projets projet)
+        {
+            this.projet = projet;
+        }
         public void nouvelleTache(string libelle, bool terminee)
         {
             this.libelle = libelle;
             this.terminee = terminee;
+        }
+        public void insertTache()
+        {
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@libelle", libelle);
+            command.Parameters.AddWithValue("@idProjet", projet.getId());
+            command.Parameters.AddWithValue("@idUtilisateur", utilisateur.getId());
+            command.Parameters.AddWithValue("@idTacheParente", idTacheParente);
+            command.Parameters.AddWithValue("@termine", 0);
+            command.Parameters.AddWithValue("@dateFin", dateFin.ToString("yyyy-MM-dd"));
+            command.CommandText = "INSERT INTO tachesprojet (libelle, idProjet, idUtilisateur ,idTacheParent, terminee, dateFin) VALUES (@libelle, @idProjet, @idUtilisateur, @idTacheParente, @termine, @dateFin);";
+            command.ExecuteNonQuery();
+            conn.Close();
+        }
+        public void updateTache()
+        {
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@libelle", libelle);
+            command.Parameters.AddWithValue("@idUtilisateur", utilisateur.getId());
+            command.Parameters.AddWithValue("@idTacheParente", idTacheParente);
+            command.Parameters.AddWithValue("@dateFin", dateFin.ToString("yyyy-MM-dd"));
+            command.CommandText = "UPDATE tachesprojet SET libelle = @libelle, idUtilisateur = @idUtilisateur, idTacheParent = @idTacheParente, dateFin = @dateFin WHERE idTache = @id ;";
+            command.ExecuteNonQuery();
+            conn.Close();
+        }
+        public void deleteTache()
+        {
+            conn.Open();
+            MySqlCommand command = conn.CreateCommand();
+            command.Parameters.AddWithValue("@id", id);
+            command.CommandText = "DELETE FROM tachesprojet WHERE idTache = @id;";
+            command.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }

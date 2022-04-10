@@ -15,6 +15,14 @@ namespace myteam_admin.Modeles
         private string message;
         Utilisateurs auteur;
 
+        public MessagesProjet() { }
+        public MessagesProjet(int idMessage, Utilisateurs auteur, string message, DateTime date)
+        {
+            this.idMessage = idMessage;
+            this.auteur = auteur;
+            this.message = message;
+            this.date = date;
+        }
         public void initialiser(int idMessage, Utilisateurs auteur, string message, DateTime date)
         {
             this.idMessage = idMessage;
@@ -68,6 +76,15 @@ namespace myteam_admin.Modeles
                 conn.Close();
                 return false;
             }
+        }
+        public void supprimerMessage(int idMessage)
+        {
+            MySqlCommand command = conn.CreateCommand();
+            conn.Open();
+            command.Parameters.AddWithValue("@idMessage", idMessage);
+            command.CommandText = "DELETE FROM chatprojet WHERE idMessage = @idMessage;";
+            command.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }

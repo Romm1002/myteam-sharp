@@ -16,10 +16,15 @@ namespace myteam_admin.Fenetres
         List<Utilisateurs> listutilisateurs;
         List<Taches> listTaches;
         Taches tache;
-        public fenetreTache(string text, Projets projet, int idTache)
+        menuProjet menu;
+        public fenetreTache(string text, Projets projet, int idTache, menuProjet menu)
         {
+            Modeles.Application app = new Modeles.Application();
+            this.listutilisateurs = app.getUtilisateurs();
             this.listTaches = projet.getTaches();
+            this.menu = menu;
             InitializeComponent();
+            DateTimePickerDateFin.Value = DateTime.Now;
             if(idTache != -1)
             {
                 this.tache = new Taches(idTache);
@@ -28,7 +33,9 @@ namespace myteam_admin.Fenetres
             else
             {
                 this.tache = new Taches();
+                buttonSupprimer.Visible = false;
             }
+            tache.setProjet(projet);
             this.Text = text;
             
 
@@ -43,6 +50,17 @@ namespace myteam_admin.Fenetres
                     }
                 }
             }
+            foreach (Utilisateurs utilisateur in listutilisateurs)
+            {
+                int index = comboBoxUtilisateurs.Items.Add(utilisateur.getNom() + " " + utilisateur.getPrenom() + " | " + utilisateur.getPoste().getPoste());
+                if(tache.getUtilisateur() != null)
+                {
+                    if (this.tache.getUtilisateur().getId() == utilisateur.getId())
+                    {
+                        comboBoxUtilisateurs.SelectedIndex = index;
+                    }
+                }
+            }
         }
 
         private void buttonAnnuler_Click(object sender, EventArgs e)
@@ -52,7 +70,51 @@ namespace myteam_admin.Fenetres
 
         private void buttonConfirmer_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            Boolean error = false;
+            if (textBoxLibelle.Text == "")
+            {
+                labelMessage.Text = "Veuillez saisir un libellé pour la tâche";
+                error = true;
+            }
+            if (comboBoxUtilisateurs.SelectedIndex == -1)
+            {
+                labelMessage.Text = "Veuillez choisir un utilisateur qui effectuera cette tâche";
+                error = true;
+            }
+            if (!error)
+            {
+                tache.setLibelle(textBoxLibelle.Text);
+                if (comboBoxTaches.SelectedIndex == -1)
+                {
+                    tache.setIdTacheParente(0);
+                }
+                else
+                {
+                    tache.setIdTacheParente(listTaches[comboBoxTaches.SelectedIndex].getId());
+                }
+                tache.setUtilisateur(listutilisateurs[comboBoxUtilisateurs.SelectedIndex]);
+                tache.setDateFin(DateTimePickerDateFin.Value);
+                if(tache.getId() == 0)
+                {
+                    tache.insertTache();
+                }
+                else
+                {
+                    tache.updateTache();
+                }
+
+                this.DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void buttonSupprimer_Click(object sender, EventArgs e)
+        {
+            dialogAlert fenetre = new dialogAlert("Êtes-vous sûr de vouloir supprimer cette tâche ?");
+            if (fenetre.ShowDialog() == DialogResult.OK)
+            {
+                tache.deleteTache();
+                this.DialogResult = DialogResult.OK;
+            }
         }
     }
 }

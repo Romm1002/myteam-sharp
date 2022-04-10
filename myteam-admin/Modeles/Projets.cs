@@ -103,10 +103,9 @@ namespace myteam_admin.Modeles
 
             while (reader.Read())
             {
-                MessagesProjet message = new MessagesProjet();
                 Utilisateurs utilisateur = new Utilisateurs();
                 utilisateur.initialiserShort(reader.GetInt32(1), reader.GetString(2), reader.GetString(3));
-                message.initialiser(reader.GetInt32(0), utilisateur, reader.GetString(4), Convert.ToDateTime(reader.GetValue(5)));
+                MessagesProjet message = new MessagesProjet(reader.GetInt32(0), utilisateur, reader.GetString(4), Convert.ToDateTime(reader.GetValue(5)));
                 chat.Add(message);
             }
             conn.Close();
@@ -116,13 +115,12 @@ namespace myteam_admin.Modeles
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
             command.Parameters.AddWithValue("@id", id);
-            command.CommandText = "SELECT idTache, libelle, terminee FROM tachesprojet WHERE idProjet = @id";
+            command.CommandText = "SELECT idTache, libelle, terminee, idTacheParent, u.idUtilisateur, u.nom, u.prenom, dateFin FROM tachesprojet LEFT JOIN utilisateurs AS u USING(idUtilisateur) WHERE idProjet = @id";
             MySqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
             {
-                Taches tache = new Taches();
-                tache.initialiser(reader.GetInt32(0), reader.GetString(1), reader.GetBoolean(2));
+                Taches tache = new Taches(reader.GetInt32(0), reader.GetString(1), reader.GetBoolean(2), reader.GetInt32(3), new Utilisateurs(reader.GetInt32(4), reader.GetString(5), reader.GetString(6)), Convert.ToDateTime(reader.GetValue(7)));
                 taches.Add(tache);
             }
             conn.Close();

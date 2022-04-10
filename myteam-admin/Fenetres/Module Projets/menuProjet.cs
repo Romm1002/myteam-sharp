@@ -31,8 +31,9 @@ namespace myteam_admin.Fenetres
             //POPULATE DGV PARTICIPANTS
             foreach (Utilisateurs participants in projet.getParticipants())
             {
-                Bitmap pdp = new Bitmap(participants.getPhoto());
-                dataGridViewParticipants.Rows.Add(participants.getId(), pdp, participants.getNom(), participants.getPrenom(), participants.getPoste().getPoste());
+                //Bitmap pdp = new Bitmap(participants.getPhoto());
+                //dataGridViewParticipants.Rows.Add(participants.getId(), pdp, participants.getNom(), participants.getPrenom(), participants.getPoste().getPoste());
+                dataGridViewParticipants.Rows.Add(participants.getId(), participants.getPhoto(), participants.getNom(), participants.getPrenom(), participants.getPoste().getPoste());
             }
 
 
@@ -341,25 +342,62 @@ namespace myteam_admin.Fenetres
 
         private void dataGridViewTaches_DoubleClick(object sender, EventArgs e)
         {
-            fenetreTache fenetre = new fenetreTache("modifier " + dataGridViewTaches.CurrentRow.Cells[1].Value.ToString(), this.projet, Int32.Parse(dataGridViewTaches.CurrentRow.Cells[0].Value.ToString()));
+            fenetreTache fenetre = new fenetreTache("modifier " + dataGridViewTaches.CurrentRow.Cells[1].Value.ToString(), this.projet, Int32.Parse(dataGridViewTaches.CurrentRow.Cells[0].Value.ToString()), this);
 
             if (fenetre.ShowDialog() == DialogResult.OK)
             {
-                //    dataGridViewParticipants.Rows.Clear();
-                //    dataGridViewParticipants.Refresh();
-                //    foreach (Utilisateurs participant in fenetre.participants)
-                //    {
-                //        Bitmap pdp = new Bitmap(participant.getPhoto());
-                //        dataGridViewParticipants.Rows.Add(participant.getId(), pdp, participant.getNom(), participant.getPrenom(), participant.getPoste().getPoste());
-                //    }
-                //    projet.setListParticipant(fenetre.participants);
+                menuProjet panel = new menuProjet(projet.getId(), accueil);
+                panel.AutoScroll = true;
+                accueil.panelContenu.Controls.Clear();
+                accueil.panelContenu.Controls.Add(panel);
+                panel.Show();
             }
         }
 
         private void buttonAjoutTache_Click(object sender, EventArgs e)
         {
-            fenetreTache fenetre = new fenetreTache("Ajouter une tâche", this.projet, -1);
-            fenetre.ShowDialog();
+            fenetreTache fenetre = new fenetreTache("Ajouter une tâche", this.projet, -1,  this);
+
+            if (fenetre.ShowDialog() == DialogResult.OK)
+            {
+                menuProjet panel = new menuProjet(projet.getId(), accueil);
+                panel.AutoScroll = true;
+                accueil.panelContenu.Controls.Clear();
+                accueil.panelContenu.Controls.Add(panel);
+                panel.Show();
+            }
+        }
+
+        private void dataGridViewChat_Click(object sender, EventArgs e)
+        {
+            // cast de l'event en mouse event
+            MouseEventArgs me = (MouseEventArgs)e;
+
+            if (me.Button != MouseButtons.Right)
+            {
+                return;
+            }
+            dataGridViewChat.ClearSelection();
+            int rowIndex = dataGridViewChat.HitTest(me.X, me.Y).RowIndex;
+            if (rowIndex == -1)
+            {
+                return;
+            }
+            dataGridViewChat.CurrentCell = dataGridViewChat.Rows[rowIndex].Cells[1];
+
+            ContextMenu cm = new ContextMenu();
+            cm.MenuItems.Add(new MenuItem("Supprimer", new EventHandler(supprimerMessage)));
+            cm.Show(dataGridViewChat, me.Location);
+        }
+        private void supprimerMessage(object sender, EventArgs e)
+        {
+            dialogAlert fenetre = new dialogAlert("Êtes-vous sûr de vouloir supprimer le message de " + dataGridViewChat.CurrentRow.Cells[1].Value.ToString()  + " " + dataGridViewChat.CurrentRow.Cells[2].Value.ToString() + " : \r\n" + '"' + dataGridViewChat.CurrentRow.Cells[3].Value.ToString() + '"');
+            if ( fenetre.ShowDialog() == DialogResult.OK)
+            {
+                MessagesProjet message = new MessagesProjet();
+                message.supprimerMessage(Int32.Parse(dataGridViewChat.CurrentRow.Cells[0].Value.ToString()));
+                dataGridViewChat.Rows.RemoveAt(dataGridViewChat.CurrentRow.Index);
+            }
         }
     }
 }

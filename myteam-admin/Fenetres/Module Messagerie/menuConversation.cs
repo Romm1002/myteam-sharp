@@ -51,9 +51,12 @@ namespace myteam_admin.Fenetres
 
         private void tableauMessages_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Messages messages = new Messages(Convert.ToInt32(tableauMessages.CurrentRow.Cells[0].Value.ToString()));
-            messages.supprimerMessage(messages.getId());
-            tableauMessages.Rows.RemoveAt(tableauMessages.CurrentRow.Index);
+            if(tableauMessages.CurrentCell.ColumnIndex == 2)
+            {
+                Messages messages = new Messages(Convert.ToInt32(tableauMessages.CurrentRow.Cells[0].Value.ToString()));
+                messages.supprimerMessage(messages.getId());
+                tableauMessages.Rows.RemoveAt(tableauMessages.CurrentRow.Index);
+            }
         }
     }
 }

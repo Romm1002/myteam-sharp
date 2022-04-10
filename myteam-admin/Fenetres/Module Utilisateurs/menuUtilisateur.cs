@@ -32,10 +32,11 @@ namespace myteam_admin.Fenetres
             List<string> derniereRecrue = app.derniereRecrue();
             statUtilisateur4.Text = derniereRecrue[0];
 
+            statUtilisateur2.Text = app.nbrBannis().ToString();
 
 
 
-            foreach(Utilisateurs utilisateur in app.getUtilisateursEtBannis())
+            foreach (Utilisateurs utilisateur in app.getUtilisateursEtBannis())
             {
                 tableauUtilisateurs.Rows.Add(utilisateur.getId(), utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getDateNaiss().ToString("dd-MM-yyyy"), utilisateur.getEmail(), utilisateur.getPoste().getPoste());
                 if (utilisateur.getActif() == 0)

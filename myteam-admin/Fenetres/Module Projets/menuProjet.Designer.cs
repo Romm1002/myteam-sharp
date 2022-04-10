@@ -44,6 +44,7 @@ namespace myteam_admin.Fenetres
             this.buttonEnregistrer = new System.Windows.Forms.Button();
             this.buttonRetour = new System.Windows.Forms.Button();
             this.panelBody = new System.Windows.Forms.Panel();
+            this.buttonAjoutTache = new System.Windows.Forms.Button();
             this.panelMessage = new System.Windows.Forms.Panel();
             this.textBoxMessage = new System.Windows.Forms.TextBox();
             this.buttonSend = new System.Windows.Forms.Button();
@@ -59,6 +60,9 @@ namespace myteam_admin.Fenetres
             this.panelTextBoxNom = new System.Windows.Forms.Panel();
             this.textBoxNom = new System.Windows.Forms.TextBox();
             this.dataGridViewTaches = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.terminee = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewChat = new System.Windows.Forms.DataGridView();
             this.idChat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,17 +70,13 @@ namespace myteam_admin.Fenetres
             this.message = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewParticipants = new System.Windows.Forms.DataGridView();
             this.idParticipant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pdp = new System.Windows.Forms.DataGridViewImageColumn();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poste = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.panelTextBoxDescription = new System.Windows.Forms.Panel();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.terminee = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pdp = new System.Windows.Forms.DataGridViewImageColumn();
-            this.buttonAjoutTache = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panelBody.SuspendLayout();
             this.panelMessage.SuspendLayout();
@@ -233,6 +233,18 @@ namespace myteam_admin.Fenetres
             this.panelBody.Name = "panelBody";
             this.panelBody.Size = new System.Drawing.Size(1240, 1291);
             this.panelBody.TabIndex = 1;
+            // 
+            // buttonAjoutTache
+            // 
+            this.buttonAjoutTache.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAjoutTache.Location = new System.Drawing.Point(456, 369);
+            this.buttonAjoutTache.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAjoutTache.Name = "buttonAjoutTache";
+            this.buttonAjoutTache.Size = new System.Drawing.Size(195, 32);
+            this.buttonAjoutTache.TabIndex = 21;
+            this.buttonAjoutTache.Text = "Ajouter une tâche";
+            this.buttonAjoutTache.UseVisualStyleBackColor = true;
+            this.buttonAjoutTache.Click += new System.EventHandler(this.buttonAjoutTache_Click);
             // 
             // panelMessage
             // 
@@ -452,6 +464,29 @@ namespace myteam_admin.Fenetres
             this.dataGridViewTaches.Click += new System.EventHandler(this.dataGridViewTaches_Click);
             this.dataGridViewTaches.DoubleClick += new System.EventHandler(this.dataGridViewTaches_DoubleClick);
             // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
+            // libelle
+            // 
+            this.libelle.HeaderText = "Libelle";
+            this.libelle.MinimumWidth = 6;
+            this.libelle.Name = "libelle";
+            this.libelle.ReadOnly = true;
+            this.libelle.Width = 475;
+            // 
+            // terminee
+            // 
+            this.terminee.HeaderText = "Terminee";
+            this.terminee.MinimumWidth = 6;
+            this.terminee.Name = "terminee";
+            this.terminee.Width = 125;
+            // 
             // dataGridViewChat
             // 
             this.dataGridViewChat.AllowUserToAddRows = false;
@@ -485,6 +520,7 @@ namespace myteam_admin.Fenetres
             this.dataGridViewChat.RowTemplate.Height = 45;
             this.dataGridViewChat.Size = new System.Drawing.Size(1221, 377);
             this.dataGridViewChat.TabIndex = 5;
+            this.dataGridViewChat.Click += new System.EventHandler(this.dataGridViewChat_Click);
             // 
             // idChat
             // 
@@ -571,6 +607,16 @@ namespace myteam_admin.Fenetres
             this.idParticipant.Visible = false;
             this.idParticipant.Width = 125;
             // 
+            // pdp
+            // 
+            this.pdp.HeaderText = "";
+            this.pdp.Image = ((System.Drawing.Image)(resources.GetObject("pdp.Image")));
+            this.pdp.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.pdp.MinimumWidth = 6;
+            this.pdp.Name = "pdp";
+            this.pdp.ReadOnly = true;
+            this.pdp.Width = 125;
+            // 
             // nom
             // 
             this.nom.HeaderText = "Nom";
@@ -621,29 +667,6 @@ namespace myteam_admin.Fenetres
             this.panelTextBoxDescription.TabIndex = 8;
             this.panelTextBoxDescription.Click += new System.EventHandler(this.panelTextBoxDescription_Click);
             // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Visible = false;
-            this.id.Width = 125;
-            // 
-            // libelle
-            // 
-            this.libelle.HeaderText = "Libelle";
-            this.libelle.MinimumWidth = 6;
-            this.libelle.Name = "libelle";
-            this.libelle.ReadOnly = true;
-            this.libelle.Width = 475;
-            // 
-            // terminee
-            // 
-            this.terminee.HeaderText = "Terminee";
-            this.terminee.MinimumWidth = 6;
-            this.terminee.Name = "terminee";
-            this.terminee.Width = 125;
-            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "";
@@ -652,28 +675,6 @@ namespace myteam_admin.Fenetres
             this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 125;
-            // 
-            // pdp
-            // 
-            this.pdp.HeaderText = "";
-            this.pdp.Image = ((System.Drawing.Image)(resources.GetObject("pdp.Image")));
-            this.pdp.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.pdp.MinimumWidth = 6;
-            this.pdp.Name = "pdp";
-            this.pdp.ReadOnly = true;
-            this.pdp.Width = 125;
-            // 
-            // buttonAjoutTache
-            // 
-            this.buttonAjoutTache.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAjoutTache.Location = new System.Drawing.Point(456, 369);
-            this.buttonAjoutTache.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonAjoutTache.Name = "buttonAjoutTache";
-            this.buttonAjoutTache.Size = new System.Drawing.Size(195, 32);
-            this.buttonAjoutTache.TabIndex = 21;
-            this.buttonAjoutTache.Text = "Ajouter une tâche";
-            this.buttonAjoutTache.UseVisualStyleBackColor = true;
-            this.buttonAjoutTache.Click += new System.EventHandler(this.buttonAjoutTache_Click);
             // 
             // menuProjet
             // 

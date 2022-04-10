@@ -23,6 +23,21 @@ namespace myteam_admin.Fenetres
             foreach (Conges conge in accueil.app.getConges())
             {
                 tableauConges.Rows.Add(conge.getIdConge(), conge.getUtilisateur().getId(), conge.getUtilisateur().getNom(), conge.getUtilisateur().getPrenom(), conge.getDateDebut().ToString("dd-MM-yyyy"), conge.getDateFin().ToString("dd-MM-yyyy"), conge.getCommentaire());
+                switch (conge.getStatus())
+                {
+                    case 0:
+                        tableauConges.Rows[tableauConges.RowCount - 1].Cells[7].Value = "En attente";
+                        break;
+                    case 1:
+                        tableauConges.Rows[tableauConges.RowCount - 1].Cells[7].Value = "Refusé";
+                        break;
+                    case 2:
+                        tableauConges.Rows[tableauConges.RowCount - 1].Cells[7].Value = "Accepté";
+                        break;
+                    default:
+                        tableauConges.Rows[tableauConges.RowCount - 1].Cells[7].Value = "-";
+                        break;
+                }
             }
 
             // INITIALIZE STATS

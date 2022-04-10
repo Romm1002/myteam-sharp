@@ -47,6 +47,7 @@ namespace myteam_admin.Fenetres
                 {
                     ip.setId(Int32.Parse(tableauIps.CurrentRow.Cells[0].Value.ToString()));
                     ip.debanIp();
+                    tableauIps.Rows.Remove(tableauIps.CurrentRow);
                 }
             }
         }

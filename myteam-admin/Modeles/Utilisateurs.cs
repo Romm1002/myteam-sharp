@@ -14,20 +14,15 @@ namespace myteam_admin.Modeles
 
         private int idUtilisateur, avertissements, actif;
 
-        private string nom, prenom, email, mdp;
-        private string photoProfil;
+        private string nom, prenom, email, mdp, photoProfilPath;
 
+        private System.Drawing.Bitmap photoProfil;
         Postes poste;
         DateTime dateNaiss;
 
-        public Utilisateurs() 
-        {
-            photoProfil = directory;
-        }
+        public Utilisateurs() { }
         public Utilisateurs(int id)
         {
-            photoProfil = directory;
-
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
             command.Parameters.AddWithValue("@id", id);
@@ -56,7 +51,8 @@ namespace myteam_admin.Modeles
             this.prenom = prenom;
             this.dateNaiss = dateNaiss;
             this.email = email;
-            this.photoProfil += photoProfil;
+            this.photoProfil = pathToBitmap(photoProfil);
+            this.photoProfilPath = photoProfil;
             this.avertissements = avertissements;
             this.actif = actif;
             this.poste = poste;
@@ -74,7 +70,8 @@ namespace myteam_admin.Modeles
             this.prenom = prenom;
             this.dateNaiss = dateNaiss;
             this.email = email;
-            this.photoProfil += photoProfil;
+            this.photoProfil = pathToBitmap(photoProfil);
+            this.photoProfilPath = photoProfil;
             this.avertissements = avertissements;
             this.actif = actif;
             this.poste = poste;
@@ -121,8 +118,7 @@ namespace myteam_admin.Modeles
         {
             return poste;
         }
-
-        public string getPhoto()
+        public System.Drawing.Bitmap getPhoto()
         {
             return photoProfil;
         }
@@ -130,10 +126,14 @@ namespace myteam_admin.Modeles
         {
             return mdp;
         }
-
         public int getActif()
         {
             return actif;
+        }
+        public Utilisateurs setId(int id)
+        {
+            this.idUtilisateur = id;
+            return this;
         }
 
         // Méthode qui permet l'inscription par un admin
@@ -145,7 +145,7 @@ namespace myteam_admin.Modeles
             this.email = email;
             this.mdp = mdp;
             this.poste = poste;
-            this.photoProfil = photoProfil;
+            this.photoProfilPath = photoProfil;
 
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
@@ -155,7 +155,7 @@ namespace myteam_admin.Modeles
             command.Parameters.AddWithValue("@email", email);
             command.Parameters.AddWithValue("@mdp", mdp);
             command.Parameters.AddWithValue("@idposte", poste.getId());
-            command.Parameters.AddWithValue("@photoProfil", photoProfil);
+            command.Parameters.AddWithValue("@photoProfil", photoProfilPath);
 
             command.CommandText = "INSERT INTO utilisateurs(nom, prenom, dateNaiss, email, mdp, idposte, photoProfil) VALUES(@nom, @prenom, @dateNaiss, @email, @mdp, @idposte, @photoProfil)";
             command.ExecuteNonQuery();

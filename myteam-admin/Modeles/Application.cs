@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using myteam_admin.Modeles;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.Drawing;
 
 
 
@@ -20,14 +21,24 @@ namespace myteam_admin.Modeles
         private int nbrProjetsFini = 0;
         private int maintenance;
 
+        public Bitmap pathToBitmap(string filePath)
+        {
+            if (System.IO.File.Exists(directory + filePath)){
 
+                return new Bitmap(directory + filePath);
+            }
+            else
+            {
+                return Properties.Resources.photoProfil;
+            }
+        }
         public List<Messages> getMessages()
         {
             conn.Open();
 
             MySqlCommand command = conn.CreateCommand();
             command.CommandText = "SELECT m.idMessage, m.contenu, m.heure, u1.idUtilisateur, u1.nom, u1.prenom, u2.idUtilisateur, u2.nom, u2.prenom FROM messagerie AS m LEFT JOIN utilisateurs AS u1 ON u1.idUtilisateur = m.idUtilisateur LEFT JOIN utilisateurs AS u2 ON u2.idUtilisateur = m.idReceveur ORDER BY idMessage ASC";
-
+             
             MySqlDataReader reader = command.ExecuteReader();
 
             List<Messages> listeMessages = new List<Messages>();
@@ -184,21 +195,20 @@ namespace myteam_admin.Modeles
             conn.Close();
             return nbrEmployes;
         }
-        public List<int> nbrAdministrateurs(int idPoste)
+        public int nbrBannis()
         {
-            List<int> nbrAdministrateurs = new List<int>();
+            int count = 0;
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
-            command.Parameters.AddWithValue("@idPoste", idPoste);
-            command.CommandText = "SELECT COUNT(idUtilisateur) FROM utilisateurs WHERE idposte = @idPoste";
+            command.CommandText = "SELECT COUNT(*) FROM utilisateurs WHERE actif = 0";
             MySqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
             {
-                nbrAdministrateurs.Add(reader.GetInt32(0));
+                count = reader.GetInt32(0);
             }
             conn.Close();
-            return nbrAdministrateurs;
+            return count;
         }
         public List<int> nesAujourdhui()
         {

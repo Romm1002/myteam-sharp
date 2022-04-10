@@ -29,11 +29,11 @@ namespace myteam_admin.Fenetres
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -72,6 +72,7 @@ namespace myteam_admin.Fenetres
             this.date_naissance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poste_occupe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -146,9 +147,9 @@ namespace myteam_admin.Fenetres
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(191, 17);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(127, 20);
+            this.label9.Size = new System.Drawing.Size(116, 20);
             this.label9.TabIndex = 2;
-            this.label9.Text = "Dernière recrue";
+            this.label9.Text = "Dernier inscrit";
             // 
             // label10
             // 
@@ -302,9 +303,9 @@ namespace myteam_admin.Fenetres
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(116, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 20);
+            this.label1.Size = new System.Drawing.Size(145, 20);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Nombre d\'administrateurs";
+            this.label1.Text = "Nombre de bannis";
             // 
             // label4
             // 
@@ -418,6 +419,7 @@ namespace myteam_admin.Fenetres
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.button_ajout_salarie);
             this.panel5.Controls.Add(this.tableauUtilisateurs);
             this.panel5.Location = new System.Drawing.Point(3, 209);
@@ -452,23 +454,23 @@ namespace myteam_admin.Fenetres
             this.tableauUtilisateurs.AllowUserToDeleteRows = false;
             this.tableauUtilisateurs.AllowUserToResizeColumns = false;
             this.tableauUtilisateurs.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
-            this.tableauUtilisateurs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Control;
+            this.tableauUtilisateurs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.tableauUtilisateurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableauUtilisateurs.BackgroundColor = System.Drawing.Color.White;
             this.tableauUtilisateurs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableauUtilisateurs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tableauUtilisateurs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableauUtilisateurs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableauUtilisateurs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.tableauUtilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableauUtilisateurs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.identifiant,
@@ -477,32 +479,32 @@ namespace myteam_admin.Fenetres
             this.date_naissance,
             this.email,
             this.poste_occupe});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tableauUtilisateurs.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableauUtilisateurs.DefaultCellStyle = dataGridViewCellStyle13;
             this.tableauUtilisateurs.EnableHeadersVisualStyles = false;
             this.tableauUtilisateurs.Location = new System.Drawing.Point(59, 18);
             this.tableauUtilisateurs.MultiSelect = false;
             this.tableauUtilisateurs.Name = "tableauUtilisateurs";
             this.tableauUtilisateurs.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableauUtilisateurs.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableauUtilisateurs.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.tableauUtilisateurs.RowHeadersVisible = false;
             this.tableauUtilisateurs.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Control;
-            this.tableauUtilisateurs.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Control;
+            this.tableauUtilisateurs.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.tableauUtilisateurs.RowTemplate.DividerHeight = 1;
             this.tableauUtilisateurs.RowTemplate.Height = 75;
             this.tableauUtilisateurs.RowTemplate.ReadOnly = true;
@@ -556,6 +558,16 @@ namespace myteam_admin.Fenetres
             this.poste_occupe.Name = "poste_occupe";
             this.poste_occupe.ReadOnly = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(363, 661);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(529, 25);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Les utilisateurs marqués en rouge sont actuellement bannis.";
+            // 
             // menuUtilisateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -587,6 +599,7 @@ namespace myteam_admin.Fenetres
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableauUtilisateurs)).EndInit();
             this.ResumeLayout(false);
 
@@ -632,5 +645,6 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.DataGridViewTextBoxColumn date_naissance;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn poste_occupe;
+        private System.Windows.Forms.Label label5;
     }
 }

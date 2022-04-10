@@ -29,18 +29,12 @@ namespace myteam_admin.Fenetres
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelBody = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableauConges = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.debut = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -63,7 +57,14 @@ namespace myteam_admin.Fenetres
             this.label2 = new System.Windows.Forms.Label();
             this.stat1 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.debut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Statut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableauConges)).BeginInit();
             this.panelHeader.SuspendLayout();
@@ -90,28 +91,39 @@ namespace myteam_admin.Fenetres
             this.panelBody.Size = new System.Drawing.Size(1659, 707);
             this.panelBody.TabIndex = 6;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(54, 633);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(924, 25);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Les congés sont gérés via l\'application web par les responsable des ressources hu" +
+    "maines (autorisation 6)";
+            // 
             // tableauConges
             // 
             this.tableauConges.AllowUserToAddRows = false;
             this.tableauConges.AllowUserToDeleteRows = false;
             this.tableauConges.AllowUserToResizeColumns = false;
             this.tableauConges.AllowUserToResizeRows = false;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tableauConges.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableauConges.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tableauConges.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableauConges.BackgroundColor = System.Drawing.Color.White;
             this.tableauConges.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableauConges.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tableauConges.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle44.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle44.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableauConges.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableauConges.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tableauConges.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableauConges.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -120,16 +132,17 @@ namespace myteam_admin.Fenetres
             this.prenom,
             this.debut,
             this.fin,
-            this.commentaire});
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle45.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tableauConges.DefaultCellStyle = dataGridViewCellStyle45;
+            this.commentaire,
+            this.Statut});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableauConges.DefaultCellStyle = dataGridViewCellStyle3;
             this.tableauConges.EnableHeadersVisualStyles = false;
             this.tableauConges.Location = new System.Drawing.Point(59, 18);
             this.tableauConges.MultiSelect = false;
@@ -142,50 +155,6 @@ namespace myteam_admin.Fenetres
             this.tableauConges.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableauConges.Size = new System.Drawing.Size(1540, 598);
             this.tableauConges.TabIndex = 2;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Visible = false;
-            // 
-            // idUtilisateur
-            // 
-            this.idUtilisateur.HeaderText = "idUtilisateur";
-            this.idUtilisateur.MinimumWidth = 6;
-            this.idUtilisateur.Name = "idUtilisateur";
-            this.idUtilisateur.Visible = false;
-            // 
-            // nom
-            // 
-            this.nom.HeaderText = "Nom";
-            this.nom.MinimumWidth = 6;
-            this.nom.Name = "nom";
-            // 
-            // prenom
-            // 
-            this.prenom.HeaderText = "Prénom";
-            this.prenom.MinimumWidth = 6;
-            this.prenom.Name = "prenom";
-            // 
-            // debut
-            // 
-            this.debut.HeaderText = "Début";
-            this.debut.MinimumWidth = 6;
-            this.debut.Name = "debut";
-            // 
-            // fin
-            // 
-            this.fin.HeaderText = "Fin";
-            this.fin.MinimumWidth = 6;
-            this.fin.Name = "fin";
-            // 
-            // commentaire
-            // 
-            this.commentaire.HeaderText = "Commentaire";
-            this.commentaire.MinimumWidth = 6;
-            this.commentaire.Name = "commentaire";
             // 
             // panelHeader
             // 
@@ -435,16 +404,55 @@ namespace myteam_admin.Fenetres
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
             // 
-            // label1
+            // id
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(54, 633);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(747, 25);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Les congés sont gérés par les responsable des ressources humaines (autorisation 6" +
-    ")";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // idUtilisateur
+            // 
+            this.idUtilisateur.HeaderText = "idUtilisateur";
+            this.idUtilisateur.MinimumWidth = 6;
+            this.idUtilisateur.Name = "idUtilisateur";
+            this.idUtilisateur.Visible = false;
+            // 
+            // nom
+            // 
+            this.nom.HeaderText = "Nom";
+            this.nom.MinimumWidth = 6;
+            this.nom.Name = "nom";
+            // 
+            // prenom
+            // 
+            this.prenom.HeaderText = "Prénom";
+            this.prenom.MinimumWidth = 6;
+            this.prenom.Name = "prenom";
+            // 
+            // debut
+            // 
+            this.debut.HeaderText = "Début";
+            this.debut.MinimumWidth = 6;
+            this.debut.Name = "debut";
+            // 
+            // fin
+            // 
+            this.fin.HeaderText = "Fin";
+            this.fin.MinimumWidth = 6;
+            this.fin.Name = "fin";
+            // 
+            // commentaire
+            // 
+            this.commentaire.HeaderText = "Commentaire";
+            this.commentaire.MinimumWidth = 6;
+            this.commentaire.Name = "commentaire";
+            // 
+            // Statut
+            // 
+            this.Statut.HeaderText = "Statut";
+            this.Statut.MinimumWidth = 6;
+            this.Statut.Name = "Statut";
             // 
             // menuConges
             // 
@@ -482,13 +490,6 @@ namespace myteam_admin.Fenetres
 
         private System.Windows.Forms.Panel panelBody;
         private System.Windows.Forms.DataGridView tableauConges;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idUtilisateur;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prenom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn debut;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentaire;
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -512,5 +513,13 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.Label stat1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idUtilisateur;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prenom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn debut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentaire;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Statut;
     }
 }
