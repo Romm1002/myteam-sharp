@@ -65,8 +65,6 @@ namespace myteam_admin.Fenetres
 
             // Style et responsive
             labelTachesTerminee.Location = new Point(labelCounterTachesTerminee.Location.X + labelCounterTachesTerminee.Width, labelTachesTerminee.Location.Y);
-            dataGridViewTaches.Rows[dataGridViewTaches.Rows.Count - 1].Height = 75;
-            dataGridViewTaches.Rows[dataGridViewTaches.Rows.Count - 1].DividerHeight = 1;
             dataGridViewChat.Columns["message"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
         }
