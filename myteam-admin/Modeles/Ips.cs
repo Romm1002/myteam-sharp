@@ -12,13 +12,11 @@ namespace myteam_admin.Modeles
 {
     public class Ips : Application
     {
-        int idban;
         string ip;
 
         public Ips() { }
-        public Ips(int id, string ip)
+        public Ips(string ip)
         {
-            this.idban = id;
             this.ip = ip;
         }
 
@@ -26,17 +24,9 @@ namespace myteam_admin.Modeles
         {
             this.ip = ip;
         }
-        public void setId(int id)
-        {
-            this.idban = id;
-        }
         public string getIp()
         {
             return ip;
-        }
-        public int getIdBan()
-        {
-            return idban;
         }
         public void banIp()
         {
@@ -51,8 +41,8 @@ namespace myteam_admin.Modeles
         {
             MySqlCommand command = conn.CreateCommand();
             conn.Open();
-            command.Parameters.AddWithValue("@id", this.idban);
-            command.CommandText = "DELETE FROM banned_ips WHERE idBannedIp = @id;";
+            command.Parameters.AddWithValue("@ip", this.ip);
+            command.CommandText = "DELETE FROM banned_ips WHERE ip = @ip;";
             command.ExecuteNonQuery();
             conn.Close();
         }

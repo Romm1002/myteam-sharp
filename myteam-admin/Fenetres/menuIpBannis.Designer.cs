@@ -36,10 +36,9 @@ namespace myteam_admin.Fenetres
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.information = new System.Windows.Forms.Label();
             this.tableauIps = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonRetour = new System.Windows.Forms.Button();
             this.ips = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deban = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.buttonRetour = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tableauIps)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +77,6 @@ namespace myteam_admin.Fenetres
             this.tableauIps.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tableauIps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableauIps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
             this.ips,
             this.deban});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -116,13 +114,20 @@ namespace myteam_admin.Fenetres
             this.tableauIps.TabIndex = 4;
             this.tableauIps.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableauLogs_CellContentClick);
             // 
-            // id
+            // buttonRetour
             // 
-            this.id.HeaderText = "id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
+            this.buttonRetour.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRetour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRetour.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonRetour.Location = new System.Drawing.Point(43, 842);
+            this.buttonRetour.Margin = new System.Windows.Forms.Padding(15, 35, 15, 15);
+            this.buttonRetour.Name = "buttonRetour";
+            this.buttonRetour.Size = new System.Drawing.Size(213, 44);
+            this.buttonRetour.TabIndex = 23;
+            this.buttonRetour.Text = "Retour";
+            this.buttonRetour.UseVisualStyleBackColor = true;
+            this.buttonRetour.Click += new System.EventHandler(this.buttonRetour_Click);
             // 
             // ips
             // 
@@ -144,21 +149,6 @@ namespace myteam_admin.Fenetres
             this.deban.ToolTipText = "Débannir";
             this.deban.UseColumnTextForButtonValue = true;
             // 
-            // buttonRetour
-            // 
-            this.buttonRetour.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRetour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRetour.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonRetour.Location = new System.Drawing.Point(43, 842);
-            this.buttonRetour.Margin = new System.Windows.Forms.Padding(15, 35, 15, 15);
-            this.buttonRetour.Name = "buttonRetour";
-            this.buttonRetour.Size = new System.Drawing.Size(213, 44);
-            this.buttonRetour.TabIndex = 23;
-            this.buttonRetour.Text = "Retour";
-            this.buttonRetour.UseVisualStyleBackColor = true;
-            this.buttonRetour.Click += new System.EventHandler(this.buttonRetour_Click);
-            // 
             // menuIpBannis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -178,7 +168,6 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.Label information;
         private System.Windows.Forms.DataGridView tableauIps;
         private System.Windows.Forms.Button buttonRetour;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ips;
         private System.Windows.Forms.DataGridViewButtonColumn deban;
     }

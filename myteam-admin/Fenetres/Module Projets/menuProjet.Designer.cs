@@ -460,6 +460,7 @@ namespace myteam_admin.Fenetres
             this.dataGridViewTaches.RowTemplate.Height = 75;
             this.dataGridViewTaches.Size = new System.Drawing.Size(635, 260);
             this.dataGridViewTaches.TabIndex = 6;
+            this.dataGridViewTaches.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTaches_CellEndEdit);
             this.dataGridViewTaches.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridViewTaches_UserAddedRow);
             this.dataGridViewTaches.Click += new System.EventHandler(this.dataGridViewTaches_Click);
             this.dataGridViewTaches.DoubleClick += new System.EventHandler(this.dataGridViewTaches_DoubleClick);

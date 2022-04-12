@@ -21,7 +21,7 @@ namespace myteam_admin.Fenetres
 
             foreach (Ips ip in accueil.app.getIpBannis())
             {
-                tableauIps.Rows.Add(ip.getIdBan(), ip.getIp());
+                tableauIps.Rows.Add(ip.getIp());
             }
         }
 
@@ -45,7 +45,7 @@ namespace myteam_admin.Fenetres
                 dialogAlert fenetre = new dialogAlert("Êtes-vous sûr de vouloir débannir\r\n" + ip.getIp() + " ?");
                 if (fenetre.ShowDialog() == DialogResult.OK)
                 {
-                    ip.setId(Int32.Parse(tableauIps.CurrentRow.Cells[0].Value.ToString()));
+                    ip.setIp(tableauIps.CurrentRow.Cells[0].Value.ToString());
                     ip.debanIp();
                     tableauIps.Rows.Remove(tableauIps.CurrentRow);
                 }

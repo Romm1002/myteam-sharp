@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 11 avr. 2022 à 17:54
+-- Généré le : mar. 12 avr. 2022 à 11:05
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 7.4.25
 
@@ -141,6 +141,16 @@ CREATE TABLE `evenements` (
   `couleur` varchar(100) NOT NULL DEFAULT '#97c7eeb3',
   `admin` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `evenements`
+--
+
+INSERT INTO `evenements` (`idEvenement`, `designation`, `date`, `heureDebut`, `heureFin`, `idUtilisateur`, `couleur`, `admin`) VALUES
+(1, 'un evenement', '2022-04-12', '08:00:00', '10:00:00', 2, '#97c7eeb3', 1),
+(2, 'un evenement', '2022-04-12', '08:00:00', '10:00:00', 4, '#97c7eeb3', 1),
+(3, 'un evenement', '2022-04-12', '08:00:00', '10:00:00', 1, '#97c7eeb3', 1),
+(4, 'un evenement', '2022-04-12', '08:00:00', '10:00:00', 3, '#97c7eeb3', 1);
 
 -- --------------------------------------------------------
 
@@ -595,7 +605,7 @@ ALTER TABLE `conges`
 -- AUTO_INCREMENT pour la table `evenements`
 --
 ALTER TABLE `evenements`
-  MODIFY `idEvenement` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEvenement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `logs_connexion`
