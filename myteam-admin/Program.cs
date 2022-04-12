@@ -30,7 +30,7 @@ namespace myteam_admin
 
             SetProcessDpiAwareness((int)DpiAwareness.PerMonitorAware);
 
-            Application.Run(new Accueil());
+            Application.Run(new Connexion());
         }
     }
 }

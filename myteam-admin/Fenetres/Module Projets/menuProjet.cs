@@ -223,7 +223,7 @@ namespace myteam_admin.Fenetres
             }
             dataGridViewTaches.ClearSelection();
             int rowIndex = dataGridViewTaches.HitTest(me.X, me.Y).RowIndex;
-            if (rowIndex == -1 || rowIndex == dataGridViewTaches.Rows.Count-1)
+            if (rowIndex == -1)
             {
                 return;
             }
@@ -395,6 +395,21 @@ namespace myteam_admin.Fenetres
                 MessagesProjet message = new MessagesProjet();
                 message.supprimerMessage(Int32.Parse(dataGridViewChat.CurrentRow.Cells[0].Value.ToString()));
                 dataGridViewChat.Rows.RemoveAt(dataGridViewChat.CurrentRow.Index);
+            }
+        }
+
+        private void dataGridViewTaches_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dataGridViewTaches.CurrentCell.ColumnIndex == 2)
+            {
+                foreach (Taches tache in projet.getTaches())
+                {
+                    if(tache.getId() == Int32.Parse(dataGridViewTaches.CurrentRow.Cells[0].Value.ToString()))
+                    {
+                        tache.setTerminee(Convert.ToBoolean(dataGridViewTaches.CurrentCell.Value.ToString()));
+                        tache.setModifie(true);
+                    }
+                }
             }
         }
     }

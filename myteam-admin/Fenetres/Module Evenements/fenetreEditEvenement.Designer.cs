@@ -43,8 +43,8 @@ namespace myteam_admin.Fenetres
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poste = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimePickerFin = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDebut = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerFin = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
             this.textBoxEvenement = new System.Windows.Forms.TextBox();
             this.buttonValider = new System.Windows.Forms.Button();
@@ -230,31 +230,31 @@ namespace myteam_admin.Fenetres
             this.poste.Name = "poste";
             this.poste.ReadOnly = true;
             // 
-            // dateTimePickerFin
-            // 
-            this.dateTimePickerFin.CustomFormat = "HH:mm";
-            this.dateTimePickerFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.dateTimePickerFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerFin.Location = new System.Drawing.Point(644, 43);
-            this.dateTimePickerFin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePickerFin.Name = "dateTimePickerFin";
-            this.dateTimePickerFin.ShowUpDown = true;
-            this.dateTimePickerFin.Size = new System.Drawing.Size(115, 34);
-            this.dateTimePickerFin.TabIndex = 19;
-            this.dateTimePickerFin.Value = new System.DateTime(2022, 2, 20, 8, 0, 0, 0);
-            // 
             // dateTimePickerDebut
             // 
             this.dateTimePickerDebut.CustomFormat = "HH:mm";
             this.dateTimePickerDebut.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
             this.dateTimePickerDebut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerDebut.Location = new System.Drawing.Point(644, 130);
+            this.dateTimePickerDebut.Location = new System.Drawing.Point(644, 43);
             this.dateTimePickerDebut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerDebut.Name = "dateTimePickerDebut";
             this.dateTimePickerDebut.ShowUpDown = true;
             this.dateTimePickerDebut.Size = new System.Drawing.Size(115, 34);
-            this.dateTimePickerDebut.TabIndex = 18;
+            this.dateTimePickerDebut.TabIndex = 19;
             this.dateTimePickerDebut.Value = new System.DateTime(2022, 2, 20, 8, 0, 0, 0);
+            // 
+            // dateTimePickerFin
+            // 
+            this.dateTimePickerFin.CustomFormat = "HH:mm";
+            this.dateTimePickerFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.dateTimePickerFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerFin.Location = new System.Drawing.Point(644, 130);
+            this.dateTimePickerFin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerFin.Name = "dateTimePickerFin";
+            this.dateTimePickerFin.ShowUpDown = true;
+            this.dateTimePickerFin.Size = new System.Drawing.Size(115, 34);
+            this.dateTimePickerFin.TabIndex = 18;
+            this.dateTimePickerFin.Value = new System.DateTime(2022, 2, 20, 8, 0, 0, 0);
             // 
             // dateTimePickerDate
             // 
@@ -441,8 +441,8 @@ namespace myteam_admin.Fenetres
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.dataGridViewParticipants);
             this.Controls.Add(this.dataGridViewUtilisateurs);
-            this.Controls.Add(this.dateTimePickerFin);
             this.Controls.Add(this.dateTimePickerDebut);
+            this.Controls.Add(this.dateTimePickerFin);
             this.Controls.Add(this.dateTimePickerDate);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -473,8 +473,8 @@ namespace myteam_admin.Fenetres
         private System.Windows.Forms.DataGridViewTextBoxColumn nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn prenom;
         private System.Windows.Forms.DataGridViewTextBoxColumn poste;
-        private System.Windows.Forms.DateTimePicker dateTimePickerFin;
         private System.Windows.Forms.DateTimePicker dateTimePickerDebut;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFin;
         private System.Windows.Forms.DateTimePicker dateTimePickerDate;
         private System.Windows.Forms.TextBox textBoxEvenement;
         private System.Windows.Forms.Button buttonValider;

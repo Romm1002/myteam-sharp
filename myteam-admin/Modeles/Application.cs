@@ -427,11 +427,11 @@ namespace myteam_admin.Modeles
             List<Ips> ips = new List<Ips>();
             MySqlCommand command = conn.CreateCommand();
             conn.Open();
-            command.CommandText = "SELECT idBannedIp, ip FROM `banned_ips` ORDER BY ip DESC;";
+            command.CommandText = "SELECT ip FROM `banned_ips` ORDER BY ip DESC;";
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                Ips ip = new Ips(reader.GetInt32(0), reader.GetString(1));
+                Ips ip = new Ips(reader.GetString(0));
 
                 ips.Add(ip);
             }

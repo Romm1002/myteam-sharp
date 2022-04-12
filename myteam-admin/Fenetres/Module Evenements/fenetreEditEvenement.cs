@@ -61,8 +61,8 @@ namespace myteam_admin.Fenetres
 
         private void buttonValider_Click(object sender, EventArgs e)
         {
-            evenement.updateEvenement(evenement.getListIdEvenements(), textBoxEvenement.Text, dateTimePickerDate.Value, dateTimePickerDebut.Value, dateTimePickerFin.Value);
-            evenement.newEvenement(textBoxEvenement.Text, dateTimePickerDate.Value, dateTimePickerDebut.Value, dateTimePickerFin.Value, listUtilisateursAjout);
+            evenement.updateEvenement(evenement.getListIdEvenements(), textBoxEvenement.Text, dateTimePickerDate.Value, dateTimePickerFin.Value, dateTimePickerDebut.Value);
+            evenement.newEvenement(textBoxEvenement.Text, dateTimePickerDate.Value, dateTimePickerFin.Value, dateTimePickerDebut.Value, listUtilisateursAjout);
             evenement.supprimerEvenement(listIdEvenementSupr);
             this.DialogResult = DialogResult.OK;
         }

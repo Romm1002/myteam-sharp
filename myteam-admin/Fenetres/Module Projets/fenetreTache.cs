@@ -14,6 +14,7 @@ namespace myteam_admin.Fenetres
     public partial class fenetreTache : Form
     {
         List<Utilisateurs> listutilisateurs;
+        Projets projet;
         List<Taches> listTaches;
         Taches tache;
         menuProjet menu;
@@ -23,6 +24,7 @@ namespace myteam_admin.Fenetres
             this.listutilisateurs = app.getUtilisateurs();
             this.listTaches = projet.getTaches();
             this.menu = menu;
+            this.projet = projet;
             InitializeComponent();
             DateTimePickerDateFin.Value = DateTime.Now;
             if(idTache != -1)
@@ -50,7 +52,7 @@ namespace myteam_admin.Fenetres
                     }
                 }
             }
-            foreach (Utilisateurs utilisateur in listutilisateurs)
+            foreach (Utilisateurs utilisateur in projet.getParticipants())
             {
                 int index = comboBoxUtilisateurs.Items.Add(utilisateur.getNom() + " " + utilisateur.getPrenom() + " | " + utilisateur.getPoste().getPoste());
                 if(tache.getUtilisateur() != null)
@@ -92,7 +94,7 @@ namespace myteam_admin.Fenetres
                 {
                     tache.setIdTacheParente(listTaches[comboBoxTaches.SelectedIndex].getId());
                 }
-                tache.setUtilisateur(listutilisateurs[comboBoxUtilisateurs.SelectedIndex]);
+                tache.setUtilisateur(projet.getParticipants()[comboBoxUtilisateurs.SelectedIndex]);
                 tache.setDateFin(DateTimePickerDateFin.Value);
                 if(tache.getId() == 0)
                 {
