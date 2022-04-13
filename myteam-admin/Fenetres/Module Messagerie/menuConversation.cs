@@ -51,7 +51,7 @@ namespace myteam_admin.Fenetres
 
         private void tableauMessages_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(tableauMessages.CurrentCell.ColumnIndex == 2)
+            if(tableauMessages.CurrentCell.ColumnIndex == 4)
             {
                 Messages messages = new Messages(Convert.ToInt32(tableauMessages.CurrentRow.Cells[0].Value.ToString()));
                 messages.supprimerMessage(messages.getId());
