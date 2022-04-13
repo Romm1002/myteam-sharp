@@ -118,5 +118,30 @@ namespace myteam_admin.Fenetres
                 this.DialogResult = DialogResult.OK;
             }
         }
+
+        private void panelPoste_Click(object sender, EventArgs e)
+        {
+            textBoxLibelle.Focus();
+        }
+
+        private void panelGrade_Click(object sender, EventArgs e)
+        {
+            comboBoxTaches.Focus();
+        }
+
+        private void comboBoxTaches_Enter(object sender, EventArgs e)
+        {
+            comboBoxTaches.DroppedDown = true;
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            comboBoxUtilisateurs.Focus();
+        }
+
+        private void comboBoxUtilisateurs_Enter(object sender, EventArgs e)
+        {
+            comboBoxUtilisateurs.DroppedDown = true;
+        }
     }
 }

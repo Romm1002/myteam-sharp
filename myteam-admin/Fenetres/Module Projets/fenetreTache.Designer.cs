@@ -95,6 +95,7 @@ namespace myteam_admin.Fenetres
             this.panelGrade.Padding = new System.Windows.Forms.Padding(15, 10, 0, 10);
             this.panelGrade.Size = new System.Drawing.Size(779, 55);
             this.panelGrade.TabIndex = 31;
+            this.panelGrade.Click += new System.EventHandler(this.panelGrade_Click);
             // 
             // comboBoxTaches
             // 
@@ -107,6 +108,7 @@ namespace myteam_admin.Fenetres
             this.comboBoxTaches.Name = "comboBoxTaches";
             this.comboBoxTaches.Size = new System.Drawing.Size(762, 37);
             this.comboBoxTaches.TabIndex = 25;
+            this.comboBoxTaches.Enter += new System.EventHandler(this.comboBoxTaches_Enter);
             // 
             // panelPoste
             // 
@@ -119,6 +121,7 @@ namespace myteam_admin.Fenetres
             this.panelPoste.Padding = new System.Windows.Forms.Padding(15, 10, 15, 10);
             this.panelPoste.Size = new System.Drawing.Size(778, 51);
             this.panelPoste.TabIndex = 30;
+            this.panelPoste.Click += new System.EventHandler(this.panelPoste_Click);
             // 
             // textBoxLibelle
             // 
@@ -173,6 +176,7 @@ namespace myteam_admin.Fenetres
             this.panel1.Padding = new System.Windows.Forms.Padding(15, 10, 0, 10);
             this.panel1.Size = new System.Drawing.Size(779, 55);
             this.panel1.TabIndex = 36;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
             // 
             // comboBoxUtilisateurs
             // 
@@ -185,6 +189,7 @@ namespace myteam_admin.Fenetres
             this.comboBoxUtilisateurs.Name = "comboBoxUtilisateurs";
             this.comboBoxUtilisateurs.Size = new System.Drawing.Size(762, 37);
             this.comboBoxUtilisateurs.TabIndex = 25;
+            this.comboBoxUtilisateurs.Enter += new System.EventHandler(this.comboBoxUtilisateurs_Enter);
             // 
             // label1
             // 
@@ -281,7 +286,7 @@ namespace myteam_admin.Fenetres
             // 
             // buttonSupprimer
             // 
-            this.buttonSupprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSupprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonSupprimer.BackColor = System.Drawing.Color.Red;
             this.buttonSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -320,6 +325,7 @@ namespace myteam_admin.Fenetres
             this.Controls.Add(this.labelLibelle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fenetreTache";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fenetreTache";
             this.panelGrade.ResumeLayout(false);
             this.panelPoste.ResumeLayout(false);
